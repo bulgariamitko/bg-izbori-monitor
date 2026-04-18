@@ -141,6 +141,16 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     компютър, 10 GB свободно място, и един GitHub акаунт (безплатен,
     създава се за 1 минута).
   </p>
+  <p style="margin:0 0 10px 0">
+    💸 <strong>Напълно безплатно.</strong> Никакви абонаменти, API ключове или
+    плащания. Единственото, което се иска от вас, е процесорното време на
+    компютъра ви (и малко ток). Целият софтуер —
+    <a href="https://github.com/SYSTRAN/faster-whisper" target="_blank">faster-whisper</a>,
+    <a href="https://yt-dlp.org/" target="_blank">yt-dlp</a>,
+    <a href="https://cli.github.com/" target="_blank">GitHub CLI</a> —
+    е отворен код. Скъпата стъпка (Claude Sonnet анализ) се поема от автора,
+    а вашият принос е локалната транскрипция.
+  </p>
   <p style="margin:0 0 6px 0;font-weight:600">На macOS или Linux — едно копиране в Terminal:</p>
   <pre><code>bash &lt;(curl -sSL https://raw.githubusercontent.com/bulgariamitko/bg-izbori-monitor/main/install.sh)</code></pre>
   <p style="margin:10px 0 6px 0;font-weight:600">На Windows — едно копиране в PowerShell:</p>

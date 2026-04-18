@@ -31,6 +31,12 @@ Every transcript you produce is `git push`ed to your fork automatically;
 the auto-merger on this repo accepts it within a minute if the JSON
 schema checks out.
 
+💸 **Completely free.** No subscriptions, no API keys, no paid services
+from you. All you contribute is your computer's CPU time (and a bit of
+electricity). Every dependency — faster-whisper, yt-dlp, GitHub CLI — is
+open source. The one paid step (Claude Sonnet analysis) runs on the
+maintainer's machine, not yours.
+
 ## Which sections get picked first
 
 `contribute.py` uses this priority, smallest first:
