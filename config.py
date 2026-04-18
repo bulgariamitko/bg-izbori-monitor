@@ -6,7 +6,7 @@ BASE = Path(__file__).resolve().parent
 # ---- election -----------------------------------------------------------
 # Tomorrow's real election: change to 'le20260420'
 # Testing with the 22 Feb 2026 archive (videos online, 8 OIKs)
-SLUG        = "le20260222"
+SLUG        = "le20260420"   # Parliamentary election 20 Apr 2026.
 BASE_URL    = f"https://evideo.bg/{SLUG}"
 ARCHIVE_URL = f"https://archive.evideo.bg/{SLUG}"
 

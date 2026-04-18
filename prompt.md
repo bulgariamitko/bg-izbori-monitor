@@ -39,19 +39,23 @@ Report anything that sounds like:
 ## Output
 
 Return **strict JSON** — no prose, no markdown, no code fences.
+**Language:** all human-readable fields (`summary_bg`, `summary`, `detail`)
+must be in **Bulgarian**. `summary_en` is the only English field and is
+optional for internal use. `quote` is always the verbatim Bulgarian from
+the transcript.
 
 ```
 {
   "overall": "clean" | "minor_concerns" | "serious_concerns",
-  "summary_bg": "<2-3 sentences in Bulgarian>",
-  "summary_en": "<2-3 sentences in English>",
+  "summary_bg": "<2-3 изречения на български>",
+  "summary_en": "<2-3 sentences in English, for internal cross-checking>",
   "findings": [
     {
       "severity": "info"|"low"|"medium"|"high"|"critical",
       "category": "tampering"|"miscounting"|"protocol"|"intimidation"|"unauthorized"|"procedure"|"dispute"|"other",
-      "summary":  "<short headline, English, <= 140 chars>",
-      "detail":   "<1-3 sentences, English>",
-      "quote":    "<verbatim Bulgarian snippet from the transcript, <= 200 chars>",
+      "summary":  "<кратко заглавие на български, <= 140 символа>",
+      "detail":   "<1-3 изречения на български>",
+      "quote":    "<verbatim цитат от транскрипцията на български, <= 200 символа>",
       "timestamp_sec": <seconds into the video, integer>
     }
   ]

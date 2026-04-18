@@ -1,59 +1,61 @@
 {
   "schema": "bg-izbori-findings/1",
+  "demo": true,
+  "demo_note": "Примерен запис от частични местни избори 22.02.2026 (le20260222) — показан като демо. Реалните сигнали за 20.04.2026 ще се появят тук след анализа на видеата от тази дата.",
   "sik": "013300088",
   "slug": "le20260222",
   "tour": 1,
   "video_url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/013300088/le20260222_real_101924_013300088_20260222_200041_69.mp4",
   "region_name": "Петрич",
-  "address": "С. ГАБРЕНЕ, КЛУБ НА ПЕНСИОНЕРА Първи тур Втори тур",
+  "address": "С. ГАБРЕНЕ, КЛУБ НА ПЕНСИОНЕРА",
   "town": "ГАБРЕНЕ",
   "town_type": "village",
   "analyzed_by": "bulgariamitko",
-  "analyzed_at": "2026-04-18T13:32:01+00:00",
+  "analyzed_at": "2026-04-18T12:51:10+00:00",
   "model": "claude-sonnet-4-6",
   "overall": "serious_concerns",
-  "summary_bg": "Установено е несъответствие от 30 гласа в обявения брой за партия 14 (157 вместо 127), последвано от изрична констатация, че „ревизията не излизат\". Присъстващ задава въпроса „Това ли са истински резултати?\", а в края на видеото е обявено изключване на видеонаблюдението преди протоколът да е финализиран.",
-  "summary_en": "A 30-vote discrepancy was verbally announced for party 14 (157 stated, corrected to 127), and someone explicitly stated that the reconciliation check does not balance. A person present asked whether the results are genuine, and video surveillance was announced as being switched off before the session appeared to conclude.",
+  "summary_bg": "В секцията е установено несъответствие от 30 гласа в обявения брой за партия 14 (157, веднага коригирано на 127), последвано от изрична констатация, че „ревизията не излиза“. Присъстващ задава въпроса „Това ли са истински резултати?“, а към края на видеото се чува обявление за изключване на видеонаблюдението преди протоколът да е финализиран.",
+  "summary_en": "A 30-vote discrepancy was announced for party 14 (157 stated, corrected to 127), followed by an explicit statement that the reconciliation does not balance. A person present asked whether the results are genuine, and video surveillance was announced as being switched off before the session appeared to conclude.",
   "findings": [
     {
-      "severity": "medium",
-      "category": "miscounting",
-      "summary": "Party 14 total announced as 157, immediately corrected to 127 — unexplained 30-vote discrepancy",
-      "detail": "One participant calls out '157 е' (it's 157) as the final count for party 14; another immediately counters 'Не, 127 е номер 14' (No, it's 127 for number 14). No recount or explanation for the discrepancy is audible. In a station of 374 voters this is a 30-vote gap that could be material.",
-      "quote": "Още едно крайен резултат. 157 е. Не, 127 е номер 14.",
-      "timestamp_sec": 2650.0
-    },
-    {
-      "severity": "medium",
-      "category": "miscounting",
-      "summary": "Participant explicitly states the reconciliation check does not balance",
-      "detail": "Seconds after someone says 'Излизат всичко е точно' (everything balances), another voice states 'Ревизията не излизат' (the revision/reconciliation does not work out). A congratulatory 'Браво' follows, leaving it unclear whether the discrepancy was resolved or ignored.",
-      "quote": "Излизат всичко е точно. Излизат и не ба е добри. Ревизията не излизат. Браво.",
-      "timestamp_sec": 2741.0
+      "severity": "high",
+      "category": "procedure",
+      "summary": "Видеонаблюдението е обявено за изключено преди официалното приключване на заседанието",
+      "detail": "В 63:01 — докато наблюдателите все още се записват по име и опаковането на материали продължава — се чува „Махаме видеонаблюдението“. Българското избирателно законодателство изисква непрекъснато видеозаснемане до подписване и запечатване на протокола; ранното изключване е процедурно нарушение, което изисква проверка от човек на оригиналния запис.",
+      "quote": "Махаме видеонаблюдението.",
+      "timestamp_sec": 3781
     },
     {
       "severity": "medium",
       "category": "dispute",
-      "summary": "Person present asks 'Are these the real results?' — explicit doubt about result authenticity",
-      "detail": "At the protocol-filling stage, someone asks Julia whether the results listed are to be attributed, then a separate voice asks outright 'Това ли са истински резултати?' (Are these the genuine/real results?). No clear affirmative answer is transcribed, and the exchange is not resolved on record.",
+      "summary": "Присъстващ пита „Това ли са истински резултати?“ — изричен съмнение в автентичността",
+      "detail": "На етапа на попълване на протокола някой пита Юлия дали резултатите да бъдат приписани на едно лице, след което отделен глас пита директно „Това ли са истински резултати?“. В транскрипцията няма ясен положителен отговор и обмяната не е разрешена в записа.",
       "quote": "Юлия, това ли са резултатите да ги припишеш на едно лище? Това ли са истински резултати?",
-      "timestamp_sec": 3357.0
+      "timestamp_sec": 3357
+    },
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Участник изрично заявява, че „ревизията не излиза“",
+      "detail": "Секунди след като някой казва „Излизат, всичко е точно“, друг глас казва „Ревизията не излизат“. Следва поздравително „Браво“, което оставя неясно дали несъответствието е разрешено или игнорирано.",
+      "quote": "Излизат всичко е точно. Излизат и не ба е добри. Ревизията не излизат. Браво.",
+      "timestamp_sec": 2741
+    },
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Обявен резултат от 157 за партия 14, веднага коригиран на 127 — необяснено отклонение от 30 гласа",
+      "detail": "Един участник обявява „157 е“ като окончателен брой за партия 14; друг веднага го поправя: „Не, 127 е номер 14“. Няма чуваемо повторно броене или обяснение за разликата. В секция с 374 гласоподаватели това е 30-гласова разлика, която може да е съществена.",
+      "quote": "Още едно крайен резултат. 157 е. Не, 127 е номер 14.",
+      "timestamp_sec": 2650
     },
     {
       "severity": "low",
       "category": "procedure",
-      "summary": "Disputed ballots ('спорници') physically separated and deferred to be 'added later' rather than resolved immediately",
-      "detail": "Around 33:16 a group of disputed ballots is pulled out 'because he is marking them here', told to be scratched off separately, with the note 'Тия ще ги добавим по-състо' (We'll add these later). Deferring disputed ballot adjudication and re-integration outside the normal sequential count may violate counting procedure.",
+      "summary": "Спорни бюлетини („спорници“) са отделени и отложени за „добавяне по-късно“, вместо да бъдат разрешени на място",
+      "detail": "Около 33:16 група спорни бюлетини е извадена отделно, придружена с „Тия ще ги добавим по-състо“ (ще ги добавим по-късно). Отлагането на решението по спорни бюлетини извън нормалната последователност може да нарушава процедурата по броене.",
       "quote": "Извадим и тия, защото той ги засича тук. Добре. Дръскайте ги тия на отделно. Тия ще ги добавим по-състо. Отдалете ги тия спорници.",
-      "timestamp_sec": 1996.0
-    },
-    {
-      "severity": "high",
-      "category": "procedure",
-      "summary": "Video surveillance announced as switched off before session is formally concluded",
-      "detail": "At 63:01 — while observers are still being recorded by name and packaging of materials appears ongoing — someone announces 'Махаме видеонаблюдението' (We are removing/switching off the video surveillance). Bulgarian electoral regulations require uninterrupted video coverage through protocol signing and sealing; switching off early is a procedural violation.",
-      "quote": "Махаме видеонаблюдението.",
-      "timestamp_sec": 3781.0
+      "timestamp_sec": 1996
     }
   ]
 }

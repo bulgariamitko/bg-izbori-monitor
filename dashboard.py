@@ -33,26 +33,39 @@ def h(x) -> str: return html.escape(str(x or ""))
 def build():
     sections   = store.load_sections()
     by_sik     = {s["sik"]: s for s in sections}
-    transcripts= list(store.iter_transcripts())
-    findings_rows = list(store.iter_findings())
-    finding_keys = {(f["sik"], f["tour"]) for f in findings_rows}
+    transcripts_all = list(store.iter_transcripts())
+    findings_all    = list(store.iter_findings())
+
+    def is_current(row):
+        return (row.get("slug") == config.SLUG) and not row.get("demo")
+
+    transcripts   = [t for t in transcripts_all if is_current(t)]
+    findings_rows = [f for f in findings_all    if is_current(f)]
+    demo_findings = [f for f in findings_all    if not is_current(f)]
+
+    finding_keys    = {(f["sik"], f["tour"]) for f in findings_rows}
     transcript_keys = {(t["sik"], t["tour"]) for t in transcripts}
 
-    # flatten finding entries
-    flat = []
-    for f in findings_rows:
-        for item in f.get("findings", []):
-            flat.append({**item,
-                "sik": f["sik"], "tour": f["tour"],
-                "video_url": f["video_url"],
-                "region_name": f.get("region_name") or by_sik.get(f["sik"],{}).get("region_name"),
-                "town": f.get("town") or by_sik.get(f["sik"],{}).get("town"),
-                "town_type": f.get("town_type") or by_sik.get(f["sik"],{}).get("town_type"),
-                "address": f.get("address") or by_sik.get(f["sik"],{}).get("address"),
-                "overall": f.get("overall"),
-            })
-    sev_rank = {s:i for i,s in enumerate(SEV_ORDER)}
-    flat.sort(key=lambda x: (sev_rank.get(x.get("severity"),9), -float(x.get("timestamp_sec") or 0)))
+    def flatten(rows):
+        out = []
+        for f in rows:
+            for item in f.get("findings", []):
+                out.append({**item,
+                    "sik": f["sik"], "tour": f["tour"], "slug": f.get("slug"),
+                    "video_url": f["video_url"],
+                    "region_name": f.get("region_name") or by_sik.get(f["sik"],{}).get("region_name"),
+                    "town": f.get("town") or by_sik.get(f["sik"],{}).get("town"),
+                    "town_type": f.get("town_type") or by_sik.get(f["sik"],{}).get("town_type"),
+                    "address": f.get("address") or by_sik.get(f["sik"],{}).get("address"),
+                    "overall": f.get("overall"),
+                    "demo": bool(f.get("demo")),
+                })
+        sev_rank = {s:i for i,s in enumerate(SEV_ORDER)}
+        out.sort(key=lambda x: (sev_rank.get(x.get("severity"),9), -float(x.get("timestamp_sec") or 0)))
+        return out
+
+    flat      = flatten(findings_rows)
+    flat_demo = flatten(demo_findings)
 
     sev_counts = {s:0 for s in SEV_ORDER}
     for x in flat: sev_counts[x.get("severity","info")] = sev_counts.get(x.get("severity","info"),0)+1
@@ -143,20 +156,19 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
                      f'<div class="l">секции „{OVERALL_BG[k]}“</div></div>')
     parts.append("</div>")
 
-    # findings
-    parts.append(f'<section><h2>Сигнали ({len(flat)})</h2>')
-    if not flat: parts.append('<div style="padding:24px;color:#6b7280">Все още няма сигнали.</div>')
-    for x in flat:
+    def render_finding(x, demo=False):
         ts = _fmt_ts(x.get("timestamp_sec"))
         vurl = x["video_url"] + (f"#t={int(x.get('timestamp_sec') or 0)}" if x.get("timestamp_sec") else "")
         tcls = x.get("town_type") if x.get("town_type") in ("village","town","city") else ""
-        parts.append(f'''<div class="finding">
+        demo_tag = '<span class="tag" style="background:#fef3c7;color:#78350f">ДЕМО (предишни избори)</span>' if demo else ''
+        return f'''<div class="finding">
           <div><span class="sev" style="background:{SEV_COLORS.get(x.get("severity"),"#333")}">{h(SEV_BG.get(x.get("severity"),x.get("severity")))}</span>
                <div class="meta">таймкод {h(ts)}</div></div>
           <div>
             <div><strong>{h(x.get("summary"))}</strong>
                  <span class="tag">{h(CAT_BG.get(x.get("category","other"), x.get("category","other")))}</span>
                  <span class="tag {tcls}">{h(x.get("town") or "")} · {h(x.get("region_name") or "")}</span>
+                 {demo_tag}
             </div>
             <div style="font-size:13px;margin-top:4px">{h(x.get("detail"))}</div>
             {'<div class="quote">«'+h(x.get("quote"))+'»</div>' if x.get("quote") else ''}
@@ -165,8 +177,28 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
               · СИК <a href="#sik-{h(x["sik"])}">{h(x["sik"])}</a>
               · {h(x.get("address") or "")}
             </div>
-          </div></div>''')
+          </div></div>'''
+
+    # findings for the CURRENT election
+    parts.append(f'<section><h2>Сигнали от {h(config.SLUG)} ({len(flat)})</h2>')
+    if not flat:
+        parts.append('<div style="padding:24px;color:#6b7280">'
+                     'Все още няма сигнали за текущите избори. Записите от изборния ден се анализират постепенно — проверете отново по-късно.'
+                     '</div>')
+    for x in flat: parts.append(render_finding(x, demo=False))
     parts.append('</section>')
+
+    # demo findings from previous elections
+    if flat_demo:
+        parts.append(f'<section><h2>Демо сигнали от предишни избори ({len(flat_demo)})</h2>')
+        parts.append('<div style="padding:12px 16px;background:#fff8e1;border-bottom:1px solid #f5d97b;font-size:13px">'
+                     '<strong>Внимание:</strong> Следните сигнали са от предходни избори ('
+                     'напр. частични местни избори 22.02.2026) и се показват само като пример за това '
+                     'как системата сигнализира. Те НЕ са свързани с изборите на '
+                     f'{h(config.SLUG)}.'
+                     '</div>')
+        for x in flat_demo: parts.append(render_finding(x, demo=True))
+        parts.append('</section>')
 
     # processed sections table
     rows = sorted(findings_rows, key=lambda r: r.get("analyzed_at") or "", reverse=True)
