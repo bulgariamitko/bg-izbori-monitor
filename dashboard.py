@@ -119,6 +119,10 @@ th{{background:#fafafa;font-weight:600;font-size:12px;color:#6b7280}}
 .tag{{font-size:11px;padding:2px 6px;border-radius:4px;background:#eef2ff;color:#3730a3;margin-left:6px}}
 .village{{background:#dcfce7;color:#14532d}} .town{{background:#e0f2fe;color:#075985}} .city{{background:#fef3c7;color:#78350f}}
 .disclaimer{{background:#fff8e1;border:1px solid #f5d97b;padding:12px 16px;border-radius:8px;margin-bottom:24px;font-size:13px}}
+.join{{background:#ecfccb;border:1px solid #84cc16;padding:14px 18px;border-radius:8px;margin-bottom:20px;font-size:14px;color:#365314}}
+.join pre{{background:#111;color:#f1f5f9;padding:10px 12px;border-radius:6px;font-size:12.5px;overflow-x:auto;margin:0;white-space:pre-wrap;word-break:break-all}}
+.join code{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}}
+.join a{{color:#166534;text-decoration:underline}}
 .overall-dot{{display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:6px;vertical-align:middle}}
 footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
 </style></head><body>
@@ -128,6 +132,30 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     · <a href="https://github.com/bulgariamitko/bg-izbori-monitor" style="color:#9cf">код</a></div>
 </header>
 <main>
+<div class="join">
+  <h2 style="margin:0 0 6px 0;font-size:17px">Как да помогнете ▸ станете доброволец</h2>
+  <p style="margin:0 0 10px 0">
+    <strong>След 20:00 часа българско време на 19.04.2026</strong> видеата на СИК-овете
+    стават достъпни. Колкото повече компютри работят, толкова повече секции
+    ще бъдат транскрибирани и анализирани. Нужни са ви: Mac / Linux / Windows
+    компютър, 10 GB свободно място, и един GitHub акаунт (безплатен,
+    създава се за 1 минута).
+  </p>
+  <p style="margin:0 0 6px 0;font-weight:600">На macOS или Linux — едно копиране в Terminal:</p>
+  <pre><code>bash &lt;(curl -sSL https://raw.githubusercontent.com/bulgariamitko/bg-izbori-monitor/main/install.sh)</code></pre>
+  <p style="margin:10px 0 6px 0;font-weight:600">На Windows — едно копиране в PowerShell:</p>
+  <pre><code>iwr -useb https://raw.githubusercontent.com/bulgariamitko/bg-izbori-monitor/main/install.ps1 | iex</code></pre>
+  <p style="margin:10px 0 0 0;font-size:12px;color:#475569">
+    Скриптът сам инсталира Python / ffmpeg / yt-dlp / GitHub CLI, влиза в
+    GitHub (ако нямате акаунт — от линка за вход има бутон „Sign up“),
+    прави форк на <a href="https://github.com/bulgariamitko/bg-izbori-monitor" target="_blank">хранилището</a>
+    и стартира транскрипцията. Най-напред се обработват високорисковите
+    секции (по данни на <a href="https://tibroish.bg/" target="_blank">tibroish.bg</a>),
+    после средно-рисковите, после селата, малките и големите градове.
+    Всяка готова транскрипция се качва автоматично като pull request и се
+    обединява, ако премине проверката на схемата.
+  </p>
+</div>
 <div class="disclaimer">
 <strong>Важно:</strong> Това е автоматизиран инструмент, който сигнализира за
 <em>възможни</em> нередности в аудиото от видеоизлъчването. Всеки сигнал —
