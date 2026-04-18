@@ -1,0 +1,1001 @@
+[
+  {
+    "sik": "013300088",
+    "slug": "le20260222",
+    "rik": "01",
+    "muni_code": "0133",
+    "region_name": "Петрич",
+    "oik_page": "https://evideo.bg/le20260222/0133.html",
+    "address": "С. ГАБРЕНЕ, КЛУБ НА ПЕНСИОНЕРА Първи тур Втори тур",
+    "town": "ГАБРЕНЕ",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/013300088/le20260222_real_101924_013300088_20260222_200041_69.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/013300088/20260222200047454649.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/013300088/le20260222_real_101924_013300088_20260301_200213_64.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301200219654822.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301200619011813.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301200631014463.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301201215731584.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301201229340024.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301201542218448.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301201554127595.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301202101314151.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301202111273695.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301202139589185.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301203024473176.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/013300088/20260301203035697094.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "031300010",
+    "slug": "le20260222",
+    "rik": "03",
+    "muni_code": "0313",
+    "region_name": "Долни чифлик",
+    "oik_page": "https://evideo.bg/le20260222/0313.html",
+    "address": "С. ВЕНЕЛИН, ОУ \"Св. Св. Кирил и Методий\" Първи тур Втори тур",
+    "town": "ВЕНЕЛИН",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/031300010/le20260222_real_103353_031300010_20260222_200223_64.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/031300010/20260222200227885866.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/031300010/le20260222_real_103353_031300010_20260301_200219_27.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/031300010/20260301200224236414.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "091400007",
+    "slug": "le20260222",
+    "rik": "09",
+    "muni_code": "0914",
+    "region_name": "Кирково",
+    "oik_page": "https://evideo.bg/le20260222/0914.html",
+    "address": "С. ДРУЖИНЦИ, читалището Първи тур Втори тур",
+    "town": "ДРУЖИНЦИ",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/091400007/le20260222_real_102702_091400007_20260222_200016_68.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400007/20260222200022571039.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "091400059",
+    "slug": "le20260222",
+    "rik": "09",
+    "muni_code": "0914",
+    "region_name": "Кирково",
+    "oik_page": "https://evideo.bg/le20260222/0914.html",
+    "address": "С. ВЪЛЧАНКА, кметството Първи тур Втори тур",
+    "town": "ВЪЛЧАНКА",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/091400059/le20260222_real_102509_091400059_20260222_200118_91.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200138506270.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200651566539.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200725278769.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200735650785.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200744212545.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200752939933.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200802103497.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200837005938.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200924758374.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222200935050909.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201005086282.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201035931612.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201058547900.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201122005458.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201146267697.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201155490561.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201217428544.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/091400059/20260222201249326232.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "100500005",
+    "slug": "le20260222",
+    "rik": "10",
+    "muni_code": "1005",
+    "region_name": "Бобошево",
+    "oik_page": "https://evideo.bg/le20260222/1005.html",
+    "address": "С. БЛАЖИЕВО, Кметството - ул. \"Св. Иван Рилски\" № 2 Първи тур Втори тур",
+    "town": "БЛАЖИЕВО",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/100500005/le20260222_real_101713_100500005_20260222_200536_04.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222200541684055.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203240842854.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203249057837.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203302524654.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203344119181.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203358213867.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203533749110.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203639670951.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203700047134.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203732761739.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203756148916.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203815862636.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203829018540.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222203850971685.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222204042382336.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222204116860492.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222204131808089.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/100500005/20260222204142218576.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "102700005",
+    "slug": "le20260222",
+    "rik": "10",
+    "muni_code": "1027",
+    "region_name": "Кочериново",
+    "oik_page": "https://evideo.bg/le20260222/1027.html",
+    "address": "С. БАРАКОВО, Кметството - II-ри етаж Първи тур Втори тур",
+    "town": "БАРАКОВО",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/102700005/le20260222_real_104658_102700005_20260222_200108_44.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222200113557250.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222200243120692.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222200249519361.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222200323023006.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222200417293204.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222200519908043.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201212742857.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201220984938.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201228605936.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201247145801.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201321618423.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201431421096.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201443461183.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201451404624.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201534941273.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201636663735.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201640007726.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222201735834223.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202131398176.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202141042572.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202410183580.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202420546847.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202433255919.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202446606045.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222202518029145.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222204946944702.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/102700005/20260222205034189004.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "131900172",
+    "slug": "le20260222",
+    "rik": "13",
+    "muni_code": "1319",
+    "region_name": "Пазарджик",
+    "oik_page": "https://evideo.bg/le20260222/1319.html",
+    "address": "с. Мало Конаре, ОУ \"Св. Св. Кирил и Методий\" Първи тур Втори тур",
+    "town": "Мало",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/131900172/le20260222_real_100105_131900172_20260222_200105_05.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/131900172/20260222200109889185.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/131900172/le20260222_real_100105_131900172_20260301_200209_37.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900172/20260301200211190910.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900172/20260301202847762029.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900172/20260301202908037908.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900172/20260301202913777232.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900172/20260301203504925827.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900172/20260301203510434432.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "131900173",
+    "slug": "le20260222",
+    "rik": "13",
+    "muni_code": "1319",
+    "region_name": "Пазарджик",
+    "oik_page": "https://evideo.bg/le20260222/1319.html",
+    "address": "с. Мало Конаре, ОУ \"Св. Св. Кирил и Методий\" Първи тур Втори тур",
+    "town": "Мало",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/131900173/le20260222_real_104826_131900173_20260222_200837_65.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/131900173/20260222200840927644.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/131900173/le20260222_real_104826_131900173_20260301_200301_45.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/131900173/le20260222_real_104826_131900173_20260301_201343_86.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/131900173/le20260222_real_104826_131900173_20260301_201503_46.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900173/20260301201506411082.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "131900174",
+    "slug": "le20260222",
+    "rik": "13",
+    "muni_code": "1319",
+    "region_name": "Пазарджик",
+    "oik_page": "https://evideo.bg/le20260222/1319.html",
+    "address": "с. Мало Конаре, ОУ \"Св. Св. Кирил и Методий\" Първи тур Втори тур",
+    "town": "Мало",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/131900174/le20260222_real_103435_131900174_20260222_200132_11.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/131900174/20260222200136580186.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/131900174/le20260222_real_103435_131900174_20260301_200124_39.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900174/20260301200129967130.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "131900175",
+    "slug": "le20260222",
+    "rik": "13",
+    "muni_code": "1319",
+    "region_name": "Пазарджик",
+    "oik_page": "https://evideo.bg/le20260222/1319.html",
+    "address": "с. Мало Конаре, ОУ \"Св. Св. Кирил и Методий\" Първи тур Втори тур",
+    "town": "Мало",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/131900175/le20260222_real_102221_131900175_20260222_200052_42.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/131900175/20260222200057677186.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour2/real/131900175/le20260222_real_102221_131900175_20260301_200158_14.mp4"
+      },
+      {
+        "tour": 2,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour2/real/131900175/20260301200203234971.mp4"
+      }
+    ]
+  },
+  {
+    "sik": "233900044",
+    "slug": "le20260222",
+    "rik": "23",
+    "muni_code": "2339",
+    "region_name": "Самоков",
+    "oik_page": "https://evideo.bg/le20260222/2339.html",
+    "address": "С. ЯРЛОВО, Училището Първи тур Втори тур",
+    "town": "ЯРЛОВО",
+    "town_type": "village",
+    "priority": 0,
+    "videos": [
+      {
+        "tour": 1,
+        "type": "device",
+        "url": "https://archive.evideo.bg/le20260222/device-recordings/tour1/real/233900044/le20260222_real_102897_233900044_20260222_200022_96.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200028943359.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200110331067.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200123324679.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200217451334.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200315562747.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200328865706.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200343226767.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200356911789.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200412045551.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200426881276.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200453274404.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200540250660.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200553325872.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200610421644.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200621918267.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200656604775.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200803338029.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200817883411.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200828828184.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200851773950.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222200919481333.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201006055960.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201023639189.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201059961153.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201155635901.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201208874049.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201225542706.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201316431364.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201410122267.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201427229786.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201442957757.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201531501817.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201614203028.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201629757376.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201707371387.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201745238329.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201804720320.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201817179761.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201842191346.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201924608510.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222201943443940.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202014351933.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202047505735.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202103986154.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202132461535.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202222417927.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202247256156.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202319542192.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202401396189.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202436921035.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202527546338.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202545032742.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202614861534.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202718510061.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202736965817.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202752307038.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202801150079.mp4"
+      },
+      {
+        "tour": 1,
+        "type": "live",
+        "url": "https://archive.evideo.bg/le20260222/live-recordings/tour1/real/233900044/20260222202832188535.mp4"
+      }
+    ]
+  }
+]

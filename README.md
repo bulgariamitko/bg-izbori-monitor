@@ -1,158 +1,108 @@
-# BG Izbori — polling-station video monitor
+# BG Izbori monitor
 
-> **Distributed, volunteer-run analysis of the live video broadcasts from
-> Bulgarian Sectional Election Commissions (СИК) on evideo.bg.**
-> Every person who runs this on their own Mac processes sections nobody
-> else has touched. The more people who run it, the more of the country
-> gets covered.
+> **Distributed, volunteer-run video monitoring of Bulgarian polling
+> stations** (видеоизлъчване от СИК на evideo.bg).
+>
+> Volunteers transcribe counting recordings on their own machines.
+> Transcripts are committed to this repo. A separate step runs Claude
+> Sonnet over the transcripts and commits findings. The dashboard at
+> <https://bulgariamitko.github.io/bg-izbori-monitor/> is rebuilt
+> automatically after each push.
 
-## What this does
+## Why this exists
 
-For each polling station `evideo.bg` publishes a video of the ballot count
-and protocol filling. This pipeline:
+`evideo.bg` publishes live video of every polling station's ballot count
+and protocol filling. Bulgaria has roughly 12 000 stations. No single
+computer can transcribe all of them in a night. This project splits the
+work: **many volunteers transcribe, the repo aggregates, one owner runs
+the paid analysis step.**
 
-1. Scrapes the full section list.
-2. Randomly picks a section nobody on your machine has done
-   (villages first, then towns, then cities).
-3. Downloads the counting video.
-4. Transcribes the Bulgarian audio with **faster-whisper large-v3**.
-5. Sends the transcript to **Claude Sonnet** (via `claude -p` headless
-   mode, tools disabled to save tokens) to flag possible irregularities.
-6. Stores everything in a local SQLite DB and rebuilds `dashboard.html`.
-7. Deletes the mp4 to save disk.
+## Two roles
 
-The prompt asks Claude to flag **ballot tampering, miscounting,
-protocol irregularities, intimidation, unauthorized persons, procedure
-violations, and explicit disputes** — and only those. See `prompt.md`.
+### Transcriber (you, probably)
 
-## Why distributed
-
-Bulgaria has ~12 000 polling sections. Each recording is ~60 min and
-takes ~45 min on a single Mac (download + large-v3 transcribe + Claude).
-One machine can't cover the country. Ten can make a real dent. Everyone
-runs the same code against the same list of sections, and the pipeline
-picks random unseen ones — so two machines don't duplicate work.
-
-(Coordination is currently *per-machine* only — see the Roadmap for a
-shared ledger so multiple machines can skip what's already been done
-by anyone.)
-
-
-
-End-to-end pipeline for **evideo.bg**:
-
-1. **scrape** sections → SQLite
-2. **discover** recordings for every section
-3. **download** (yt-dlp + Chrome cookie to bypass Cloudflare)
-4. **transcribe** Bulgarian audio (`faster-whisper large-v3`, local)
-5. **analyse** the transcript with Claude Sonnet via `claude -p`
-6. **dashboard** regenerated after each section; `open dashboard.html`
-
-Videos are deleted immediately after transcription succeeds.
-
-## Prereqs
-
-- macOS / Apple Silicon (or any box with ffmpeg + python 3.11+)
-- Chrome installed, visit `https://evideo.bg/<slug>/` once so it passes
-  the Cloudflare challenge — yt-dlp reuses that cookie.
-- `brew install ffmpeg yt-dlp`
-- `claude` CLI authenticated (`claude` opens once to set up, uses sonnet).
-
-### Whisper model quality
-
-`config.py` defaults to `medium` (~1.5 GB). Bulgarian transcription is
-usable but noisy. For the real election **upgrade to `large-v3`**:
-
-```python
-# config.py
-WHISPER_MODEL = "large-v3"
-```
-
-First run downloads ~3 GB. If HF hangs (it did for us), pre-fetch:
+See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the quick start.
+Short version:
 
 ```bash
-huggingface-cli download Systran/faster-whisper-large-v3
-```
-
-## Setup
-
-```bash
-cd "$(pwd)"
-python3 -m venv venv
-source venv/bin/activate
+gh repo fork bulgariamitko/bg-izbori-monitor --clone
+cd bg-izbori-monitor
+python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-python db.py                   # creates bg_izbori.db
+python contribute.py --gh-handle your-gh --loop
 ```
 
-## Running
+One section ≈ 45 min on a Mac. Your pushes auto-merge once the JSON
+passes the schema check.
+
+### Owner / analyst
+
+The owner (has Claude Code / API access) runs:
 
 ```bash
 source venv/bin/activate
-
-# 1. scrape the section list (one-shot)
-python scrape_sections.py --slug le20260222
-
-# 2. discover videos for every section
-python discover_videos.py --slug le20260222
-
-# 3. run the pipeline
-python run_pipeline.py              # loops until no pending left
-python run_pipeline.py --once       # one video and exit
-python run_pipeline.py --max 10     # ten then exit
-
-# dashboard is regenerated after each video; also manual:
-python dashboard.py
-open dashboard.html
+python analyze.py --max 50          # Claude-analyse 50 un-reviewed transcripts
+python dashboard.py                  # rebuild dashboard.html
 ```
 
-## On election day (20 April 2026)
+`analyze.py` walks `transcripts/*.json` that don't have a matching
+`findings/<SIK>_tour<N>.json`, sends each to Claude Sonnet via `claude -p`
+(tools disabled to save tokens), writes the findings JSON, commits + pushes.
+GitHub Pages republishes the dashboard automatically.
 
-1. Open `https://evideo.bg/le20260420/index.html` in Chrome (passes CF)
-2. Edit `config.py` — set `SLUG = "le20260420"`
-3. Re-run `scrape_sections.py`, then `discover_videos.py`, then `run_pipeline.py`
-
-The pipeline **picks villages first**, then towns, then cities, random
-inside each tier — by the end every section is covered.
-
-## Files
+## File layout
 
 ```
-config.py            slug, paths, models
-schema.sql           sections / videos / transcripts / findings
-db.py                thin SQLite wrapper
-scrape_sections.py   evideo.bg → sections table
-discover_videos.py   sections → videos rows
-process_video.py     one section: download → transcribe → analyse → delete
-run_pipeline.py      loop process_video
-dashboard.py         writes dashboard.html from DB
-prompt.md            the Sonnet analysis prompt
-election_day.sh     one-shot switch slug + scrape + discover + run
+sections.json            master list of SIKs + video URLs
+transcripts/             one JSON per section (volunteer-written)
+  └─ 013300088_tour1.json
+findings/                one JSON per analysed section (owner-written)
+  └─ 013300088_tour1.json
+.github/workflows/       validate-transcripts + publish-pages
+scrape.py                rebuild sections.json from evideo.bg
+contribute.py            volunteer entry point (Whisper)
+analyze.py               owner entry point (Claude)
+dashboard.py             rebuild dashboard.html from the JSON files
+prompt.md                the Sonnet analysis prompt
+config.py                SLUG, WHISPER_MODEL, CLAUDE_MODEL
+store.py                 thin filesystem helpers
 ```
 
-## Roadmap / contributions welcome
+## Election-day flow
 
-- [ ] Shared ledger (a public-read/volunteer-write bucket) so multiple
-      machines don't re-do the same section.
-- [ ] Groq / OpenAI Whisper API fallback for volunteers who want speed
-      over cost.
-- [ ] Windows / Linux setup notes.
-- [ ] Parallel-worker wrapper (`run_pipeline.py` is single-worker today).
-- [ ] Second-opinion reviewer — have a cheaper model pre-filter, so Sonnet
-      only analyses transcripts that flag keywords.
+For `le20260420`:
 
-PRs welcome. Open an issue first for anything bigger than a bug fix.
+```bash
+# 0. open https://evideo.bg/le20260420/ in Chrome once (CF cookie)
+# 1. owner rebuilds section list and pushes sections.json:
+python scrape.py --slug le20260420
+git add sections.json && git commit -m "sections: le20260420" && git push
 
-## Disclaimer
+# 2. volunteers run:
+python contribute.py --gh-handle your-gh --loop
 
-This is **not** an official monitoring tool. It surfaces *candidates* for
-human review — findings can be wrong. Every "high" / "critical" finding
-must be verified by a person watching the actual video at the flagged
-timestamp before anyone acts on it. Do not publish findings without
-watching the video first.
-
+# 3. owner keeps claude running:
+python analyze.py
+```
 
 ## What Claude flags
 
-See `prompt.md`. Categories: tampering, miscounting, protocol,
-intimidation, unauthorized persons, procedure violations, disputes.
-Conservative — medium/high/critical are meant to wake a human.
+See `prompt.md`. Seven categories: ballot tampering, miscounting,
+protocol irregularities, intimidation, unauthorized persons, procedure
+violations, explicit disputes. Conservative by design — a
+medium/high/critical finding is meant to be worth waking a human for.
+
+## Disclaimer
+
+This is **not** an official monitoring tool. The pipeline surfaces
+*candidate* irregularities from audio transcripts that are themselves
+imperfect. Every high / critical finding must be verified by a human
+watching the actual video before anyone acts on it.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+## Author
+
+[@bulgariamitko](https://github.com/bulgariamitko). PRs welcome.

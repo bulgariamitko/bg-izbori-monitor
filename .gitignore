@@ -3,14 +3,14 @@ __pycache__/
 *.pyc
 *.pyo
 
-# State — each user has their own
+# Per-machine state — not committed
+videos/
+debug/
 bg_izbori.db
 bg_izbori.db-*
-videos/
-transcripts/
-debug/
-sections_cache.json
 dashboard.html
+
+# NOTE: transcripts/ and findings/ ARE committed (shared via git)
 
 # Editor / OS
 .DS_Store
