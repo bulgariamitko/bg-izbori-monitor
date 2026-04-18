@@ -61,6 +61,7 @@ function Fork-And-Clone {
     git clone "https://github.com/$user/bg-izbori-monitor.git" $LocalDir
     git -C $LocalDir remote add upstream "https://github.com/$Repo.git" 2>$null | Out-Null
     git -C $LocalDir fetch upstream
+    git -C $LocalDir config pull.rebase true
 }
 
 function Setup-Venv {

@@ -100,6 +100,8 @@ fork_and_clone() {
     git -C "$LOCAL_DIR" remote add upstream "https://github.com/$REPO.git" 2>/dev/null || true
     git -C "$LOCAL_DIR" fetch upstream
     git -C "$LOCAL_DIR" branch --set-upstream-to=origin/main main || true
+    # Default to rebase on pull so the per-transcript branch flow stays clean.
+    git -C "$LOCAL_DIR" config pull.rebase true
 }
 
 setup_venv() {

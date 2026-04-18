@@ -119,21 +119,53 @@ def analyze_one(t: dict, prompt: str, push: bool) -> bool:
         git("push", check=False)
     return True
 
+def pull_latest():
+    """Fetch + fast-forward main from origin so we see the latest
+    volunteer-contributed transcripts."""
+    r = subprocess.run(["git","pull","--rebase","--autostash","origin","main"],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"[git] pull warning: {r.stderr.strip()[:400]}", file=sys.stderr)
+
+def run_once(prompt: str, max_n: int, only_sik: str | None, push: bool) -> int:
+    done = 0
+    for t in store.iter_transcripts():
+        if only_sik and t["sik"] != only_sik: continue
+        if store.has_findings(t["sik"], t["tour"]): continue
+        if analyze_one(t, prompt, push=push):
+            done += 1
+            if max_n and done >= max_n: break
+    return done
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--max", type=int, default=0, help="stop after N analyses")
     ap.add_argument("--no-push", action="store_true")
     ap.add_argument("--sik", help="only this SIK")
+    ap.add_argument("--watch", action="store_true",
+                    help="keep running: pull → analyze all new → sleep 60s → repeat")
+    ap.add_argument("--interval", type=int, default=60,
+                    help="seconds between watch iterations (default 60)")
     args = ap.parse_args()
     prompt = config.PROMPT_PATH.read_text()
-    done = 0
-    for t in store.iter_transcripts():
-        if args.sik and t["sik"] != args.sik: continue
-        if store.has_findings(t["sik"], t["tour"]): continue
-        if analyze_one(t, prompt, push=not args.no_push):
-            done += 1
-            if args.max and done >= args.max: break
-    print(f"[analyze] processed {done}")
+    if not args.watch:
+        pull_latest()
+        n = run_once(prompt, args.max, args.sik, push=not args.no_push)
+        print(f"[analyze] processed {n}")
+        return
+    # watch loop
+    print(f"[watch] pulling every {args.interval}s. Ctrl-C to stop.")
+    while True:
+        try:
+            pull_latest()
+            n = run_once(prompt, args.max, args.sik, push=not args.no_push)
+            if n == 0:
+                print(f"[watch] no new transcripts; sleeping {args.interval}s", flush=True)
+            else:
+                print(f"[watch] analysed {n} new transcripts", flush=True)
+            time.sleep(args.interval)
+        except KeyboardInterrupt:
+            print("\n[watch] stopping"); return
 
 if __name__ == "__main__":
     main()

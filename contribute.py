@@ -109,18 +109,74 @@ def git(*args, check=True):
         raise RuntimeError(f"git {args[0]} failed: {r.stderr.strip()[:400]}")
     return r
 
-def git_publish(paths: list[Path], sik: str, push: bool, branch_prefix: str | None):
-    git("pull", "--rebase", "--autostash", check=False)
-    for p in paths: git("add", str(p))
-    msg = f"transcript: СИК {sik}"
-    git("commit", "-m", msg, check=False)
+UPSTREAM = "upstream"       # added during install as bulgariamitko/bg-izbori-monitor
+
+def _upstream_exists() -> bool:
+    return run_cmd(["git","remote","get-url",UPSTREAM]).returncode == 0
+
+def _origin_is_upstream() -> bool:
+    """If the user runs directly on the origin repo (owner), not a fork."""
+    origin = run_cmd(["git","remote","get-url","origin"]).stdout.strip()
+    return "bulgariamitko/bg-izbori-monitor" in origin
+
+def git_publish(paths: list[Path], sik: str, tour: int, push: bool):
+    """Per-transcript branch → push to fork → open PR → auto-merger handles it.
+
+    Owner (origin == upstream repo) pushes directly to main and skips the PR.
+    """
     if not push: return
-    # If contributor has a fork the origin is the fork; simple push works.
-    r = git("push", check=False)
-    if r.returncode != 0:
-        print(f"[git] push failed:\n{r.stderr}", file=sys.stderr)
+    direct_to_main = _origin_is_upstream() or not _upstream_exists()
+
+    # make sure main is up-to-date
+    if _upstream_exists():
+        git("fetch", UPSTREAM, "main", check=False)
+        git("checkout", "main", check=False)
+        git("reset", "--hard", f"{UPSTREAM}/main", check=False)
     else:
-        print(f"[git] pushed '{msg}'")
+        git("pull", "--rebase", "--autostash", check=False)
+
+    if direct_to_main:
+        for p in paths: git("add", str(p))
+        git("commit","-m", f"transcript: СИК {sik} (tour {tour})", check=False)
+        r = git("push", check=False)
+        if r.returncode == 0:
+            print(f"[git] pushed transcript directly to main")
+        else:
+            print(f"[git] push failed:\n{r.stderr}", file=sys.stderr)
+        return
+
+    # Fork + PR flow
+    branch = f"transcript/{sik}-tour{tour}"
+    git("checkout", "-B", branch)
+    for p in paths: git("add", str(p))
+    msg = f"transcript: СИК {sik} (tour {tour})"
+    git("commit","-m", msg, check=False)
+    r = git("push", "--set-upstream", "origin", branch, "--force", check=False)
+    if r.returncode != 0:
+        print(f"[git] push failed:\n{r.stderr}", file=sys.stderr); return
+
+    # open PR via gh (also auto-enables auto-merge)
+    pr = run_cmd([
+        "gh","pr","create",
+        "--repo","bulgariamitko/bg-izbori-monitor",
+        "--base","main","--head", f"{_gh_user()}:{branch}",
+        "--title", msg,
+        "--body", f"Auto-generated transcript for СИК {sik}, tour {tour}.\n\n"
+                  f"Produced by `contribute.py` using faster-whisper "
+                  f"`{config.WHISPER_MODEL}`. Will auto-merge after the "
+                  f"`validate-transcripts` workflow passes.",
+    ])
+    if pr.returncode != 0 and "already exists" not in (pr.stderr or ""):
+        print(f"[gh] pr create: {pr.stderr.strip()[:300]}", file=sys.stderr)
+    else:
+        print(f"[gh] PR opened / updated for {branch}")
+
+    # back to main, ready for next section
+    git("checkout","main", check=False)
+
+def _gh_user() -> str:
+    r = run_cmd(["gh","api","user","--jq",".login"])
+    return r.stdout.strip() if r.returncode == 0 else ""
 
 # ----- main orchestration ------------------------------------------------
 
@@ -162,7 +218,7 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
         }
         p = store.save_transcript(payload)
         print(f"[store] wrote {p.relative_to(config.BASE)}")
-        git_publish([p], sik, push=push, branch_prefix=None)
+        git_publish([p], sik, tour, push=push)
         return True
     finally:
         if mp4.exists(): mp4.unlink()

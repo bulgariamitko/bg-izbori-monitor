@@ -44,14 +44,16 @@ python contribute.py --gh-handle yourhandle --loop
 ```
 
 Each section takes ~45 min on a modern Mac (download + transcription).
-When `contribute.py` finishes a section it:
+When `contribute.py` finishes a section it, for you, automatically:
 
 1. Writes `transcripts/<SIK>_tour1.json`
-2. `git add` + `git commit` + `git push` to your fork
-3. Then you open a PR — or the script opens it for you with `gh pr create`
+2. Creates a branch `transcript/<SIK>-tour1` on your fork and pushes
+3. Opens a pull request to `bulgariamitko/bg-izbori-monitor`
+4. The `validate-transcripts` GitHub Action runs, auto-merges the PR
+5. The script switches back to main, pulls the now-merged changes, and
+   picks the next section.
 
-The project's GitHub Action validates the JSON and auto-merges if it
-passes. No manual review latency.
+You never have to click anything on GitHub after `gh auth login`.
 
 ## What NOT to do
 

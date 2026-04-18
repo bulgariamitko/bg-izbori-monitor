@@ -73,12 +73,12 @@ passes the schema check.
 
 ### Owner / analyst
 
-The owner (has Claude Code / API access) runs:
+The owner (has Claude Code / API access) runs the watcher and walks away:
 
 ```bash
-source venv/bin/activate
-python analyze.py --max 50          # Claude-analyse 50 un-reviewed transcripts
-python dashboard.py                  # rebuild dashboard.html
+./watch.sh                           # pull → analyse new → push → sleep 60s, loop
+# or a one-shot
+python analyze.py --max 50
 ```
 
 `analyze.py` walks `transcripts/*.json` that don't have a matching
