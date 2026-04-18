@@ -8,7 +8,7 @@ Run:
     python contribute.py --gh-handle myname  # tag your contributions
 """
 from __future__ import annotations
-import argparse, json, os, random, subprocess, sys, time
+import argparse, hashlib, json, os, random, subprocess, sys, time
 from pathlib import Path
 
 import config, store
@@ -41,31 +41,44 @@ def whisper():
 
 # ----- section picking ---------------------------------------------------
 
-def pick_section(slug: str) -> tuple[dict, dict] | None:
-    """Return (section, video) for something unprocessed.
-    Priority order:
-      1. high-risk sections (per tibroish.bg)
-      2. mid-risk sections
-      3. villages
-      4. towns
-      5. cities
-      6. unknown
-    Random within each tier.
+def _user_hash(sik: str, gh_handle: str) -> int:
+    """Stable 64-bit hash so each volunteer walks the section list in a
+    different order — halves the collision probability before claim files
+    even come into play."""
+    h = hashlib.sha256(f"{gh_handle}:{sik}".encode()).digest()
+    return int.from_bytes(h[:8], "big")
+
+def pick_section(slug: str, gh_handle: str) -> tuple[dict, dict] | None:
+    """Return (section, video) for something unprocessed & unclaimed.
+    Priority:
+      1. high-risk  (tibroish.bg)   — tier 0
+      2. mid-risk                   — tier 1
+      3. villages                   — tier 2
+      4. small towns                — tier 3
+      5. big cities                 — tier 4
+      6. unknown                    — tier 11
+    Within a tier the order is deterministic per-volunteer — two
+    volunteers get different orderings so they start on different
+    sections without coordinating.
     """
     sections = [s for s in store.load_sections() if s.get("slug") == slug]
-    random.shuffle(sections)
     risk = load_risk_tiers()
-    def rank(s):
+    def key(s):
         r = risk.get(s["sik"])
-        if r in RISK_RANK: return RISK_RANK[r]          # 0, 1
-        return 2 + s.get("priority", 9)                 # 2=village, 3=town, 4=city, 11=unknown
-    sections.sort(key=rank)
+        tier = RISK_RANK[r] if r in RISK_RANK else 2 + s.get("priority", 9)
+        return (tier, _user_hash(s["sik"], gh_handle or "anon"))
+    sections.sort(key=key)
+
+    me = gh_handle or ""
     for s in sections:
         for v in s.get("videos", []):
             if v["type"] != "device":
                 continue
             if store.has_transcript(s["sik"], v["tour"]):
                 continue
+            claim = store.load_claim(s["sik"], v["tour"])
+            if store.claim_is_active(claim, me):
+                continue   # someone else is already working on this SIK+tour
             return s, v
     return None
 
@@ -178,10 +191,57 @@ def _gh_user() -> str:
     r = run_cmd(["gh","api","user","--jq",".login"])
     return r.stdout.strip() if r.returncode == 0 else ""
 
+def _publish_claim(path: Path, sik: str, tour: int) -> bool:
+    """Publish a claim file via a tiny PR that auto-merges in ~20 s. Returns
+    False if the push failed (likely because someone else already claimed
+    this SIK in the race window)."""
+    direct_to_main = _origin_is_upstream() or not _upstream_exists()
+    if _upstream_exists():
+        git("fetch", UPSTREAM, "main", check=False)
+        git("checkout", "main", check=False)
+        git("reset","--hard", f"{UPSTREAM}/main", check=False)
+    else:
+        git("pull","--rebase","--autostash", check=False)
+    # If another volunteer's claim already landed for this SIK, their file
+    # now exists on main — skip.
+    if path.exists() and path.stat().st_size and (config.BASE / "claims" / path.name).exists():
+        pass  # either fresh from upstream (then it's their claim) or ours
+    # re-write our claim (upstream might have wiped it during reset)
+    if not path.exists():
+        # upstream had someone else's claim for same SIK → bail out
+        return False
+    if direct_to_main:
+        git("add", str(path))
+        git("commit","-m", f"claim: СИК {sik} (tour {tour})", check=False)
+        return git("push", check=False).returncode == 0
+
+    branch = f"claim/{sik}-tour{tour}"
+    git("checkout", "-B", branch)
+    git("add", str(path))
+    git("commit","-m", f"claim: СИК {sik} (tour {tour})", check=False)
+    r = git("push","--set-upstream","origin",branch,"--force", check=False)
+    if r.returncode != 0:
+        print(f"[claim] push failed:\n{r.stderr}", file=sys.stderr)
+        git("checkout","main", check=False); return False
+    pr = run_cmd([
+        "gh","pr","create",
+        "--repo","bulgariamitko/bg-izbori-monitor",
+        "--base","main","--head", f"{_gh_user()}:{branch}",
+        "--title", f"claim: СИК {sik} (tour {tour})",
+        "--body", f"Volunteer `{_gh_user()}` is claiming SIK {sik} tour {tour} "
+                  f"for the next {store.CLAIM_TTL_HOURS} hours to avoid duplicate work.",
+    ])
+    git("checkout","main", check=False)
+    if pr.returncode != 0 and "already exists" not in (pr.stderr or ""):
+        print(f"[claim] pr create: {pr.stderr.strip()[:300]}", file=sys.stderr)
+        return False
+    print(f"[claim] claim PR opened for {sik}")
+    return True
+
 # ----- main orchestration ------------------------------------------------
 
 def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
-    pick = pick_section(slug)
+    pick = pick_section(slug, gh_handle or "")
     if not pick:
         print("[contribute] nothing to do — all sections have a transcript!")
         return False
@@ -191,6 +251,16 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
     risk_tag = f" [риск:{risk}]" if risk else ""
     print(f"\n=== СИК {sik}{risk_tag}  {section.get('region_name')}  "
           f"{section.get('town','')} ({section.get('town_type','?')}) — tour {tour} ===")
+
+    # Place a claim FIRST so concurrent volunteers see we're working on this
+    # SIK. Push it to GitHub ASAP via a small PR that auto-merges.
+    if push:
+        claim_path = store.write_claim(sik, tour, gh_handle or "anon")
+        if not _publish_claim(claim_path, sik, tour):
+            # Claim couldn't be pushed (maybe raced) — fall back to next section
+            store.delete_claim(sik, tour)
+            print("[contribute] claim push failed, trying next section", file=sys.stderr)
+            return True   # return True so the --loop keeps going
 
     mp4 = config.VIDEOS_DIR / f"{sik}_tour{tour}.mp4"
     if mp4.exists(): mp4.unlink()
@@ -218,7 +288,13 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
         }
         p = store.save_transcript(payload)
         print(f"[store] wrote {p.relative_to(config.BASE)}")
-        git_publish([p], sik, tour, push=push)
+        # Release the claim as part of the same commit
+        claim_file = store._path("claim", sik, tour)
+        extra_paths = [p]
+        if claim_file.exists():
+            claim_file.unlink()  # local delete
+            extra_paths.append(claim_file)
+        git_publish(extra_paths, sik, tour, push=push)
         return True
     finally:
         if mp4.exists(): mp4.unlink()

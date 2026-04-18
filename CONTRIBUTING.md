@@ -44,16 +44,23 @@ python contribute.py --gh-handle yourhandle --loop
 ```
 
 Each section takes ~45 min on a modern Mac (download + transcription).
-When `contribute.py` finishes a section it, for you, automatically:
+When `contribute.py` starts / finishes a section it, for you, automatically:
 
-1. Writes `transcripts/<SIK>_tour1.json`
-2. Creates a branch `transcript/<SIK>-tour1` on your fork and pushes
-3. Opens a pull request to `bulgariamitko/bg-izbori-monitor`
-4. The `validate-transcripts` GitHub Action runs, auto-merges the PR
-5. The script switches back to main, pulls the now-merged changes, and
-   picks the next section.
+1. Picks the next unclaimed SIK (ordering is seeded by your GitHub
+   handle, so two volunteers naturally start on different sections).
+2. Writes a tiny `claims/<SIK>_tour1.json` and opens a fast PR →
+   other volunteers see your claim and skip this SIK.
+3. Downloads the mp4 and runs faster-whisper.
+4. Writes `transcripts/<SIK>_tour1.json`, deletes the claim file in the
+   same commit, pushes a second PR.
+5. The `validate-contribution` workflow runs, auto-merges if everything
+   passes.
+6. The script switches back to main, pulls, and picks the next section.
 
-You never have to click anything on GitHub after `gh auth login`.
+You never have to click anything on GitHub after `gh auth login`. If
+your machine crashes mid-transcription, a scheduled workflow
+(`sweep-stale-claims`) removes claims older than 4 hours every 30 min so
+somebody else can pick up the section.
 
 ## What NOT to do
 

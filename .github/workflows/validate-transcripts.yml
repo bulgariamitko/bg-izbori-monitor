@@ -1,17 +1,14 @@
-name: validate-transcripts
-# Validate transcript PRs and auto-merge good ones.
-# A "good" PR touches ONLY files under transcripts/, each file matches
-# transcripts/<SIK>_tour<N>.json, passes the schema, and does not overwrite
-# an existing file in main.
+name: validate-contribution
+# Validates volunteer PRs and auto-merges good ones.
+# Accepts PRs that ONLY add files under transcripts/ or claims/ (and may
+# delete a claim when uploading the matching transcript). No other files.
 
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
-    paths: ["transcripts/**"]
-  # also trigger on direct pushes so a maintainer-push is validated
-  push:
-    branches: [main]
-    paths: ["transcripts/**"]
+    paths:
+      - "transcripts/**"
+      - "claims/**"
 
 permissions:
   contents: read
@@ -24,31 +21,28 @@ jobs:
       - name: Checkout PR head
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 2
 
-      - name: Checkout base for diff
-        if: github.event_name == 'pull_request_target'
+      - name: Diff vs base
         run: |
           git fetch origin ${{ github.event.pull_request.base.ref }}:base
-          git diff --name-only --diff-filter=AM base...HEAD > /tmp/changed.txt
+          git diff --name-status base...HEAD > /tmp/changed.txt
           cat /tmp/changed.txt
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
       - name: Install deps
         run: pip install jsonschema==4.23
 
-      - name: Validate transcript files
+      - name: Validate
         run: |
           python - <<'PY'
-          import json, os, sys, re
+          import json, os, re, sys
           from pathlib import Path
           from jsonschema import validate, ValidationError
-          SCHEMA = {
+
+          TRANSCRIPT_SCHEMA = {
             "type":"object",
             "required":["schema","sik","slug","tour","video_url","segments","full_text","whisper"],
             "properties":{
@@ -60,47 +54,60 @@ jobs:
               "video_type":{"type":"string","enum":["device","live"]},
               "duration_sec":{"type":"number"},
               "whisper":{"type":"object","required":["model","language"],
-                         "properties":{"model":{"type":"string"},"language":{"const":"bg"}}},
-              "segments":{"type":"array","items":{"type":"object",
-                         "required":["start","end","text"]}},
+                "properties":{"model":{"type":"string"},"language":{"const":"bg"}}},
+              "segments":{"type":"array","items":{"type":"object","required":["start","end","text"]}},
               "full_text":{"type":"string"},
               "contributed_by":{"type":"string"},
               "transcribed_at":{"type":"string"},
-              "risk_level":{"type":["string","null"]}
-            }
+              "risk_level":{"type":["string","null"]},
+            },
           }
-          base = Path(".")
-          is_pr = os.environ.get("GITHUB_EVENT_NAME") == "pull_request_target"
-          if is_pr:
-              changed = Path("/tmp/changed.txt").read_text().splitlines()
-          else:
-              changed = [str(p) for p in base.glob("transcripts/*.json")]
-          # Only transcripts/ files may be touched in a contributor PR.
-          bad = [c for c in changed if c and not c.startswith("transcripts/")]
-          if bad:
-              print("::error::PR touches non-transcript files:", bad); sys.exit(1)
-          name_re = re.compile(r"^transcripts/(\d{9})_tour[12]\.json$")
+          CLAIM_SCHEMA = {
+            "type":"object",
+            "required":["schema","sik","tour","contributor","claimed_at","expires_at"],
+            "properties":{
+              "schema":{"const":"bg-izbori-claim/1"},
+              "sik":{"type":"string","pattern":"^\\d{9}$"},
+              "tour":{"type":"integer","minimum":1,"maximum":2},
+              "contributor":{"type":"string"},
+              "claimed_at":{"type":"string"},
+              "expires_at":{"type":"string"},
+            },
+          }
+          tr_re = re.compile(r"^transcripts/(\d{9})_tour[12]\.json$")
+          cl_re = re.compile(r"^claims/(\d{9})_tour[12]\.json$")
+
           errors = 0
-          for c in changed:
-              if not c: continue
-              m = name_re.match(c)
-              if not m:
-                  print(f"::error file={c}::bad filename"); errors += 1; continue
-              sik = m.group(1)
+          changed = [l.strip() for l in Path("/tmp/changed.txt").read_text().splitlines() if l.strip()]
+          for line in changed:
+              status, _, path = line.partition("\t")
+              if not path.startswith(("transcripts/","claims/")):
+                  print(f"::error file={path}::PR may only touch transcripts/ or claims/ files")
+                  errors += 1; continue
+              if status == "D":
+                  # only allow deleting a claim that corresponds to a transcript added in the same PR
+                  if not cl_re.match(path):
+                      print(f"::error file={path}::may only delete claims/<SIK>_tour<N>.json"); errors += 1
+                  continue
+              # A or M
+              is_tr = bool(tr_re.match(path))
+              is_cl = bool(cl_re.match(path))
+              if not (is_tr or is_cl):
+                  print(f"::error file={path}::bad filename"); errors += 1; continue
               try:
-                  data = json.loads(Path(c).read_text())
-                  validate(data, SCHEMA)
-                  if data["sik"] != sik:
-                      print(f"::error file={c}::filename SIK ≠ payload SIK"); errors += 1
+                  data = json.loads(Path(path).read_text())
+                  validate(data, TRANSCRIPT_SCHEMA if is_tr else CLAIM_SCHEMA)
+                  m = (tr_re if is_tr else cl_re).match(path)
+                  if data["sik"] != m.group(1):
+                      print(f"::error file={path}::filename SIK ≠ payload SIK")
+                      errors += 1
               except (ValidationError, json.JSONDecodeError) as e:
-                  print(f"::error file={c}::{e}"); errors += 1
-          if errors:
-              sys.exit(1)
-          print(f"✓ all {len(changed)} transcript files valid")
+                  print(f"::error file={path}::{e}"); errors += 1
+          if errors: sys.exit(1)
+          print(f"✓ all {len(changed)} files valid")
           PY
 
       - name: Enable auto-merge
-        if: github.event_name == 'pull_request_target'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr merge --auto --squash "${{ github.event.pull_request.number }}"
