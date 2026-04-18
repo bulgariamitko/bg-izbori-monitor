@@ -13,6 +13,14 @@ from pathlib import Path
 
 import config, store
 
+RISK_FILE = config.BASE / "risk_tiers.json"
+RISK_RANK = {"high": 0, "mid": 1}   # smaller = picked first
+
+def load_risk_tiers() -> dict:
+    if not RISK_FILE.exists(): return {}
+    try: return json.loads(RISK_FILE.read_text()).get("tiers", {})
+    except Exception: return {}
+
 def run_cmd(cmd: list[str], **kw) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, check=False, text=True, capture_output=True, **kw)
 
@@ -34,14 +42,27 @@ def whisper():
 # ----- section picking ---------------------------------------------------
 
 def pick_section(slug: str) -> tuple[dict, dict] | None:
-    """Return (section, video) for something unprocessed, villages first."""
+    """Return (section, video) for something unprocessed.
+    Priority order:
+      1. high-risk sections (per tibroish.bg)
+      2. mid-risk sections
+      3. villages
+      4. towns
+      5. cities
+      6. unknown
+    Random within each tier.
+    """
     sections = [s for s in store.load_sections() if s.get("slug") == slug]
     random.shuffle(sections)
-    # villages first → towns → cities → unknown
-    sections.sort(key=lambda s: s.get("priority", 9))
+    risk = load_risk_tiers()
+    def rank(s):
+        r = risk.get(s["sik"])
+        if r in RISK_RANK: return RISK_RANK[r]          # 0, 1
+        return 2 + s.get("priority", 9)                 # 2=village, 3=town, 4=city, 11=unknown
+    sections.sort(key=rank)
     for s in sections:
         for v in s.get("videos", []):
-            if v["type"] != "device":       # device = single full file, skip live chunks
+            if v["type"] != "device":
                 continue
             if store.has_transcript(s["sik"], v["tour"]):
                 continue
@@ -110,8 +131,10 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
         return False
     section, video = pick
     sik, tour = section["sik"], video["tour"]
-    print(f"\n=== СИК {sik}  {section.get('region_name')}  {section.get('town','')} "
-          f"({section.get('town_type','?')}) — tour {tour} ===")
+    risk = load_risk_tiers().get(sik)
+    risk_tag = f" [риск:{risk}]" if risk else ""
+    print(f"\n=== СИК {sik}{risk_tag}  {section.get('region_name')}  "
+          f"{section.get('town','')} ({section.get('town_type','?')}) — tour {tour} ===")
 
     mp4 = config.VIDEOS_DIR / f"{sik}_tour{tour}.mp4"
     if mp4.exists(): mp4.unlink()
@@ -126,6 +149,7 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
             "region_name": section.get("region_name"),
             "address": section.get("address"),
             "town": section.get("town"), "town_type": section.get("town_type"),
+            "risk_level": load_risk_tiers().get(sik),  # high | mid | null
             "whisper": {
                 "model": config.WHISPER_MODEL,
                 "language": "bg",

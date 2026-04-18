@@ -65,6 +65,17 @@ def build():
         k = (t.get("contributed_by") or "анонимен").strip() or "анонимен"
         contribs[k] = contribs.get(k,0) + 1
 
+    # risk-tier coverage
+    risk_file = config.BASE / "risk_tiers.json"
+    risk_tiers = {}
+    try:
+        risk_tiers = json.loads(risk_file.read_text()).get("tiers", {}) if risk_file.exists() else {}
+    except Exception: pass
+    high_total  = sum(1 for v in risk_tiers.values() if v == "high")
+    mid_total   = sum(1 for v in risk_tiers.values() if v == "mid")
+    high_done   = sum(1 for t in transcripts if risk_tiers.get(t["sik"]) == "high")
+    mid_done    = sum(1 for t in transcripts if risk_tiers.get(t["sik"]) == "mid")
+
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     parts = [f"""<!DOCTYPE html>
@@ -117,6 +128,10 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
   <div class="card"><div class="n">{len(findings_rows)}</div><div class="l">анализирани (от „оценителя“)</div></div>
   <div class="card"><div class="n">{max(0,len(transcripts)-len(findings_rows))}</div><div class="l">чакат анализ</div></div>
   <div class="card"><div class="n">{max(0,len(sections)-len(transcript_keys))}</div><div class="l">чакат транскрипция</div></div>
+</div>
+<div class="cards">
+  <div class="card" style="border-top:3px solid #b00020"><div class="n">{high_done}/{high_total}</div><div class="l">високорискови секции (покрити)</div></div>
+  <div class="card" style="border-top:3px solid #d98e0f"><div class="n">{mid_done}/{mid_total}</div><div class="l">средно-рискови секции (покрити)</div></div>
 </div>
 <div class="cards">"""]
     for s in SEV_ORDER:

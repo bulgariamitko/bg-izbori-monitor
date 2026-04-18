@@ -65,7 +65,8 @@ jobs:
                          "required":["start","end","text"]}},
               "full_text":{"type":"string"},
               "contributed_by":{"type":"string"},
-              "transcribed_at":{"type":"string"}
+              "transcribed_at":{"type":"string"},
+              "risk_level":{"type":["string","null"]}
             }
           }
           base = Path(".")

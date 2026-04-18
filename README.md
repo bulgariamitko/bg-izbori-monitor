@@ -5,9 +5,45 @@
 >
 > Volunteers transcribe counting recordings on their own machines.
 > Transcripts are committed to this repo. A separate step runs Claude
-> Sonnet over the transcripts and commits findings. The dashboard at
-> <https://bulgariamitko.github.io/bg-izbori-monitor/> is rebuilt
-> automatically after each push.
+> Sonnet over the transcripts and commits findings.
+>
+> 📊 **Live dashboard:** <https://bulgariamitko.github.io/bg-izbori-monitor/>
+
+## 🚀 Run in one command
+
+**macOS / Linux:**
+```bash
+bash <(curl -sSL https://raw.githubusercontent.com/bulgariamitko/bg-izbori-monitor/main/install.sh)
+```
+
+**Windows (PowerShell):**
+```powershell
+iwr -useb https://raw.githubusercontent.com/bulgariamitko/bg-izbori-monitor/main/install.ps1 | iex
+```
+
+The installer pulls every dependency (git, python, ffmpeg, yt-dlp, gh),
+prompts you to sign into GitHub (the login page has a **Sign up** link if
+you don't have an account yet), forks this repo to your account, sets up
+a Python venv, and starts transcribing — **high-risk polling stations
+first**, then mid-risk, then villages, then towns and cities.
+
+Every transcript you produce is `git push`ed to your fork automatically;
+the auto-merger on this repo accepts it within a minute if the JSON
+schema checks out.
+
+## Which sections get picked first
+
+`contribute.py` uses this priority, smallest first:
+
+| Tier | Source |
+|---|---|
+| 1. Високорискови (high-risk) | `api.tibroish.bg` — statistical anomalies by the Anti-Corruption Fund (~781 sections) |
+| 2. Средно-рискови (mid-risk) | `api.tibroish.bg` (~2 170 sections) |
+| 3. Села (villages) | address starts with `С.` |
+| 4. Малки градове (small towns) | address starts with `ГР.`, not a big city |
+| 5. Големи градове (cities) | София, Пловдив, Варна, Бургас, Русе, Стара Загора |
+
+Everything is randomised within a tier so two volunteers don't collide.
 
 ## Why this exists
 
