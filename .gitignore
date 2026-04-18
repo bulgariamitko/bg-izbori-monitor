@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# State — each user has their own
+bg_izbori.db
+bg_izbori.db-*
+videos/
+transcripts/
+debug/
+sections_cache.json
+dashboard.html
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
