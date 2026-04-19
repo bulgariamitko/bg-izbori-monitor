@@ -14,8 +14,8 @@ from curl_cffi import requests
 
 import config, store
 
-VILLAGE_RE = re.compile(r"^\s*С\.\s+", re.I)
-CITY_RE    = re.compile(r"^\s*ГР\.\s+", re.I)
+VILLAGE_RE = re.compile(r"^\s*С\.\s*", re.I)   # accept "С. Х" and "С.Х"
+CITY_RE    = re.compile(r"^\s*ГР\.\s*", re.I)  # accept "ГР. Х" and "ГР.Х"
 BIG_CITIES = {"СОФИЯ", "ПЛОВДИВ", "ВАРНА", "БУРГАС", "РУСЕ", "СТАРА ЗАГОРА"}
 SERVERS_RE = re.compile(r'var\s+servers\s*=\s*(\{[^}]+\})')
 
@@ -54,17 +54,27 @@ def discover_oik_pages(sess, slug):
 
 def parse_oik_page(slug, page_url, html):
     soup = BeautifulSoup(html, "html.parser")
+
+    # -------- servers map (only used by le* archive format) --------
     servers = {}
     for s in soup.find_all("script"):
         m = SERVERS_RE.search(s.text or "")
-        if m: servers = json.loads(m.group(1)); break
-    sections = {}   # sik -> dict
+        if m:
+            raw = m.group(1)
+            try:
+                parsed = json.loads(raw)
+                if isinstance(parsed, dict): servers = parsed
+            except json.JSONDecodeError: pass
+            break
+
+    # -------- sections with address --------
+    sections = {}
     for sec in soup.select("[data-sik]"):
         sik = sec.get("data-sik","")
         if not store.SIK_RE.match(sik): continue
         text = " ".join(sec.stripped_strings)
         text = re.sub(rf"^{sik}\s*", "", text)
-        text = re.sub(r"\s*ЗАПИСИ\s*$", "", text).strip()
+        text = re.sub(r"\s*(ЗАПИСИ|излъчване)\s*$", "", text, flags=re.I).strip()
         town, ttype, prio = _classify_town(text)
         sections.setdefault(sik, {
             "sik": sik, "slug": slug,
@@ -75,24 +85,42 @@ def parse_oik_page(slug, page_url, html):
             "town_type": ttype, "priority": prio,
             "videos": [],
         })
-    for btn in soup.select("button.u-btn-record, button[data-vid]"):
-        tour = int(btn.get("data-tour", "1"))
-        try:  vid = json.loads(btn.get("data-vid", "{}"))
+
+    # -------- videos --------
+    for btn in soup.select("button[data-vid]"):
+        try:  vid = json.loads(btn.get("data-vid", "null"))
         except json.JSONDecodeError: continue
         sik_el = btn.find_parent(attrs={"data-sik": True})
-        if not sik_el or sik_el["data-sik"] not in sections: continue
+        if not sik_el: continue
         sik = sik_el["data-sik"]
-        for kind, urls in (("device", vid.get("d",[])), ("live", vid.get("r",[]))):
-            for u in urls:
-                if "#" not in u: continue
-                key, path = u.split("#", 1)
-                base = servers.get(key)
-                if not base: continue
-                full = up.urljoin(base if base.endswith("/") else base+"/",
-                                  f"{sik}/{path.lstrip('/')}")
+        if sik not in sections: continue
+        tour = int(btn.get("data-tour", "1"))
+
+        # ----- format 1: le* archive. data-vid is a dict {"d":[...],"r":[...]}
+        #                 where each entry is "<serverKey>#/<path>" and the
+        #                 server URL lives in the `servers` var.
+        if isinstance(vid, dict):
+            for kind, urls in (("device", vid.get("d",[])), ("live", vid.get("r",[]))):
+                for u in urls:
+                    if "#" not in u: continue
+                    key, path = u.split("#", 1)
+                    base = servers.get(key)
+                    if not base: continue
+                    full = up.urljoin(base if base.endswith("/") else base+"/",
+                                      f"{sik}/{path.lstrip('/')}")
+                    sections[sik]["videos"].append({
+                        "tour": tour, "type": kind, "url": full,
+                    })
+
+        # ----- format 2: pe* live HLS. data-vid is a plain list of full URLs.
+        elif isinstance(vid, list):
+            for u in vid:
+                if not isinstance(u, str): continue
+                kind = "live_hls" if u.endswith(".m3u8") else "device"
                 sections[sik]["videos"].append({
-                    "tour": tour, "type": kind, "url": full,
+                    "tour": tour, "type": kind, "url": u,
                 })
+
     return list(sections.values())
 
 def run(slug: str, limit: int = 0):

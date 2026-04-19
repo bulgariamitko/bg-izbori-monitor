@@ -70,30 +70,49 @@ def pick_section(slug: str, gh_handle: str) -> tuple[dict, dict] | None:
     sections.sort(key=key)
 
     me = gh_handle or ""
+    # Preferred video types for the section:
+    #   device   — single full mp4 (le* archive format)
+    #   live_hls — HLS playlist (pe* live format). yt-dlp records to end.
+    #   live     — live-recording chunks (last resort)
+    PREF = ("device", "live_hls", "live")
     for s in sections:
-        for v in s.get("videos", []):
-            if v["type"] != "device":
-                continue
-            if store.has_transcript(s["sik"], v["tour"]):
-                continue
-            claim = store.load_claim(s["sik"], v["tour"])
-            if store.claim_is_active(claim, me):
-                continue   # someone else is already working on this SIK+tour
-            return s, v
+        vids = s.get("videos", [])
+        # pick the best-available format for this section
+        chosen = None
+        for kind in PREF:
+            for v in vids:
+                if v["type"] == kind:
+                    chosen = v; break
+            if chosen: break
+        if not chosen: continue
+        if store.has_transcript(s["sik"], chosen["tour"]): continue
+        claim = store.load_claim(s["sik"], chosen["tour"])
+        if store.claim_is_active(claim, me): continue
+        return s, chosen
     return None
 
 # ----- pipeline steps ----------------------------------------------------
 
 def download(video_url: str, out: Path):
+    """Download an mp4 or record an HLS live stream until it ends.
+    yt-dlp handles both; `--hls-use-mpegts` + `--live-from-start` makes
+    the HLS recording contiguous.
+    """
+    is_hls = video_url.endswith(".m3u8")
     cmd = [
         "yt-dlp",
         "--cookies-from-browser", config.COOKIES_FROM_BROWSER,
         "--referer", "https://evideo.bg/",
-        "--no-part", "--no-progress", "--quiet",
-        "--no-warnings",
-        "-o", str(out), video_url,
+        "--no-part", "--no-progress", "--quiet", "--no-warnings",
     ]
-    print(f"[download] {video_url.rsplit('/',1)[-1]} …", flush=True)
+    if is_hls:
+        cmd += [
+            "--live-from-start",          # grab from the beginning of the live stream
+            "--hls-use-mpegts",           # resilient to premature cutoff
+            "--merge-output-format","mp4",
+        ]
+    cmd += ["-o", str(out), video_url]
+    print(f"[download] {('HLS live' if is_hls else 'mp4')}  {video_url.rsplit('/',2)[-2]}/{video_url.rsplit('/',1)[-1]} …", flush=True)
     t0 = time.time()
     r = run_cmd(cmd)
     if r.returncode != 0 or not out.exists():
