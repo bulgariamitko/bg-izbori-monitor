@@ -112,13 +112,13 @@ store.py                 thin filesystem helpers
 
 ## Election-day flow
 
-For `le20260420`:
+For `pe202604`:
 
 ```bash
-# 0. open https://evideo.bg/le20260420/ in Chrome once (CF cookie)
+# 0. open https://evideo.bg/pe202604/ in Chrome once (CF cookie)
 # 1. owner rebuilds section list and pushes sections.json:
-python scrape.py --slug le20260420
-git add sections.json && git commit -m "sections: le20260420" && git push
+python scrape.py --slug pe202604
+git add sections.json && git commit -m "sections: pe202604" && git push
 
 # 2. volunteers run:
 python contribute.py --gh-handle your-gh --loop

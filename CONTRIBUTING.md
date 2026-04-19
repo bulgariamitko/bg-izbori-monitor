@@ -27,7 +27,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-# 3. Open https://evideo.bg/le20260420/ in Chrome once so Cloudflare
+# 3. Open https://evideo.bg/pe202604/ in Chrome once so Cloudflare
 #    hands your browser a cookie. yt-dlp will reuse it.
 ```
 

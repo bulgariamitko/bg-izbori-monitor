@@ -4,13 +4,13 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 
 # ---- election -----------------------------------------------------------
-# Tomorrow's real election: change to 'le20260420'
+# Tomorrow's real election: change to 'pe202604'
 # Testing with the 22 Feb 2026 archive (videos online, 8 OIKs)
-SLUG        = "le20260420"   # Parliamentary election 20 Apr 2026.
+SLUG        = "pe202604"     # Parliamentary Elections, April 2026 (evideo.bg pe202604).
 BASE_URL    = f"https://evideo.bg/{SLUG}"
 ARCHIVE_URL = f"https://archive.evideo.bg/{SLUG}"
 
-# Single-round elections (like le20260420) only have tour 1.
+# Single-round elections (like pe202604) only have tour 1.
 # The 22-Feb archive has both tours; we default to tour 1.
 TOURS = [1]
 

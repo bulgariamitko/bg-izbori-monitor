@@ -48,7 +48,7 @@ jobs:
             "properties":{
               "schema":{"const":"bg-izbori-transcript/1"},
               "sik":{"type":"string","pattern":"^\\d{9}$"},
-              "slug":{"type":"string","pattern":"^le\\d{8}$"},
+              "slug":{"type":"string","pattern":"^(le\\d{8}|pe\\d{6})$"},
               "tour":{"type":"integer","minimum":1,"maximum":2},
               "video_url":{"type":"string","pattern":"^https://archive\\.evideo\\.bg/"},
               "video_type":{"type":"string","enum":["device","live"]},
