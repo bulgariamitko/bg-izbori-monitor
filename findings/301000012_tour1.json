@@ -1,0 +1,35 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "301000012",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/301000012/20260419200706056342.mp4",
+  "region_name": "Шумен",
+  "address": "С.МАЛОМИР, Кметство ул.\"Георги Димитров \" №15",
+  "town": "МАЛОМИР",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T08:59:52+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Транскрипцията е крайно оскъдна и фрагментирана — повечето реплики са неразбираеми или тривиални. Открити са два момента, заслужаващи внимание: въпрос за фотографиране на написаното (~63:35) и кратък спор относно броенето (~137:44). Нито едно от тях не е достатъчно ясно, за да се квалифицира като сериозно нарушение.",
+  "summary_en": "The transcript is extremely sparse and fragmented; most lines are trivial or unintelligible. Two moments merit attention: a question about photographing written results (~63:35) and a brief dispute about tallying responsibilities (~137:44). Neither is clear enough to constitute a serious finding.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "unauthorized",
+      "summary": "Въпрос за фотографиране на протокола/резултатите",
+      "detail": "Чува се въпрос дали написаното може да бъде снимано. Не е ясно кой пита и дали се отнася до бюлетини, протокол или друг документ. Следва да се провери дали снимащият е регистриран наблюдател.",
+      "quote": "Ето ги написахте, може ли да се снимат?",
+      "timestamp_sec": 3815
+    },
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Спор относно броене/ангажиране на член на СИК",
+      "detail": "Фрагмент от разговор, в който лице изразява несъгласие или раздразнение, че е замесвано в нещо свързано с броене. Контекстът е неясен поради оскъдната транскрипция, но обменът звучи като разногласие между членове.",
+      "quote": "Аз трябва да вземам. Че ме замесваш, брат, да трябва да ме сметам?",
+      "timestamp_sec": 8269
+    }
+  ]
+}
