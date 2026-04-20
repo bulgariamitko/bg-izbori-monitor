@@ -1,0 +1,281 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "092100024",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/092100024/20260419200721135129.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419200721135129.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419200802254335.mp4",
+      "start_sec": 41
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419200822205072.mp4",
+      "start_sec": 61
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419200840874157.mp4",
+      "start_sec": 79
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419200922698966.mp4",
+      "start_sec": 121
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201000823507.mp4",
+      "start_sec": 159
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201038478616.mp4",
+      "start_sec": 197
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201305818358.mp4",
+      "start_sec": 344
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201322602439.mp4",
+      "start_sec": 361
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201332838395.mp4",
+      "start_sec": 371
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201347704575.mp4",
+      "start_sec": 386
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201400052566.mp4",
+      "start_sec": 399
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201403767577.mp4",
+      "start_sec": 402
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419201438587208.mp4",
+      "start_sec": 437
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419202916840098.mp4",
+      "start_sec": 1315
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419202958615054.mp4",
+      "start_sec": 1357
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203107211778.mp4",
+      "start_sec": 1426
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203334645560.mp4",
+      "start_sec": 1573
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203405866635.mp4",
+      "start_sec": 1604
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203430732172.mp4",
+      "start_sec": 1629
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203444691533.mp4",
+      "start_sec": 1643
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203447279697.mp4",
+      "start_sec": 1646
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203535124866.mp4",
+      "start_sec": 1694
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203546532552.mp4",
+      "start_sec": 1705
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203548724589.mp4",
+      "start_sec": 1707
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203613445031.mp4",
+      "start_sec": 1732
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203625504684.mp4",
+      "start_sec": 1744
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203637917989.mp4",
+      "start_sec": 1756
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203728465001.mp4",
+      "start_sec": 1807
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203739123612.mp4",
+      "start_sec": 1818
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203740877177.mp4",
+      "start_sec": 1819
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203804508621.mp4",
+      "start_sec": 1843
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203806146739.mp4",
+      "start_sec": 1845
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419203918688492.mp4",
+      "start_sec": 1917
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204120372452.mp4",
+      "start_sec": 2039
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204226084859.mp4",
+      "start_sec": 2105
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204701145568.mp4",
+      "start_sec": 2380
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204708353653.mp4",
+      "start_sec": 2387
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204715363705.mp4",
+      "start_sec": 2394
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204724076676.mp4",
+      "start_sec": 2403
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204731632860.mp4",
+      "start_sec": 2410
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204752228499.mp4",
+      "start_sec": 2431
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419204830981106.mp4",
+      "start_sec": 2469
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205008168747.mp4",
+      "start_sec": 2567
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205016628660.mp4",
+      "start_sec": 2575
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205034761423.mp4",
+      "start_sec": 2593
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205101977412.mp4",
+      "start_sec": 2620
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205112178274.mp4",
+      "start_sec": 2631
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205119354090.mp4",
+      "start_sec": 2638
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205230408734.mp4",
+      "start_sec": 2709
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205247705796.mp4",
+      "start_sec": 2726
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205304701396.mp4",
+      "start_sec": 2743
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205320481211.mp4",
+      "start_sec": 2759
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205352822138.mp4",
+      "start_sec": 2791
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100024/20260419205504699934.mp4",
+      "start_sec": 2863
+    }
+  ],
+  "region_name": "Кърджали",
+  "address": "С.БАГРЯНКА, сградата на бившето читалище",
+  "town": "БАГРЯНКА",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T17:01:02+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "При различните етапи на преброй са установени разминавания: недействителните бюлетини спадат от 3 на 2, а тези с не подкрепям никого от 4 на 2, без видим повторен преброй. Крайният брой действителни е коригиран от обявените 148 на 146 без преизброяване. Регистриран е кратък изблик с думата безпредел, който бързо утихва.",
+  "summary_en": "Numeric discrepancies appear across counting stages: invalid ballots drop from an initial 3 to a final 2, and blank-preference ballots drop from 4 to 2, with no audible recount for either change. The running valid-ballot sum of 148 is later revised to 146 without explanation. A brief heated outburst citing lawlessness occurs around minute 5 but quickly resolves. Machine receipt shows 0 machine-cast votes, plausible for this small village station.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Кратък изблик с думата безпредел, бързо утихнал",
+      "detail": "Около 5-ата минута звучи Бойката! Действо и безпредел! и настояване да се изиска бойката. Ситуацията се разрешава за секунди с Окей, добре!, но изразът безпредел е употребен без обяснение.",
+      "quote": "Бойката! Действо и безпредел! Бойката, бойката! Бойката да изиским, хора!",
+      "timestamp_sec": 310
+    },
+    {
+      "severity": "low",
+      "category": "protocol",
+      "summary": "Двусмислен въпрос колко трябва да изгледна преди записване на протокол",
+      "detail": "Преди диктуване на числата за протокола звучи въпросът Колко трябва да изгледна, а отговорът е 150. Формулировката внушава проверка на очаквано число, а не верификация на преброения резултат.",
+      "quote": "Колко трябва да изгледна? 150. 150? Толкова по-спасивно, нали?",
+      "timestamp_sec": 1050
+    },
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Брой недействителни и не подкрепям никого е намален без явен повторен преброй",
+      "detail": "При първото обявяване са съобщени 3 недействителни и 4 не подкрепям никого. При последвалото изчисляване числата стават 2 и 2. Разликата от 3 бюлетини не е придружена от видим или чут повторен преброй.",
+      "quote": "Кажете ми невалидните колко са? 3. И не подкрепям никого? 4. ... Два имаме недействителни, два имаме неподкрепени, въобще три.",
+      "timestamp_sec": 962
+    },
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Сборът на действителните бюлетини се променя от 148 на 146 без преизброяване",
+      "detail": "Членовете на СИК изрично събират 111+12+23+2=148 действителни бюлетини, след което числото е заменено с 146, с единственото споменание Още 2 е бялото, без ясно преизброяване.",
+      "quote": "111, 12, 23 и 2. Така, толкова 148. Ама това са действителните бюджетни. ... 146 тогава. ... Още 2 е бялото. 146, действителни.",
+      "timestamp_sec": 1659
+    },
+    {
+      "severity": "info",
+      "category": "procedure",
+      "summary": "Разписката от машина показва 0 гласа",
+      "detail": "При опаковане на материалите се установява, че бележката от машината за гласуване показва 0. За малко село с ниска явка това може да е нормално, ако никой не е гласувал на машина, но следва да се провери дали машината е функционирала правилно.",
+      "quote": "Изкарана е бележката от машината. Че е 0. ... Ами да, няма. Глупава ли на машина 0? Няма.",
+      "timestamp_sec": 2606
+    }
+  ]
+}
