@@ -52,6 +52,7 @@ def build():
                 out.append({**item,
                     "sik": f["sik"], "tour": f["tour"], "slug": f.get("slug"),
                     "video_url": f["video_url"],
+                    "video_chunks": f.get("video_chunks") or [],
                     "region_name": f.get("region_name") or by_sik.get(f["sik"],{}).get("region_name"),
                     "town": f.get("town") or by_sik.get(f["sik"],{}).get("town"),
                     "town_type": f.get("town_type") or by_sik.get(f["sik"],{}).get("town_type"),
@@ -191,11 +192,24 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
                      f'<div class="l">секции „{OVERALL_BG[k]}“</div></div>')
     parts.append("</div>")
 
+    def _chunk_link(chunks: list[dict], video_url: str, ts: int) -> str:
+        # Map global timestamp to the originating chunk + local offset. For
+        # single-chunk sections (or when video_chunks is missing) just hash
+        # the timestamp onto the main URL as before.
+        if not chunks:
+            return video_url + (f"#t={ts}" if ts else "")
+        best = chunks[0]
+        for c in chunks:
+            if (c.get("start_sec") or 0) <= ts: best = c
+            else: break
+        offset = max(0, ts - (best.get("start_sec") or 0))
+        return best["url"] + (f"#t={offset}" if offset else "")
+
     # findings for the CURRENT election — rendered client-side for sort + infinite scroll
     flat_js = []
     for x in flat:
         ts = int(x.get("timestamp_sec") or 0)
-        vurl = x["video_url"] + (f"#t={ts}" if ts else "")
+        vurl = _chunk_link(x.get("video_chunks") or [], x["video_url"], ts)
         flat_js.append({
             "sik": x["sik"],
             "severity": x.get("severity") or "info",
@@ -220,6 +234,7 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     sections_js = []
     for r in findings_rows:
         s = by_sik.get(r["sik"], {})
+        r_chunks = r.get("video_chunks") or []
         sec_findings = []
         for f in r.get("findings", []):
             ts = int(f.get("timestamp_sec") or 0)
@@ -234,7 +249,7 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
                 "detail":  f.get("detail") or "",
                 "quote":   f.get("quote") or "",
                 "category_bg": CAT_BG.get(f.get("category","other"), f.get("category","other")),
-                "vurl": r["video_url"] + (f"#t={ts}" if ts else ""),
+                "vurl": _chunk_link(r_chunks, r["video_url"], ts),
             })
         sections_js.append({
             "sik": r["sik"],

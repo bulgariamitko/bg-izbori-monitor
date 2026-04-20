@@ -47,5 +47,15 @@
       "quote": "Не е готова, но почти 90% е сигурна.",
       "timestamp_sec": 10528
     }
+  ],
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/272200012/20260419201511727779.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/272200012/20260419231517319030.mp4",
+      "start_sec": 10806
+    }
   ]
 }

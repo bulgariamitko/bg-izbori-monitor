@@ -114,6 +114,7 @@ def process_one(slug: str, sik_filter: str | None = None) -> bool:
                 "video_url": group["urls"][0],
                 "video_type": group["type"],
                 "chunk_count": len(group["urls"]),
+                "video_chunks": contribute.build_video_chunks(group["urls"]),
                 "duration_sec": t["duration_sec"],
                 "region_name": section.get("region_name"),
                 "address": section.get("address"),

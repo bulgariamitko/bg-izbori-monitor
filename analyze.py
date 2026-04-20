@@ -100,6 +100,7 @@ def analyze_one(t: dict, prompt: str, push: bool) -> bool:
         "schema": "bg-izbori-findings/1",
         "sik": sik, "slug": t["slug"], "tour": tour,
         "video_url": t["video_url"],
+        "video_chunks": t.get("video_chunks", []),
         "region_name": t.get("region_name"),
         "address": t.get("address"),
         "town": t.get("town"), "town_type": t.get("town_type"),

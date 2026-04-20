@@ -39,5 +39,11 @@
       "quote": "[00:06] Да. ... [21:05] Да, може да те се върне.",
       "timestamp_sec": 6
     }
+  ],
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273700003/20260419201414565285.mp4",
+      "start_sec": 0
+    }
   ]
 }

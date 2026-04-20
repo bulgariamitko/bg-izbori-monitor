@@ -70,6 +70,24 @@ def _chunk_sort_key(url: str) -> str:
     name = url.rsplit("/",1)[-1]
     return name[:14]   # first 14 chars are the timestamp prefix
 
+def build_video_chunks(urls: list[str]) -> list[dict]:
+    """Per-chunk start offset (in seconds from session start), derived from
+    the YYYYMMDDHHMMSS filename prefix. Good enough for deep-linking findings
+    back to the originating video — skips the cost of probing each wav file
+    and works even for findings generated before we saved chunk metadata."""
+    from datetime import datetime
+    out: list[dict] = []
+    t0 = None
+    for u in urls:
+        name = u.rsplit("/",1)[-1][:14]
+        try:
+            t = datetime.strptime(name, "%Y%m%d%H%M%S")
+        except ValueError:
+            out.append({"url": u, "start_sec": 0}); continue
+        if t0 is None: t0 = t
+        out.append({"url": u, "start_sec": int((t - t0).total_seconds())})
+    return out
+
 def pick_section(slug: str, gh_handle: str) -> tuple[dict, dict] | None:
     """Return (section, chosen_video_group).
 
@@ -459,6 +477,7 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
             "video_url": group["urls"][0],
             "video_type": group["type"],
             "chunk_count": n_urls,
+            "video_chunks": build_video_chunks(group["urls"]),
             "duration_sec": t["duration_sec"],
             "region_name": section.get("region_name"),
             "address": section.get("address"),
