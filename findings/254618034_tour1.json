@@ -4,21 +4,62 @@
   "slug": "pe202604",
   "tour": 1,
   "video_url": "https://vod.evideo.bg/pe202604/real/254618034/20260419200517550336.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/254618034/20260419200517550336.mp4",
+      "start_sec": 0
+    }
+  ],
   "region_name": "София 25 МИР",
   "address": "ГР.СОФИЯ, 149 СУ \"Иван Хаджийски\" ж.к.\"Овча купел-2\"",
   "town": "СОФИЯ",
   "town_type": "city",
   "analyzed_by": "owner",
-  "analyzed_at": "2026-04-20T09:05:30+00:00",
+  "analyzed_at": "2026-04-20T09:45:51+00:00",
   "model": "claude-sonnet-4-6",
-  "findings": [],
-  "overall": "clean",
-  "summary_bg": "Транскрипцията е изключително оскъдна — съдържа само кратък диалог при настройка на камерата в началото и няколко несвързани реплики по-късно. Няма данни за нередности при броене, протокол или поведение на членовете на СИК.",
-  "summary_en": "The transcript is extremely sparse, capturing only brief camera-setup dialogue at the start and a few disconnected remarks later. No signs of counting irregularities, protocol issues, intimidation, or procedural violations are present in the available audio.",
-  "video_chunks": [
+  "overall": "minor_concerns",
+  "summary_bg": "Транскрипцията съдържа няколко моменти, заслужаващи внимание: формално „Възражение\" около 119-ата минута, изявление „Ние не сме се подписали\" около 138-ата минута, и нередовна поредица при броенето (31:53) с повторени числа и скок. Нито едно не е категорично доказателство за злоупотреба, но изискват проверка.",
+  "summary_en": "The transcript contains a raised formal objection (~119 min), a statement that members have not signed the protocol (~138 min), and an anomalous counting sequence at ~31:53 with repeated numbers and a jump from 50 to 61 back to 51. None are definitive proof of fraud but each warrants human review.",
+  "findings": [
     {
-      "url": "https://vod.evideo.bg/pe202604/real/254618034/20260419200517550336.mp4",
-      "start_sec": 0
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Разногласие за брой — 6 или 7",
+      "detail": "Двама членове на СИК изразяват различни числа: единият казва 6, другият — 7. Не е ясно дали се е стигнало до преброване и кое число е прието.",
+      "quote": "Има 6. ... 7 има. ... Седмица има.",
+      "timestamp_sec": 905
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Нередовна поредица при броене: повторени числа и скок 50 към 61",
+      "detail": "При броенето се изричат повторения (21, 21; 24, 24; 49, 49; 58, 58) и след 50 следва 61, след което 51, 52. Вероятна е грешка при броенето, но последователността е нетипична.",
+      "quote": "49, 49, 50, 61, 51, 52, 53, 54, 55, 56, 57, 58, 58, 59, 60.",
+      "timestamp_sec": 1913
+    },
+    {
+      "severity": "medium",
+      "category": "dispute",
+      "summary": "Формално Възражение в процеса на протокола",
+      "detail": "На около 119-ата минута някой изрично казва Възражение. Транскрипцията не дава контекст какво се оспорва или как е разрешено.",
+      "quote": "Възражение.",
+      "timestamp_sec": 7142
+    },
+    {
+      "severity": "medium",
+      "category": "protocol",
+      "summary": "Членове на СИК заявяват, че не са се подписали",
+      "detail": "На около 138-ата минута се чува Ние не сме се подписали. Неподписан протокол е процедурна нередност, която може да обезсили резултата от секцията.",
+      "quote": "Ние не сме се подписали.",
+      "timestamp_sec": 8283
+    },
+    {
+      "severity": "low",
+      "category": "intimidation",
+      "summary": "Двусмислено изказване аз ще ви пробвам",
+      "detail": "Изразът може да означава просто ще ви покажа, но в контекст на напрежение може да се тълкува и като завоалирана заплаха. Контекстът е недостатъчен за категоричен извод.",
+      "quote": "Е, аз ще ви пробвам.",
+      "timestamp_sec": 9205
     }
   ]
 }
