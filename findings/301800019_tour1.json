@@ -1,0 +1,709 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "301800019",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/301800019/20260419201900107560.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419201900107560.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419201921893322.mp4",
+      "start_sec": 21
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419201929285096.mp4",
+      "start_sec": 29
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202047612935.mp4",
+      "start_sec": 107
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202124768799.mp4",
+      "start_sec": 144
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202204146830.mp4",
+      "start_sec": 184
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202247784289.mp4",
+      "start_sec": 227
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202324802170.mp4",
+      "start_sec": 264
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202403421295.mp4",
+      "start_sec": 303
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202439237936.mp4",
+      "start_sec": 339
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202517585623.mp4",
+      "start_sec": 377
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202556970312.mp4",
+      "start_sec": 416
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202627868999.mp4",
+      "start_sec": 447
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202702305480.mp4",
+      "start_sec": 482
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202736246010.mp4",
+      "start_sec": 516
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202816041137.mp4",
+      "start_sec": 556
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419202930486608.mp4",
+      "start_sec": 630
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419203041402444.mp4",
+      "start_sec": 701
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419203055283474.mp4",
+      "start_sec": 715
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419203147269466.mp4",
+      "start_sec": 767
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419203218397417.mp4",
+      "start_sec": 798
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204207372545.mp4",
+      "start_sec": 1387
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204257578212.mp4",
+      "start_sec": 1437
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204402635466.mp4",
+      "start_sec": 1502
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204427301185.mp4",
+      "start_sec": 1527
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204455630630.mp4",
+      "start_sec": 1555
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204832346817.mp4",
+      "start_sec": 1772
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419204931604686.mp4",
+      "start_sec": 1831
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205557684566.mp4",
+      "start_sec": 2217
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205607427148.mp4",
+      "start_sec": 2227
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205620486550.mp4",
+      "start_sec": 2240
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205728868444.mp4",
+      "start_sec": 2308
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205815950948.mp4",
+      "start_sec": 2355
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205835088587.mp4",
+      "start_sec": 2375
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205911339561.mp4",
+      "start_sec": 2411
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419205952576977.mp4",
+      "start_sec": 2452
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210002373854.mp4",
+      "start_sec": 2462
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210012516603.mp4",
+      "start_sec": 2472
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210021527169.mp4",
+      "start_sec": 2481
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210027311719.mp4",
+      "start_sec": 2487
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210038704108.mp4",
+      "start_sec": 2498
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210107962885.mp4",
+      "start_sec": 2527
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210147176729.mp4",
+      "start_sec": 2567
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210157923741.mp4",
+      "start_sec": 2577
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210207443708.mp4",
+      "start_sec": 2587
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210219655819.mp4",
+      "start_sec": 2599
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210250309668.mp4",
+      "start_sec": 2630
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210403121123.mp4",
+      "start_sec": 2703
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210416840593.mp4",
+      "start_sec": 2716
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210507865181.mp4",
+      "start_sec": 2767
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210514880287.mp4",
+      "start_sec": 2774
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210534372017.mp4",
+      "start_sec": 2794
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210551605162.mp4",
+      "start_sec": 2811
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210614845556.mp4",
+      "start_sec": 2834
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210732465953.mp4",
+      "start_sec": 2912
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210930185672.mp4",
+      "start_sec": 3030
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210942441716.mp4",
+      "start_sec": 3042
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419210953834537.mp4",
+      "start_sec": 3053
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211043589585.mp4",
+      "start_sec": 3103
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211130469488.mp4",
+      "start_sec": 3150
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211143771106.mp4",
+      "start_sec": 3163
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211156165507.mp4",
+      "start_sec": 3176
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211213157800.mp4",
+      "start_sec": 3193
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211259340522.mp4",
+      "start_sec": 3239
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211410365724.mp4",
+      "start_sec": 3310
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211421355945.mp4",
+      "start_sec": 3321
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211435323832.mp4",
+      "start_sec": 3335
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211448107474.mp4",
+      "start_sec": 3348
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211516590384.mp4",
+      "start_sec": 3376
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211605892357.mp4",
+      "start_sec": 3425
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211616409206.mp4",
+      "start_sec": 3436
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211631978077.mp4",
+      "start_sec": 3451
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211659323499.mp4",
+      "start_sec": 3479
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211810724370.mp4",
+      "start_sec": 3550
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211821224680.mp4",
+      "start_sec": 3561
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211832338232.mp4",
+      "start_sec": 3572
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211843432792.mp4",
+      "start_sec": 3583
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211854505652.mp4",
+      "start_sec": 3594
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419211929715941.mp4",
+      "start_sec": 3629
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212013755909.mp4",
+      "start_sec": 3673
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212024848518.mp4",
+      "start_sec": 3684
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212037998478.mp4",
+      "start_sec": 3697
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212109799603.mp4",
+      "start_sec": 3729
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212159549763.mp4",
+      "start_sec": 3779
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212209648691.mp4",
+      "start_sec": 3789
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212222063446.mp4",
+      "start_sec": 3802
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212256615123.mp4",
+      "start_sec": 3836
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212401342050.mp4",
+      "start_sec": 3901
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212415883171.mp4",
+      "start_sec": 3915
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212426619404.mp4",
+      "start_sec": 3926
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212442678689.mp4",
+      "start_sec": 3942
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212510680792.mp4",
+      "start_sec": 3970
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212607412118.mp4",
+      "start_sec": 4027
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212631093198.mp4",
+      "start_sec": 4051
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212638895193.mp4",
+      "start_sec": 4058
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212720316825.mp4",
+      "start_sec": 4100
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212753114089.mp4",
+      "start_sec": 4133
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212805101150.mp4",
+      "start_sec": 4145
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212813602506.mp4",
+      "start_sec": 4153
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212822436505.mp4",
+      "start_sec": 4162
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212830992451.mp4",
+      "start_sec": 4170
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419212907855856.mp4",
+      "start_sec": 4207
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213019479611.mp4",
+      "start_sec": 4279
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213038576697.mp4",
+      "start_sec": 4298
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213100006628.mp4",
+      "start_sec": 4320
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213126517222.mp4",
+      "start_sec": 4346
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213142973546.mp4",
+      "start_sec": 4362
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213150286396.mp4",
+      "start_sec": 4370
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213225835113.mp4",
+      "start_sec": 4405
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213319555098.mp4",
+      "start_sec": 4459
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213334162508.mp4",
+      "start_sec": 4474
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213401047127.mp4",
+      "start_sec": 4501
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213423461429.mp4",
+      "start_sec": 4523
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213456907356.mp4",
+      "start_sec": 4556
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213620561038.mp4",
+      "start_sec": 4640
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213627007120.mp4",
+      "start_sec": 4647
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213640989282.mp4",
+      "start_sec": 4660
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213644704294.mp4",
+      "start_sec": 4664
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213708000502.mp4",
+      "start_sec": 4688
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213723349243.mp4",
+      "start_sec": 4703
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213738863956.mp4",
+      "start_sec": 4718
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213826778158.mp4",
+      "start_sec": 4766
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213911628757.mp4",
+      "start_sec": 4811
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213925173579.mp4",
+      "start_sec": 4825
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213928517593.mp4",
+      "start_sec": 4828
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419213956491626.mp4",
+      "start_sec": 4856
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214005386780.mp4",
+      "start_sec": 4865
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214042853828.mp4",
+      "start_sec": 4902
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214145181154.mp4",
+      "start_sec": 4965
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214200422590.mp4",
+      "start_sec": 4980
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214214371206.mp4",
+      "start_sec": 4994
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214227282247.mp4",
+      "start_sec": 5007
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214245461841.mp4",
+      "start_sec": 5025
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214311737376.mp4",
+      "start_sec": 5051
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214410991955.mp4",
+      "start_sec": 5110
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214424663184.mp4",
+      "start_sec": 5124
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214459216915.mp4",
+      "start_sec": 5159
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214543532801.mp4",
+      "start_sec": 5203
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214554652669.mp4",
+      "start_sec": 5214
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214605718826.mp4",
+      "start_sec": 5225
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214618558344.mp4",
+      "start_sec": 5238
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214650917762.mp4",
+      "start_sec": 5270
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214816433496.mp4",
+      "start_sec": 5356
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214823671851.mp4",
+      "start_sec": 5363
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214838039259.mp4",
+      "start_sec": 5378
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214908603537.mp4",
+      "start_sec": 5408
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419214917627168.mp4",
+      "start_sec": 5417
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215009586524.mp4",
+      "start_sec": 5469
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215033628626.mp4",
+      "start_sec": 5493
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215107357670.mp4",
+      "start_sec": 5527
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215148231720.mp4",
+      "start_sec": 5568
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215202627166.mp4",
+      "start_sec": 5582
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215222560070.mp4",
+      "start_sec": 5602
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215256390977.mp4",
+      "start_sec": 5636
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215336775334.mp4",
+      "start_sec": 5676
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215354510299.mp4",
+      "start_sec": 5694
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215432444480.mp4",
+      "start_sec": 5732
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215513897177.mp4",
+      "start_sec": 5773
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215626735873.mp4",
+      "start_sec": 5846
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215628593877.mp4",
+      "start_sec": 5848
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215645610579.mp4",
+      "start_sec": 5865
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215653418403.mp4",
+      "start_sec": 5873
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215714793124.mp4",
+      "start_sec": 5894
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215730986333.mp4",
+      "start_sec": 5910
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215744429509.mp4",
+      "start_sec": 5924
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/301800019/20260419215818605232.mp4",
+      "start_sec": 5958
+    }
+  ],
+  "region_name": "Шумен",
+  "address": "С.СРЕДКОВЕЦ, Кметство ул. \"Победа\" №28",
+  "town": "СРЕДКОВЕЦ",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T19:39:16+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Транскрипцията е с лошо качество. Три сигнала: несъответствие 17/19/11 при броенето, разминаване 3/4 при протокола, и въпрос дали може нещо да не се впише.",
+  "summary_en": "Low-quality transcript. Three signals: conflicting counts 17/19/11 during counting, 3-vs-4 discrepancy during protocol recording, and a question about omitting something from the protocol.",
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Числа 17, 19 и 11 се обявяват без ясна окончателна стойност",
+      "detail": "При броенето се чуват три различни числа без изясняване коя е финалната стойност.",
+      "quote": "Седемнайсет без преференция. Девятнайсет. Единайсет. Девятнайсет? Седемнайсет.",
+      "timestamp_sec": 70
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Разминаване 14/15 и 3/4 при броене за протокола",
+      "detail": "Последователно се обявяват 15, 14, четири и три без ясно финално число.",
+      "quote": "15? ... 14? Четири броя без преференция. Три броя. Твои четири.",
+      "timestamp_sec": 2027
+    },
+    {
+      "severity": "medium",
+      "category": "protocol",
+      "summary": "Въпрос може ли нещо да не се вписва в протокола",
+      "detail": "Зададен е въпрос дали може нещо да не бъде записано, което може да означава пропускане на данни.",
+      "quote": "Може да не пишем?",
+      "timestamp_sec": 3245
+    }
+  ]
+}
