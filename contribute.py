@@ -13,6 +13,23 @@ from pathlib import Path
 
 import config, store
 
+# Lazy import — only when we need to fetch fresh video URLs
+def _fetch_section_videos(section: dict) -> list[dict]:
+    """Re-fetch the OIK page for this section and parse out current video
+    URLs. Needed because sections.json stores only chunk_count to stay
+    small; the real URLs are fetched on demand."""
+    import scrape as _sc
+    from curl_cffi import requests
+    s = requests.Session(impersonate=config.IMPERSONATE)
+    s.headers.update(config.HEADERS)
+    s.get(f"https://evideo.bg/{section['slug']}/index.html")
+    r = s.get(section["oik_page"]); r.raise_for_status()
+    rows = _sc.parse_oik_page(section["slug"], section["oik_page"], r.text)
+    for row in rows:
+        if row["sik"] == section["sik"]:
+            return row.get("videos", [])
+    return []
+
 RISK_FILE = config.BASE / "risk_tiers.json"
 RISK_RANK = {"high": 0, "mid": 1}   # smaller = picked first
 
@@ -75,23 +92,31 @@ def pick_section(slug: str, gh_handle: str) -> tuple[dict, dict] | None:
     PREF = ("device", "live_hls", "live")
     for s in sections:
         vids = s.get("videos", [])
-        # group by (tour, type), collect all URLs
-        group = None
+        # Compact stored form has {tour, type, chunk_count}; full form has
+        # {tour, type, url}. Pick the preferred (tour, type) either way.
+        chosen = None
         for kind in PREF:
-            buckets = {}
             for v in vids:
-                if v["type"] != kind: continue
-                buckets.setdefault(v["tour"], []).append(v["url"])
-            if not buckets: continue
-            tour = sorted(buckets)[0]
-            urls = sorted(buckets[tour], key=_chunk_sort_key)
-            group = {"tour": tour, "type": kind, "urls": urls}
-            break
-        if not group: continue
-        if store.has_transcript(s["sik"], group["tour"]): continue
-        claim = store.load_claim(s["sik"], group["tour"])
+                if v["type"] == kind: chosen = v; break
+            if chosen: break
+        if not chosen: continue
+        tour = chosen["tour"]
+        if store.has_transcript(s["sik"], tour): continue
+        claim = store.load_claim(s["sik"], tour)
         if store.claim_is_active(claim, me): continue
-        return s, group
+        # Fetch actual URLs lazily if needed
+        if "url" in chosen:  # legacy full form
+            urls = [v["url"] for v in vids if v["tour"] == tour and v["type"] == chosen["type"]]
+            urls.sort(key=_chunk_sort_key)
+        else:
+            fresh = _fetch_section_videos(s)
+            urls = [v["url"] for v in fresh if v["tour"] == tour and v["type"] == chosen["type"]]
+            urls.sort(key=_chunk_sort_key)
+            if not urls:
+                print(f"[pick] no URLs found after refetch for {s['sik']} — skipping",
+                      file=sys.stderr)
+                continue
+        return s, {"tour": tour, "type": chosen["type"], "urls": urls}
     return None
 
 # ----- pipeline steps ----------------------------------------------------

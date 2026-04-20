@@ -134,8 +134,20 @@ def run(slug: str, limit: int = 0):
         try:
             r = sess.get(url); r.raise_for_status()
             secs = parse_oik_page(slug, url, r.text)
-            # use nice municipality name from index listing
-            for s in secs: s["region_name"] = p["name"]
+            for s in secs:
+                s["region_name"] = p["name"]
+                # sections.json is committed to git and shared with every
+                # volunteer; the raw chunk URLs blow up the file to 70+ MB.
+                # Store only the per-SIK COUNT + video TYPE — contribute.py
+                # re-fetches the actual URLs lazily from the OIK page.
+                compact = []
+                by_tour: dict = {}
+                for v in s.get("videos", []):
+                    k = (v["tour"], v["type"])
+                    by_tour[k] = by_tour.get(k, 0) + 1
+                for (tour, typ), n in sorted(by_tour.items()):
+                    compact.append({"tour": tour, "type": typ, "chunk_count": n})
+                s["videos"] = compact
             all_sections.extend(secs)
             print(f"  [{i:>3}/{len(pages)}] {p['rik']:>4} {p['name']:<25} {len(secs)} sections")
         except Exception as e:
