@@ -182,10 +182,12 @@ def _evideo_cookies_for_ffmpeg() -> str:
     _cookies_header_cache = "\r\n".join(parts)
     return _cookies_header_cache
 
-# dynaudnorm smoothly boosts quiet passages (camera-across-the-room polling
-# footage) without clipping the loud ones. `loudnorm` is more correct but
-# needs a two-pass measure step — overkill for whisper.
-AUDIO_FILTER = "dynaudnorm=f=150:g=15:p=0.95"
+# Flat 20 dB gain + look-ahead limiter keeps whisper in its sweet spot even
+# when the camera is across the room (polling footage often runs at -25 dB
+# mean; VAD + no_speech heuristics drop most of it). dynaudnorm tried before
+# only lifted 2 dB because peak limiter clamped to ~0 dBFS. The alimiter
+# here prevents actual clipping without compressing quiet passages away.
+AUDIO_FILTER = "volume=20dB,alimiter=limit=0.98:attack=5:release=50"
 
 def _stream_audio_only(url: str, wav: Path):
     """Stream audio directly from the URL. For faststart mp4 on servers that
@@ -315,13 +317,15 @@ def transcribe(path: Path) -> dict:
     segments, info = whisper().transcribe(
         str(path), language="bg",
         vad_filter=True,
-        vad_parameters={"threshold": 0.3, "min_silence_duration_ms": 500},
+        # threshold=0.2 keeps far-field quiet speech; min_silence 800ms keeps
+        # VAD from chopping mid-sentence during natural pauses.
+        vad_parameters={"threshold": 0.2, "min_silence_duration_ms": 800},
         beam_size=1,
         # Low-signal polling footage (far mic, whispered counting) trips the
         # compression-ratio / logprob fallbacks; without these clamps the
         # decoder hallucinates Latin/foreign tokens during quiet stretches.
         condition_on_previous_text=False,
-        no_speech_threshold=0.5,
+        no_speech_threshold=0.3,
         log_prob_threshold=-1.0,
         compression_ratio_threshold=2.4,
     )
