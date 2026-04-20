@@ -182,6 +182,11 @@ def _evideo_cookies_for_ffmpeg() -> str:
     _cookies_header_cache = "\r\n".join(parts)
     return _cookies_header_cache
 
+# dynaudnorm smoothly boosts quiet passages (camera-across-the-room polling
+# footage) without clipping the loud ones. `loudnorm` is more correct but
+# needs a two-pass measure step — overkill for whisper.
+AUDIO_FILTER = "dynaudnorm=f=150:g=15:p=0.95"
+
 def _stream_audio_only(url: str, wav: Path):
     """Stream audio directly from the URL. For faststart mp4 on servers that
     honor Range, ffmpeg reads the moov atom then byte-range GETs only audio
@@ -199,7 +204,8 @@ def _stream_audio_only(url: str, wav: Path):
     if cookies:
         cmd += ["-cookies", cookies]
     cmd += ["-i", url,
-            "-vn","-ac","1","-ar","16000","-c:a","pcm_s16le",
+            "-vn","-ac","1","-ar","16000","-af", AUDIO_FILTER,
+            "-c:a","pcm_s16le",
             "-y", str(wav)]
     r = run_cmd(cmd)
     if r.returncode != 0 or not wav.exists() or wav.stat().st_size < 1024:
@@ -214,7 +220,8 @@ def _extract_audio(src: Path, wav: Path):
            "-err_detect","ignore_err",
            "-fflags","+genpts+discardcorrupt",
            "-i", str(src),
-           "-vn","-ac","1","-ar","16000","-c:a","pcm_s16le",
+           "-vn","-ac","1","-ar","16000","-af", AUDIO_FILTER,
+           "-c:a","pcm_s16le",
            "-y", str(wav)]
     r = run_cmd(cmd)
     if r.returncode != 0 or not wav.exists():
@@ -307,8 +314,16 @@ def transcribe(path: Path) -> dict:
     t0 = time.time()
     segments, info = whisper().transcribe(
         str(path), language="bg",
-        vad_filter=True, vad_parameters={"min_silence_duration_ms": 500},
+        vad_filter=True,
+        vad_parameters={"threshold": 0.3, "min_silence_duration_ms": 500},
         beam_size=1,
+        # Low-signal polling footage (far mic, whispered counting) trips the
+        # compression-ratio / logprob fallbacks; without these clamps the
+        # decoder hallucinates Latin/foreign tokens during quiet stretches.
+        condition_on_previous_text=False,
+        no_speech_threshold=0.5,
+        log_prob_threshold=-1.0,
+        compression_ratio_threshold=2.4,
     )
     segs = [{"start": round(s.start,2), "end": round(s.end,2), "text": s.text.strip()}
             for s in segments]
