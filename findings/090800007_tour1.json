@@ -1,0 +1,45 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "090800007",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/090800007/20260419200546208114.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/090800007/20260419200546208114.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/090800007/20260419201154673929.mp4",
+      "start_sec": 368
+    }
+  ],
+  "region_name": "Кърджали",
+  "address": "С.КАЗАЦИТЕ, сграда №48А, кметство",
+  "town": "КАЗАЦИТЕ",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T17:06:26+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Транскрипцията е силно фрагментирана поради ниско качество на звука. Открити са две потенциални нередности: разминаване в обявена сума (120+1 → 120+21) в началото на броенето и неясен призив „Спирай!\" в края на записа. Нито едно не е достатъчно ясно за критична оценка, но заслужават проверка от наблюдател.",
+  "summary_en": "The transcript is heavily fragmented due to poor audio quality. Two potential irregularities: a number discrepancy (120+1 vs 120+21) early in the count, and an unclear command to stop near the end. Neither is conclusive but both warrant a human observer check.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Разминаване в обявени числа: 120+1 vs 120+21",
+      "detail": "На 02:38 се чува 120 плюс едно, а 13 секунди по-късно на 02:51 същото се преформулира като 120 плюс 21. Не е ясно дали е поправка или различна стойност. Протоколният запис трябва да се провери спрямо преброените бюлетини.",
+      "quote": "120 плюс едно. / 120 плюс 21 е.",
+      "timestamp_sec": 158
+    },
+    {
+      "severity": "info",
+      "category": "dispute",
+      "summary": "Призив Спирай в края на записа",
+      "detail": "На 32:15 се чува категоричен призив Да, да, спирай!, предшестван от думи за неразбиране на 32:12. Контекстът е твърде фрагментиран за окончателна оценка.",
+      "quote": "Аз съм малко не съм съборен. Да, да, спирай!",
+      "timestamp_sec": 1935
+    }
+  ]
+}
