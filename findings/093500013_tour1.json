@@ -1,0 +1,59 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "093500013",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/093500013/20260419201822816346.mp4",
+  "region_name": "Кърджали",
+  "address": "С.ДАСКАЛОВО, кметството",
+  "town": "ДАСКАЛОВО",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T06:58:54+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Установени са два случая на несъответствие при броенето (130 срещу 131 за един и същи куп), а общият брой се колебае между 129 и 131 без явно повторно преброяване. В края на записа се наблюдава подканване на член на СИК да подпише и да напусне, а изявлението нямаме нищо да пишем, само подписваме поражда въпрос дали протоколът е изцяло попълнен.",
+  "summary_en": "Two contradictory counts of the same ballot pile (130 vs 131) were noted, with the running total fluctuating between 129-131 without an explicit recount. Near the end a SIK member appears pressured to sign and leave, and the phrase we have nothing to write, just sign raises a question about whether the protocol was fully completed.",
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Едно и също броене дава 130 и 131",
+      "detail": "Член на СИК заявява, че е преброил един куп два пъти и е получил различни резултати.",
+      "quote": "Но в една ж ги броих на 130, в една ж ги броих на 131.",
+      "timestamp_sec": 729
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Общият брой се колебае между 129, 130 и 131",
+      "detail": "В рамките на две минути обявяваните стойности се сменят без явно ново преброяване.",
+      "quote": "130 са. ... 129. ... Та са 131. ... Бегнащ 129, беднащ 130 е.",
+      "timestamp_sec": 974
+    },
+    {
+      "severity": "low",
+      "category": "protocol",
+      "summary": "Объркване относно часа в протокола",
+      "detail": "Споменават се поне три различни стойности за час в бърза последователност.",
+      "quote": "Какво се пише? 21 и 25. 22 и 25. ... 21 и 22. 21.",
+      "timestamp_sec": 1183
+    },
+    {
+      "severity": "low",
+      "category": "intimidation",
+      "summary": "Член е подканен бързо да подпише и да напусне",
+      "detail": "Чува се изречение да се подпише и да тръгне, а лицето потвърждава, че му е казано това.",
+      "quote": "Е, да подписвай се и тръгвай това. ... Каза, че аз ще се подпиша и да тръгвам.",
+      "timestamp_sec": 1311
+    },
+    {
+      "severity": "medium",
+      "category": "protocol",
+      "summary": "Нямаме нищо да пишем, само подписваме",
+      "detail": "Непосредствено преди подписването се заявява, че няма какво да се пише, което може да означава подписване на непопълнен протокол.",
+      "quote": "Нямаме нищо да пишем. И сега само подписваме.",
+      "timestamp_sec": 1414
+    }
+  ]
+}

@@ -48,18 +48,20 @@ def _user_hash(sik: str, gh_handle: str) -> int:
     h = hashlib.sha256(f"{gh_handle}:{sik}".encode()).digest()
     return int.from_bytes(h[:8], "big")
 
+def _chunk_sort_key(url: str) -> str:
+    """Sort by the YYYYMMDDHHMMSS timestamp embedded in the filename."""
+    name = url.rsplit("/",1)[-1]
+    return name[:14]   # first 14 chars are the timestamp prefix
+
 def pick_section(slug: str, gh_handle: str) -> tuple[dict, dict] | None:
-    """Return (section, video) for something unprocessed & unclaimed.
-    Priority:
-      1. high-risk  (tibroish.bg)   — tier 0
-      2. mid-risk                   — tier 1
-      3. villages                   — tier 2
-      4. small towns                — tier 3
-      5. big cities                 — tier 4
-      6. unknown                    — tier 11
-    Within a tier the order is deterministic per-volunteer — two
-    volunteers get different orderings so they start on different
-    sections without coordinating.
+    """Return (section, chosen_video_group).
+
+    chosen_video_group = {"tour": int, "type": "device"|"live_hls"|"live",
+                          "urls": [url, …]}  — one URL for device/HLS,
+                          many chunks sorted chronologically for 'live'.
+
+    Priority: high-risk → mid-risk → villages → towns → cities.
+    Deterministic per-volunteer ordering within a tier.
     """
     sections = [s for s in store.load_sections() if s.get("slug") == slug]
     risk = load_risk_tiers()
@@ -70,55 +72,80 @@ def pick_section(slug: str, gh_handle: str) -> tuple[dict, dict] | None:
     sections.sort(key=key)
 
     me = gh_handle or ""
-    # Preferred video types for the section:
-    #   device   — single full mp4 (le* archive format)
-    #   live_hls — HLS playlist (pe* live format). yt-dlp records to end.
-    #   live     — live-recording chunks (last resort)
     PREF = ("device", "live_hls", "live")
     for s in sections:
         vids = s.get("videos", [])
-        # pick the best-available format for this section
-        chosen = None
+        # group by (tour, type), collect all URLs
+        group = None
         for kind in PREF:
+            buckets = {}
             for v in vids:
-                if v["type"] == kind:
-                    chosen = v; break
-            if chosen: break
-        if not chosen: continue
-        if store.has_transcript(s["sik"], chosen["tour"]): continue
-        claim = store.load_claim(s["sik"], chosen["tour"])
+                if v["type"] != kind: continue
+                buckets.setdefault(v["tour"], []).append(v["url"])
+            if not buckets: continue
+            tour = sorted(buckets)[0]
+            urls = sorted(buckets[tour], key=_chunk_sort_key)
+            group = {"tour": tour, "type": kind, "urls": urls}
+            break
+        if not group: continue
+        if store.has_transcript(s["sik"], group["tour"]): continue
+        claim = store.load_claim(s["sik"], group["tour"])
         if store.claim_is_active(claim, me): continue
-        return s, chosen
+        return s, group
     return None
 
 # ----- pipeline steps ----------------------------------------------------
 
-def download(video_url: str, out: Path):
-    """Download an mp4 or record an HLS live stream until it ends.
-    yt-dlp handles both; `--hls-use-mpegts` + `--live-from-start` makes
-    the HLS recording contiguous.
-    """
-    is_hls = video_url.endswith(".m3u8")
+def _yt_dlp(url: str, out: Path, hls: bool):
     cmd = [
         "yt-dlp",
         "--cookies-from-browser", config.COOKIES_FROM_BROWSER,
         "--referer", "https://evideo.bg/",
         "--no-part", "--no-progress", "--quiet", "--no-warnings",
     ]
-    if is_hls:
-        cmd += [
-            "--live-from-start",          # grab from the beginning of the live stream
-            "--hls-use-mpegts",           # resilient to premature cutoff
-            "--merge-output-format","mp4",
-        ]
-    cmd += ["-o", str(out), video_url]
-    print(f"[download] {('HLS live' if is_hls else 'mp4')}  {video_url.rsplit('/',2)[-2]}/{video_url.rsplit('/',1)[-1]} …", flush=True)
-    t0 = time.time()
+    if hls:
+        cmd += ["--live-from-start","--hls-use-mpegts","--merge-output-format","mp4"]
+    cmd += ["-o", str(out), url]
     r = run_cmd(cmd)
     if r.returncode != 0 or not out.exists():
-        raise RuntimeError(f"yt-dlp failed: {r.stderr.strip()[:400]}")
-    print(f"[download] {out.stat().st_size/1e6:.1f} MB in {time.time()-t0:.1f}s",
-          flush=True)
+        raise RuntimeError(f"yt-dlp failed for {url}: {r.stderr.strip()[:300]}")
+
+def download(urls: list[str], out: Path, tmpdir: Path):
+    """Download a video or a chain of chunks and concatenate to `out`.
+
+    - Single URL (device mp4 or HLS playlist) → one yt-dlp call.
+    - Many URLs (pe-archive live chunks) → download sequentially,
+      ffmpeg-concat into one mp4, delete chunks.
+    """
+    tmpdir.mkdir(parents=True, exist_ok=True)
+    if out.exists(): out.unlink()
+    if len(urls) == 1:
+        print(f"[download] {urls[0].rsplit('/',1)[-1]} …", flush=True)
+        t0 = time.time()
+        _yt_dlp(urls[0], out, hls=urls[0].endswith(".m3u8"))
+        print(f"[download] {out.stat().st_size/1e6:.1f} MB in {time.time()-t0:.1f}s", flush=True)
+        return
+    print(f"[download] {len(urls)} chunks …", flush=True)
+    t0 = time.time()
+    parts: list[Path] = []
+    for i, u in enumerate(urls, 1):
+        p = tmpdir / f"chunk_{i:05d}.mp4"
+        _yt_dlp(u, p, hls=False)
+        parts.append(p)
+        if i % 10 == 0 or i == len(urls):
+            print(f"  [{i}/{len(urls)}] chunks downloaded", flush=True)
+    # ffmpeg concat via list file
+    list_file = tmpdir / "concat.txt"
+    list_file.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
+    cmd = ["ffmpeg","-hide_banner","-v","error","-f","concat","-safe","0",
+           "-i", str(list_file), "-c","copy","-y", str(out)]
+    r = run_cmd(cmd)
+    if r.returncode != 0 or not out.exists():
+        raise RuntimeError(f"ffmpeg concat failed: {r.stderr.strip()[:400]}")
+    for p in parts: p.unlink(missing_ok=True)
+    list_file.unlink(missing_ok=True)
+    print(f"[download] concat -> {out.stat().st_size/1e6:.1f} MB, "
+          f"total {time.time()-t0:.1f}s", flush=True)
 
 def transcribe(path: Path) -> dict:
     print(f"[whisper] transcribing {path.name}", flush=True)
@@ -264,32 +291,37 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
     if not pick:
         print("[contribute] nothing to do — all sections have a transcript!")
         return False
-    section, video = pick
-    sik, tour = section["sik"], video["tour"]
+    section, group = pick
+    sik, tour = section["sik"], group["tour"]
     risk = load_risk_tiers().get(sik)
     risk_tag = f" [риск:{risk}]" if risk else ""
+    n_urls = len(group["urls"])
+    chunks_tag = f" · {n_urls} chunks" if n_urls > 1 else ""
     print(f"\n=== СИК {sik}{risk_tag}  {section.get('region_name')}  "
-          f"{section.get('town','')} ({section.get('town_type','?')}) — tour {tour} ===")
+          f"{section.get('town','')} ({section.get('town_type','?')}) — "
+          f"tour {tour}{chunks_tag} ===")
 
     # Place a claim FIRST so concurrent volunteers see we're working on this
     # SIK. Push it to GitHub ASAP via a small PR that auto-merges.
     if push:
         claim_path = store.write_claim(sik, tour, gh_handle or "anon")
         if not _publish_claim(claim_path, sik, tour):
-            # Claim couldn't be pushed (maybe raced) — fall back to next section
             store.delete_claim(sik, tour)
             print("[contribute] claim push failed, trying next section", file=sys.stderr)
-            return True   # return True so the --loop keeps going
+            return True
 
     mp4 = config.VIDEOS_DIR / f"{sik}_tour{tour}.mp4"
+    tmpdir = config.VIDEOS_DIR / f"{sik}_tour{tour}.chunks"
     if mp4.exists(): mp4.unlink()
     try:
-        download(video["url"], mp4)
+        download(group["urls"], mp4, tmpdir)
         t = transcribe(mp4)
         payload = {
             "schema": "bg-izbori-transcript/1",
             "sik": sik, "slug": slug, "tour": tour,
-            "video_url": video["url"], "video_type": video["type"],
+            "video_url": group["urls"][0],
+            "video_type": group["type"],
+            "chunk_count": n_urls,
             "duration_sec": t["duration_sec"],
             "region_name": section.get("region_name"),
             "address": section.get("address"),
@@ -317,6 +349,13 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
         return True
     finally:
         if mp4.exists(): mp4.unlink()
+        # clean up chunk tmpdir
+        if tmpdir.exists():
+            for p in tmpdir.iterdir():
+                try: p.unlink()
+                except Exception: pass
+            try: tmpdir.rmdir()
+            except Exception: pass
 
 def main():
     ap = argparse.ArgumentParser()
