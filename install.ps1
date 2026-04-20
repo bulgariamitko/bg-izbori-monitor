@@ -49,10 +49,12 @@ function Ensure-Gh-Auth {
 
 function Fork-And-Clone {
     if (Test-Path (Join-Path $LocalDir ".git")) {
-        Say "Repo already at $LocalDir — pulling latest"
-        Push-Location $LocalDir
-        git pull --rebase --autostash origin main
-        Pop-Location
+        Say "Repo already at $LocalDir — hard-syncing with upstream"
+        # Ensure upstream remote exists (older installs may be missing it).
+        git -C $LocalDir remote add upstream "https://github.com/$Repo.git" 2>$null | Out-Null
+        git -C $LocalDir fetch upstream main
+        git -C $LocalDir checkout main 2>$null | Out-Null
+        git -C $LocalDir reset --hard upstream/main
         return
     }
     Say "Forking $Repo and cloning to $LocalDir"
@@ -61,6 +63,7 @@ function Fork-And-Clone {
     git clone "https://github.com/$user/bg-izbori-monitor.git" $LocalDir
     git -C $LocalDir remote add upstream "https://github.com/$Repo.git" 2>$null | Out-Null
     git -C $LocalDir fetch upstream
+    git -C $LocalDir reset --hard upstream/main
     git -C $LocalDir config pull.rebase true
 }
 
@@ -87,7 +90,22 @@ function Run-Contribute {
     & .\venv\Scripts\Activate.ps1
     $gh = (gh api user --jq .login).Trim()
     Say "Starting transcription loop as '$gh' — Ctrl-C to stop"
-    python contribute.py --gh-handle $gh --loop
+    # Outer loop: pull latest upstream code + data BEFORE every iteration so
+    # long-running volunteers pick up config / sections changes mid-session.
+    while ($true) {
+        Say "Sync with upstream (latest code + sections)…"
+        git fetch upstream main 2>$null | Out-Null
+        git checkout main 2>$null | Out-Null
+        git reset --hard upstream/main 2>$null | Out-Null
+        pip install --quiet -r requirements.txt 2>$null | Out-Null
+        try {
+            python contribute.py --gh-handle $gh
+        } catch {
+            Warn "contribute.py errored — retrying in 30s"
+            Start-Sleep -Seconds 30
+        }
+        Start-Sleep -Seconds 5
+    }
 }
 
 Install-Deps

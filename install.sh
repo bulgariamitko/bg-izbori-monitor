@@ -89,8 +89,14 @@ setup_gh_auth() {
 
 fork_and_clone() {
     if [[ -d "$LOCAL_DIR/.git" ]]; then
-        say "Repo already at $LOCAL_DIR — pulling latest"
-        git -C "$LOCAL_DIR" pull --rebase --autostash origin main
+        say "Repo already at $LOCAL_DIR — hard-syncing with upstream"
+        # Ensure upstream remote exists (older installs may be missing it).
+        git -C "$LOCAL_DIR" remote add upstream "https://github.com/$REPO.git" 2>/dev/null || true
+        git -C "$LOCAL_DIR" fetch upstream main
+        # main tracks upstream/main — reset discards any stale local state
+        # (the contribute flow only commits on branches, never on main).
+        git -C "$LOCAL_DIR" checkout main 2>/dev/null || true
+        git -C "$LOCAL_DIR" reset --hard upstream/main
         return
     fi
     say "Forking $REPO and cloning to $LOCAL_DIR"
@@ -99,6 +105,7 @@ fork_and_clone() {
     git clone "https://github.com/$USER_LOGIN/bg-izbori-monitor.git" "$LOCAL_DIR"
     git -C "$LOCAL_DIR" remote add upstream "https://github.com/$REPO.git" 2>/dev/null || true
     git -C "$LOCAL_DIR" fetch upstream
+    git -C "$LOCAL_DIR" reset --hard upstream/main
     git -C "$LOCAL_DIR" branch --set-upstream-to=origin/main main || true
     # Default to rebase on pull so the per-transcript branch flow stays clean.
     git -C "$LOCAL_DIR" config pull.rebase true
@@ -129,7 +136,26 @@ run_contribute() {
     source venv/bin/activate
     GH_HANDLE=$(gh api user --jq .login 2>/dev/null || echo "")
     say "Starting transcription loop as '$GH_HANDLE' — Ctrl-C to stop"
-    python contribute.py --gh-handle "$GH_HANDLE" --loop
+    # Outer loop: pull latest upstream code + data BEFORE every iteration, so
+    # a long-running volunteer automatically picks up config.py / sections.json
+    # / risk_tiers.json changes (e.g. when the owner flips the slug on election
+    # day). contribute.py runs one section per invocation; the bash loop keeps
+    # the "sync → process one → sync → process next" rhythm.
+    while true; do
+        say "Sync with upstream (latest code + sections)…"
+        git fetch upstream main >/dev/null 2>&1 || true
+        git checkout main --quiet 2>/dev/null || true
+        git reset --hard upstream/main --quiet 2>/dev/null || true
+        pip install --quiet -r requirements.txt 2>/dev/null || true
+        if python contribute.py --gh-handle "$GH_HANDLE"; then
+            :
+        else
+            warn "contribute.py exited with error — retrying in 30s"
+            sleep 30
+        fi
+        # tiny gap so we don't hammer the repo when the work queue is empty
+        sleep 5
+    done
 }
 
 main() {
