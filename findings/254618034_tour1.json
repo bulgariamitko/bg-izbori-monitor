@@ -14,5 +14,11 @@
   "findings": [],
   "overall": "clean",
   "summary_bg": "Транскрипцията е изключително оскъдна — съдържа само кратък диалог при настройка на камерата в началото и няколко несвързани реплики по-късно. Няма данни за нередности при броене, протокол или поведение на членовете на СИК.",
-  "summary_en": "The transcript is extremely sparse, capturing only brief camera-setup dialogue at the start and a few disconnected remarks later. No signs of counting irregularities, protocol issues, intimidation, or procedural violations are present in the available audio."
+  "summary_en": "The transcript is extremely sparse, capturing only brief camera-setup dialogue at the start and a few disconnected remarks later. No signs of counting irregularities, protocol issues, intimidation, or procedural violations are present in the available audio.",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/254618034/20260419200517550336.mp4",
+      "start_sec": 0
+    }
+  ]
 }

@@ -14,5 +14,11 @@
   "findings": [],
   "overall": "clean",
   "summary_bg": "Транскрипцията обхваща само началния период на настройка на камерата преди стартиране на преброяването. Членовете на СИК обсъждат как да позиционират записващото устройство и да го подпрат. Не са установени нередности, свързани с броенето, протокола или поведението на комисията.",
-  "summary_en": "The transcript covers only the initial camera setup period before counting begins. SIK members discuss how to position and prop up the recording device. No irregularities related to counting, the protocol, or commission conduct were identified."
+  "summary_en": "The transcript covers only the initial camera setup period before counting begins. SIK members discuss how to position and prop up the recording device. No irregularities related to counting, the protocol, or commission conduct were identified.",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/021800022/20260419200208550378.mp4",
+      "start_sec": 0
+    }
+  ]
 }
