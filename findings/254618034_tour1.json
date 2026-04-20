@@ -1,0 +1,18 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "254618034",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/254618034/20260419200517550336.mp4",
+  "region_name": "София 25 МИР",
+  "address": "ГР.СОФИЯ, 149 СУ \"Иван Хаджийски\" ж.к.\"Овча купел-2\"",
+  "town": "СОФИЯ",
+  "town_type": "city",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T08:25:21+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "clean",
+  "summary_bg": "Транскрипцията е изключително фрагментарна — записани са само откъслечни реплики с големи празнини между времевите маркери. Видимото съдържание включва настройка на камерата в началото и единични извиквания на числа по време на броенето. Не се наблюдават индикатори за нередности.",
+  "summary_en": "The transcript is extremely sparse, with large gaps between timestamps and only isolated utterances captured. Visible content covers camera setup and occasional number call-outs during counting. No indicators of irregularities are present.",
+  "findings": []
+}
