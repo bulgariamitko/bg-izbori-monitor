@@ -99,13 +99,15 @@ def process_one(slug: str, sik_filter: str | None = None) -> bool:
     _git("pull","--rebase","--autostash")
 
     # ---------- 2. TRANSCRIBE -------------------------------------------
-    if not store.has_transcript(sik, tour):
-        mp4    = config.VIDEOS_DIR / f"{sik}_tour{tour}.mp4"
+    # --sik forces re-transcribe so a bad recording (e.g. first-minute-only
+    # truncation from a broken mp4 concat) can be redone cleanly.
+    if not store.has_transcript(sik, tour) or sik_filter:
+        audio  = config.VIDEOS_DIR / f"{sik}_tour{tour}.wav"
         tmpdir = config.VIDEOS_DIR / f"{sik}_tour{tour}.chunks"
-        if mp4.exists(): mp4.unlink()
+        if audio.exists(): audio.unlink()
         try:
-            contribute.download(group["urls"], mp4, tmpdir)
-            t = contribute.transcribe(mp4)
+            contribute.download(group["urls"], audio, tmpdir)
+            t = contribute.transcribe(audio)
             payload = {
                 "schema": "bg-izbori-transcript/1",
                 "sik": sik, "slug": slug, "tour": tour,
@@ -135,7 +137,7 @@ def process_one(slug: str, sik_filter: str | None = None) -> bool:
             if claim_file.exists(): claim_file.unlink()
             contribute.git_publish(paths, sik, tour, push=True)
         finally:
-            if mp4.exists(): mp4.unlink()
+            if audio.exists(): audio.unlink()
             if tmpdir.exists():
                 for p in tmpdir.iterdir():
                     try: p.unlink()
@@ -144,7 +146,7 @@ def process_one(slug: str, sik_filter: str | None = None) -> bool:
                 except Exception: pass
 
     # ---------- 3. CLAUDE ANALYSIS --------------------------------------
-    if not store.has_findings(sik, tour):
+    if not store.has_findings(sik, tour) or sik_filter:
         t = store.load_transcript(sik, tour)
         if not t:
             print(f"[owner] transcript vanished for {sik}"); return True

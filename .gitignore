@@ -17,3 +17,5 @@ dashboard.html
 .idea/
 .vscode/
 *.swp
+.evideo-cookies.txt
+.claude/

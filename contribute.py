@@ -135,51 +135,154 @@ def _yt_dlp(url: str, out: Path, hls: bool):
     if r.returncode != 0 or not out.exists():
         raise RuntimeError(f"yt-dlp failed for {url}: {r.stderr.strip()[:300]}")
 
-def download(urls: list[str], out: Path, tmpdir: Path):
-    """Download a video or a chain of chunks and concatenate to `out`.
+_cookies_header_cache: str | None = None
+def _evideo_cookies_for_ffmpeg() -> str:
+    # Exported once per process: faster than the yt-dlp round-trip on every
+    # chunk, and good enough since Cloudflare cookies live for hours.
+    global _cookies_header_cache
+    if _cookies_header_cache is not None:
+        return _cookies_header_cache
+    jar_path = config.BASE / ".evideo-cookies.txt"
+    cmd = ["yt-dlp",
+           "--cookies-from-browser", config.COOKIES_FROM_BROWSER,
+           "--cookies", str(jar_path),
+           "--skip-download", "--no-warnings", "--quiet",
+           "https://evideo.bg/"]
+    run_cmd(cmd)
+    if not jar_path.exists():
+        _cookies_header_cache = ""
+        return ""
+    import http.cookiejar
+    cj = http.cookiejar.MozillaCookieJar(str(jar_path))
+    try: cj.load(ignore_discard=True, ignore_expires=True)
+    except Exception:
+        _cookies_header_cache = ""; return ""
+    parts = []
+    for c in cj:
+        if "evideo.bg" not in (c.domain or ""): continue
+        parts.append(f"{c.name}={c.value}; path={c.path or '/'}; domain={c.domain}")
+    _cookies_header_cache = "\r\n".join(parts)
+    return _cookies_header_cache
 
-    - Single URL (device mp4 or HLS playlist) → one yt-dlp call.
-    - Many URLs (pe-archive live chunks) → download sequentially,
-      ffmpeg-concat into one mp4, delete chunks.
+def _stream_audio_only(url: str, wav: Path):
+    """Stream audio directly from the URL. For faststart mp4 on servers that
+    honor Range, ffmpeg reads the moov atom then byte-range GETs only audio
+    sample ranges — saves roughly 75% bandwidth versus downloading the full
+    mp4. Falls through to the caller's fallback if ffmpeg can't auth or
+    range-read the source."""
+    cookies = _evideo_cookies_for_ffmpeg()
+    cmd = ["ffmpeg","-hide_banner","-v","error",
+           "-err_detect","ignore_err",
+           "-fflags","+genpts+discardcorrupt",
+           "-user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+           "-headers", "Referer: https://evideo.bg/\r\n",
+           "-reconnect","1","-reconnect_streamed","1","-reconnect_delay_max","5",
+           "-seekable","1","-multiple_requests","1"]
+    if cookies:
+        cmd += ["-cookies", cookies]
+    cmd += ["-i", url,
+            "-vn","-ac","1","-ar","16000","-c:a","pcm_s16le",
+            "-y", str(wav)]
+    r = run_cmd(cmd)
+    if r.returncode != 0 or not wav.exists() or wav.stat().st_size < 1024:
+        if wav.exists(): wav.unlink()
+        raise RuntimeError(f"ffmpeg audio stream failed: {r.stderr.strip()[:200]}")
+
+def _extract_audio(src: Path, wav: Path):
+    # `-c copy` concat silently truncates when codec params differ between
+    # inputs, so go through per-chunk PCM extraction instead. Error-tolerant
+    # flags push through PTS discontinuities that would otherwise stop decode.
+    cmd = ["ffmpeg","-hide_banner","-v","error",
+           "-err_detect","ignore_err",
+           "-fflags","+genpts+discardcorrupt",
+           "-i", str(src),
+           "-vn","-ac","1","-ar","16000","-c:a","pcm_s16le",
+           "-y", str(wav)]
+    r = run_cmd(cmd)
+    if r.returncode != 0 or not wav.exists():
+        raise RuntimeError(f"audio extract failed: {r.stderr.strip()[:300]}")
+
+def _fetch_chunk_audio(url: str, wav_out: Path, tmpdir: Path, idx: int):
+    """Produce a wav from one source URL. Tries audio-only streaming first;
+    falls back to full download + local extract on failure."""
+    try:
+        _stream_audio_only(url, wav_out)
+        return
+    except Exception as e:
+        print(f"[audio] chunk {idx}: streaming failed ({e}) — falling back to full download",
+              file=sys.stderr, flush=True)
+    tmp_src = tmpdir / f"chunk_{idx:05d}.mp4"
+    _yt_dlp(url, tmp_src, hls=url.endswith(".m3u8"))
+    try:
+        _extract_audio(tmp_src, wav_out)
+    finally:
+        tmp_src.unlink(missing_ok=True)
+
+def download(urls: list[str], out: Path, tmpdir: Path):
+    """Download one video or many chunks and produce a single WAV at `out`.
+
+    Output is always 16kHz mono PCM WAV so whisper reads the whole recording
+    even when live-archive chunks have mismatched codec parameters between
+    recording sessions (a straight mp4 `-c copy` concat would truncate at the
+    first discontinuity, leaving whisper with only the first minute).
     """
     tmpdir.mkdir(parents=True, exist_ok=True)
     if out.exists(): out.unlink()
     if len(urls) == 1:
-        print(f"[download] {urls[0].rsplit('/',1)[-1]} …", flush=True)
+        print(f"[download] {urls[0].rsplit('/',1)[-1]} (audio-only) …", flush=True)
         t0 = time.time()
-        _yt_dlp(urls[0], out, hls=urls[0].endswith(".m3u8"))
-        print(f"[download] {out.stat().st_size/1e6:.1f} MB in {time.time()-t0:.1f}s", flush=True)
+        try:
+            _stream_audio_only(urls[0], out)
+            print(f"[download] audio {out.stat().st_size/1e6:.1f} MB in {time.time()-t0:.1f}s",
+                  flush=True)
+            return
+        except Exception as e:
+            print(f"[download] streaming failed ({e}) — full download fallback",
+                  file=sys.stderr, flush=True)
+        tmp_src = tmpdir / "single.mp4"
+        _yt_dlp(urls[0], tmp_src, hls=urls[0].endswith(".m3u8"))
+        print(f"[download] {tmp_src.stat().st_size/1e6:.1f} MB in {time.time()-t0:.1f}s", flush=True)
+        _extract_audio(tmp_src, out)
+        tmp_src.unlink(missing_ok=True)
         return
     step = 1 if len(urls) <= 20 else 10
-    print(f"[download] {len(urls)} chunks "
+    print(f"[download] {len(urls)} chunks (audio-only) "
           f"(progress every {step} chunk{'s' if step!=1 else ''}) …", flush=True)
     t0 = time.time()
-    parts: list[Path] = []
+    wav_parts: list[Path] = []
+    total_mb = 0.0
     for i, u in enumerate(urls, 1):
-        p = tmpdir / f"chunk_{i:05d}.mp4"
+        wav_p = tmpdir / f"chunk_{i:05d}.wav"
         t_chunk = time.time()
-        _yt_dlp(u, p, hls=False)
-        parts.append(p)
+        try:
+            _fetch_chunk_audio(u, wav_p, tmpdir, i)
+            total_mb += wav_p.stat().st_size / 1e6
+            wav_parts.append(wav_p)
+        except Exception as e:
+            print(f"[audio] chunk {i}/{len(urls)} failed entirely ({e}) — skipping",
+                  file=sys.stderr, flush=True)
         if i % step == 0 or i == len(urls):
-            total_mb = sum(x.stat().st_size for x in parts) / 1e6
             dt = time.time() - t0
             eta = dt/i*(len(urls)-i) if i else 0
-            print(f"  [{i}/{len(urls)}] {total_mb:.1f} MB so far, "
+            print(f"  [{i}/{len(urls)}] {total_mb:.1f} MB audio so far, "
                   f"elapsed {dt:.0f}s, eta {eta:.0f}s "
                   f"(last chunk {time.time()-t_chunk:.1f}s)",
                   flush=True)
-    # ffmpeg concat via list file
-    list_file = tmpdir / "concat.txt"
-    list_file.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
+    if not wav_parts:
+        raise RuntimeError("no chunks produced any audio — aborting")
+    # All wav chunks share identical PCM codec params, so concat -c copy is safe.
+    list_file = tmpdir / "audio_concat.txt"
+    list_file.write_text("".join(f"file '{p.resolve()}'\n" for p in wav_parts))
     cmd = ["ffmpeg","-hide_banner","-v","error","-f","concat","-safe","0",
            "-i", str(list_file), "-c","copy","-y", str(out)]
     r = run_cmd(cmd)
     if r.returncode != 0 or not out.exists():
-        raise RuntimeError(f"ffmpeg concat failed: {r.stderr.strip()[:400]}")
-    for p in parts: p.unlink(missing_ok=True)
+        raise RuntimeError(f"ffmpeg wav concat failed: {r.stderr.strip()[:400]}")
+    for p in wav_parts: p.unlink(missing_ok=True)
     list_file.unlink(missing_ok=True)
-    print(f"[download] concat -> {out.stat().st_size/1e6:.1f} MB, "
-          f"total {time.time()-t0:.1f}s", flush=True)
+    print(f"[download] audio wav -> {out.stat().st_size/1e6:.1f} MB "
+          f"({len(wav_parts)}/{len(urls)} chunks), total {time.time()-t0:.1f}s",
+          flush=True)
 
 def transcribe(path: Path) -> dict:
     print(f"[whisper] transcribing {path.name}", flush=True)
@@ -344,12 +447,12 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
             print("[contribute] claim push failed, trying next section", file=sys.stderr)
             return True
 
-    mp4 = config.VIDEOS_DIR / f"{sik}_tour{tour}.mp4"
+    audio = config.VIDEOS_DIR / f"{sik}_tour{tour}.wav"
     tmpdir = config.VIDEOS_DIR / f"{sik}_tour{tour}.chunks"
-    if mp4.exists(): mp4.unlink()
+    if audio.exists(): audio.unlink()
     try:
-        download(group["urls"], mp4, tmpdir)
-        t = transcribe(mp4)
+        download(group["urls"], audio, tmpdir)
+        t = transcribe(audio)
         payload = {
             "schema": "bg-izbori-transcript/1",
             "sik": sik, "slug": slug, "tour": tour,
@@ -382,7 +485,7 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
         git_publish(extra_paths, sik, tour, push=push)
         return True
     finally:
-        if mp4.exists(): mp4.unlink()
+        if audio.exists(): audio.unlink()
         # clean up chunk tmpdir
         if tmpdir.exists():
             for p in tmpdir.iterdir():

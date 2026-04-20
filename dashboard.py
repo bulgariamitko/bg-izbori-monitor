@@ -71,11 +71,6 @@ def build():
     overall_counts = {"clean":0,"minor_concerns":0,"serious_concerns":0}
     for f in findings_rows: overall_counts[f.get("overall","clean")] = overall_counts.get(f.get("overall","clean"),0)+1
 
-    contribs = {}
-    for t in transcripts:
-        k = (t.get("contributed_by") or "анонимен").strip() or "анонимен"
-        contribs[k] = contribs.get(k,0) + 1
-
     # risk-tier coverage
     risk_file = config.BASE / "risk_tiers.json"
     risk_tiers = {}
@@ -225,6 +220,22 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     sections_js = []
     for r in findings_rows:
         s = by_sik.get(r["sik"], {})
+        sec_findings = []
+        for f in r.get("findings", []):
+            ts = int(f.get("timestamp_sec") or 0)
+            sev = f.get("severity") or "info"
+            sec_findings.append({
+                "severity": sev,
+                "sev_bg": SEV_BG.get(sev, sev),
+                "sev_color": SEV_COLORS.get(sev, "#333"),
+                "ts_fmt": _fmt_ts(ts),
+                "ts": ts,
+                "summary": f.get("summary") or "",
+                "detail":  f.get("detail") or "",
+                "quote":   f.get("quote") or "",
+                "category_bg": CAT_BG.get(f.get("category","other"), f.get("category","other")),
+                "vurl": r["video_url"] + (f"#t={ts}" if ts else ""),
+            })
         sections_js.append({
             "sik": r["sik"],
             "region": r.get("region_name") or s.get("region_name") or "",
@@ -236,8 +247,11 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
             "overall_color": OVERALL_COLORS.get(r.get("overall","clean"), "#9ca3af"),
             "signal_count": len(r.get("findings", [])),
             "video_url": r["video_url"],
+            "section_page": (s.get("oik_page","") + "#" + r["sik"]) if s.get("oik_page") else r["video_url"],
             "analyzed_at": r.get("analyzed_at",""),
             "risk_tier": risk_tiers.get(r["sik"], ""),
+            "summary_bg": r.get("summary_bg","") or "",
+            "findings": sec_findings,
         })
 
     parts.append(f'''<section>
@@ -331,6 +345,25 @@ function renderSectionRow(r){{
   const risk = r.risk_tier
     ? `<span class="tag risk-${{r.risk_tier}}">${{RISK_BG[r.risk_tier]}}</span>`
     : '<span style="color:#9ca3af">—</span>';
+  const findingsList = (r.findings||[]).map((f,i)=>{{
+    const quote = f.quote ? `<div class="quote" style="margin:4px 0 0 24px">«${{esc(f.quote)}}»</div>` : '';
+    const detail = f.detail ? `<div style="margin:2px 0 0 24px;color:#4b5563">${{esc(f.detail)}}</div>` : '';
+    return `<div style="margin-top:8px">
+      <span class="sev" style="background:${{f.sev_color}}">${{esc(f.sev_bg)}}</span>
+      <span class="meta" style="margin:0 6px">${{esc(f.ts_fmt)}}</span>
+      <span class="tag">${{esc(f.category_bg)}}</span>
+      <strong style="margin-left:6px">${{esc(f.summary)}}</strong>
+      ${{detail}}${{quote}}
+      <div class="meta" style="margin:2px 0 0 24px"><a href="${{esc(f.vurl)}}" target="_blank">▶ видео от ${{esc(f.ts_fmt)}}</a></div>
+    </div>`;
+  }}).join("");
+  const hasRecap = r.summary_bg || (r.findings||[]).length;
+  const recap = hasRecap
+    ? `<tr class="recap-row"><td colspan="8" style="padding:10px 14px 16px;font-size:13px;color:#374151;background:#fafafa;border-top:0">
+        ${{r.summary_bg ? `<div><strong style="color:#6b7280">Кратко:</strong> ${{esc(r.summary_bg)}}</div>` : ''}}
+        ${{findingsList}}
+       </td></tr>`
+    : '';
   return `<tr id="sik-${{esc(r.sik)}}">
     <td>${{esc(r.sik)}}</td>
     <td>${{esc(r.region)}} — ${{esc(r.address)}}</td>
@@ -338,8 +371,8 @@ function renderSectionRow(r){{
     <td>${{risk}}</td>
     <td><span class="overall-dot" style="background:${{r.overall_color}}"></span>${{esc(r.overall_bg)}}</td>
     <td>${{r.signal_count}}</td>
-    <td><a href="${{esc(r.video_url)}}" target="_blank">гледай</a></td>
-    <td style="font-size:12px;color:#6b7280">${{esc(r.analyzed_at)}}</td></tr>`;
+    <td><a href="${{esc(r.section_page)}}" target="_blank">гледай</a></td>
+    <td style="font-size:12px;color:#6b7280">${{esc(r.analyzed_at)}}</td></tr>${{recap}}`;
 }}
 
 function sortFindings(arr, mode){{
@@ -421,14 +454,6 @@ document.getElementById("sections-filter-town").addEventListener("change", refre
 refreshFindings();
 refreshSections();
 </script>''')
-
-    # leaderboard
-    if contribs:
-        parts.append('<section><h2>Доброволци (по брой транскрипции)</h2><table>'
-                     '<thead><tr><th>Доброволец</th><th>Транскрипции</th></tr></thead><tbody>')
-        for name, n in sorted(contribs.items(), key=lambda x: -x[1])[:50]:
-            parts.append(f'<tr><td>{h(name)}</td><td>{n}</td></tr>')
-        parts.append('</tbody></table></section>')
 
     parts.append(f'''<footer>
   Генерирано от <a href="https://github.com/bulgariamitko/bg-izbori-monitor">bg-izbori-monitor</a>
