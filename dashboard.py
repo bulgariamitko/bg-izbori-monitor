@@ -41,7 +41,6 @@ def build():
 
     transcripts   = [t for t in transcripts_all if is_current(t)]
     findings_rows = [f for f in findings_all    if is_current(f)]
-    demo_findings = [f for f in findings_all    if not is_current(f)]
 
     finding_keys    = {(f["sik"], f["tour"]) for f in findings_rows}
     transcript_keys = {(t["sik"], t["tour"]) for t in transcripts}
@@ -65,7 +64,6 @@ def build():
         return out
 
     flat      = flatten(findings_rows)
-    flat_demo = flatten(demo_findings)
 
     sev_counts = {s:0 for s in SEV_ORDER}
     for x in flat: sev_counts[x.get("severity","info")] = sev_counts.get(x.get("severity","info"),0)+1
@@ -124,6 +122,10 @@ th{{background:#fafafa;font-weight:600;font-size:12px;color:#6b7280}}
 .join code{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}}
 .join a{{color:#166534;text-decoration:underline}}
 .overall-dot{{display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:6px;vertical-align:middle}}
+.controls{{padding:10px 16px;background:#fafafa;border-bottom:1px solid #eee;font-size:13px;display:flex;gap:18px;flex-wrap:wrap}}
+.controls label{{display:inline-flex;align-items:center;gap:6px;color:#374151}}
+.controls select{{padding:4px 8px;border:1px solid #d1d5db;border-radius:4px;background:#fff;font-size:13px}}
+.risk-high{{background:#fee2e2;color:#991b1b}} .risk-mid{{background:#fef3c7;color:#78350f}} .risk-low{{background:#ecfccb;color:#365314}}
 footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
 </style></head><body>
 <header>
@@ -194,65 +196,231 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
                      f'<div class="l">секции „{OVERALL_BG[k]}“</div></div>')
     parts.append("</div>")
 
-    def render_finding(x, demo=False):
-        ts = _fmt_ts(x.get("timestamp_sec"))
-        vurl = x["video_url"] + (f"#t={int(x.get('timestamp_sec') or 0)}" if x.get("timestamp_sec") else "")
-        tcls = x.get("town_type") if x.get("town_type") in ("village","town","city") else ""
-        demo_tag = '<span class="tag" style="background:#fef3c7;color:#78350f">ДЕМО (предишни избори)</span>' if demo else ''
-        return f'''<div class="finding">
-          <div><span class="sev" style="background:{SEV_COLORS.get(x.get("severity"),"#333")}">{h(SEV_BG.get(x.get("severity"),x.get("severity")))}</span>
-               <div class="meta">таймкод {h(ts)}</div></div>
-          <div>
-            <div><strong>{h(x.get("summary"))}</strong>
-                 <span class="tag">{h(CAT_BG.get(x.get("category","other"), x.get("category","other")))}</span>
-                 <span class="tag {tcls}">{h(x.get("town") or "")} · {h(x.get("region_name") or "")}</span>
-                 {demo_tag}
-            </div>
-            <div style="font-size:13px;margin-top:4px">{h(x.get("detail"))}</div>
-            {'<div class="quote">«'+h(x.get("quote"))+'»</div>' if x.get("quote") else ''}
-            <div class="meta">
-              <a href="{h(vurl)}" target="_blank">▶ видео от {h(ts)}</a>
-              · СИК <a href="#sik-{h(x["sik"])}">{h(x["sik"])}</a>
-              · {h(x.get("address") or "")}
-            </div>
-          </div></div>'''
+    # findings for the CURRENT election — rendered client-side for sort + infinite scroll
+    flat_js = []
+    for x in flat:
+        ts = int(x.get("timestamp_sec") or 0)
+        vurl = x["video_url"] + (f"#t={ts}" if ts else "")
+        flat_js.append({
+            "sik": x["sik"],
+            "severity": x.get("severity") or "info",
+            "sev_rank": SEV_ORDER.index(x.get("severity")) if x.get("severity") in SEV_ORDER else 9,
+            "ts": ts,
+            "ts_fmt": _fmt_ts(ts),
+            "summary": x.get("summary") or "",
+            "detail":  x.get("detail") or "",
+            "quote":   x.get("quote") or "",
+            "category": x.get("category","other"),
+            "category_bg": CAT_BG.get(x.get("category","other"), x.get("category","other")),
+            "sev_bg": SEV_BG.get(x.get("severity"), x.get("severity")),
+            "sev_color": SEV_COLORS.get(x.get("severity"), "#333"),
+            "town": x.get("town") or "",
+            "town_type": x.get("town_type") or "unknown",
+            "region": x.get("region_name") or "",
+            "address": x.get("address") or "",
+            "vurl": vurl,
+            "risk_tier": risk_tiers.get(x["sik"], ""),
+        })
 
-    # findings for the CURRENT election
-    parts.append(f'<section><h2>Сигнали от {h(config.SLUG)} ({len(flat)})</h2>')
-    if not flat:
-        parts.append('<div style="padding:24px;color:#6b7280">'
-                     'Все още няма сигнали за текущите избори. Записите от изборния ден се анализират постепенно — проверете отново по-късно.'
-                     '</div>')
-    for x in flat: parts.append(render_finding(x, demo=False))
-    parts.append('</section>')
+    sections_js = []
+    for r in findings_rows:
+        s = by_sik.get(r["sik"], {})
+        sections_js.append({
+            "sik": r["sik"],
+            "region": r.get("region_name") or s.get("region_name") or "",
+            "address": r.get("address") or s.get("address") or "",
+            "town": r.get("town") or s.get("town") or "",
+            "town_type": r.get("town_type") or s.get("town_type") or "unknown",
+            "overall": r.get("overall") or "clean",
+            "overall_bg": OVERALL_BG.get(r.get("overall"), r.get("overall","")),
+            "overall_color": OVERALL_COLORS.get(r.get("overall","clean"), "#9ca3af"),
+            "signal_count": len(r.get("findings", [])),
+            "video_url": r["video_url"],
+            "analyzed_at": r.get("analyzed_at",""),
+            "risk_tier": risk_tiers.get(r["sik"], ""),
+        })
 
-    # demo findings from previous elections
-    if flat_demo:
-        parts.append(f'<section><h2>Демо сигнали от предишни избори ({len(flat_demo)})</h2>')
-        parts.append('<div style="padding:12px 16px;background:#fff8e1;border-bottom:1px solid #f5d97b;font-size:13px">'
-                     '<strong>Внимание:</strong> Следните сигнали са от предходни избори ('
-                     'напр. частични местни избори 22.02.2026) и се показват само като пример за това '
-                     'как системата сигнализира. Те НЕ са свързани с изборите на '
-                     f'{h(config.SLUG)}.'
-                     '</div>')
-        for x in flat_demo: parts.append(render_finding(x, demo=True))
-        parts.append('</section>')
+    parts.append(f'''<section>
+<h2>Сигнали от {h(config.SLUG)} (<span id="findings-count">{len(flat_js)}</span>)</h2>
+<div class="controls">
+  <label>Сортирай:
+    <select id="findings-sort">
+      <option value="severity">по сериозност</option>
+      <option value="sik">по номер на СИК</option>
+      <option value="town_type">по град / село</option>
+      <option value="risk">по приоритет (риск)</option>
+    </select>
+  </label>
+  <label>Тип място:
+    <select id="findings-filter-town">
+      <option value="">всички</option>
+      <option value="village">само села</option>
+      <option value="town">само малки градове</option>
+      <option value="city">само големи градове</option>
+    </select>
+  </label>
+</div>
+<div id="findings-list"></div>
+<div id="findings-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
+</section>''')
 
-    # processed sections table
-    rows = sorted(findings_rows, key=lambda r: r.get("analyzed_at") or "", reverse=True)
-    parts.append(f'<section><h2>Обработени секции ({len(rows)})</h2><table>'
-                 '<thead><tr><th>СИК</th><th>Място</th><th>Обща оценка</th>'
-                 '<th>Сигнали</th><th>Видео</th><th>Анализирано</th></tr></thead><tbody>')
-    for r in rows[:400]:
-        parts.append(f'''<tr id="sik-{h(r["sik"])}">
-          <td>{h(r["sik"])}</td>
-          <td>{h(r.get("region_name") or "")} — {h(r.get("address") or "")}</td>
-          <td><span class="overall-dot" style="background:{OVERALL_COLORS.get(r.get("overall","clean"),"#9ca3af")}"></span>
-              {h(OVERALL_BG.get(r.get("overall"), r.get("overall","")))}</td>
-          <td>{len(r.get("findings",[]))}</td>
-          <td><a href="{h(r["video_url"])}" target="_blank">гледай</a></td>
-          <td style="font-size:12px;color:#6b7280">{h(r.get("analyzed_at",""))}</td></tr>''')
-    parts.append('</tbody></table></section>')
+    parts.append(f'''<section>
+<h2>Обработени секции (<span id="sections-count">{len(sections_js)}</span>)</h2>
+<div class="controls">
+  <label>Сортирай:
+    <select id="sections-sort">
+      <option value="analyzed">по време на анализ (ново→старо)</option>
+      <option value="sik">по номер на СИК</option>
+      <option value="town_type">по град / село</option>
+      <option value="risk">по приоритет (риск)</option>
+      <option value="overall">по оценка (най-лоши първо)</option>
+      <option value="signals">по брой сигнали</option>
+    </select>
+  </label>
+  <label>Тип място:
+    <select id="sections-filter-town">
+      <option value="">всички</option>
+      <option value="village">само села</option>
+      <option value="town">само малки градове</option>
+      <option value="city">само големи градове</option>
+    </select>
+  </label>
+</div>
+<table><thead><tr><th>СИК</th><th>Място</th><th>Тип</th><th>Приоритет</th>
+<th>Обща оценка</th><th>Сигнали</th><th>Видео</th><th>Анализирано</th></tr></thead>
+<tbody id="sections-tbody"></tbody></table>
+<div id="sections-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
+</section>''')
+
+    parts.append(f'''<script>
+const FINDINGS = {json.dumps(flat_js, ensure_ascii=False)};
+const SECTIONS = {json.dumps(sections_js, ensure_ascii=False)};
+const TTYPE_BG = {json.dumps(TTYPE_BG, ensure_ascii=False)};
+const RISK_BG  = {{"high":"висок","mid":"среден","low":"нисък","":"—"}};
+const RISK_RANK = {{"high":0,"mid":1,"low":2,"":3}};
+const TTYPE_RANK = {{"village":0,"town":1,"city":2,"unknown":3}};
+const BATCH = 40;
+
+function esc(s){{return (s==null?"":String(s)).replace(/[&<>"']/g,c=>({{"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;","'":"&#39;"}})[c]);}}
+
+function renderFinding(x){{
+  const quote = x.quote ? `<div class="quote">«${{esc(x.quote)}}»</div>` : '';
+  const tcls = ["village","town","city"].includes(x.town_type) ? x.town_type : "";
+  const risk = x.risk_tier ? `<span class="tag risk-${{x.risk_tier}}">приоритет: ${{RISK_BG[x.risk_tier]}}</span>` : '';
+  return `<div class="finding">
+    <div><span class="sev" style="background:${{x.sev_color}}">${{esc(x.sev_bg)}}</span>
+      <div class="meta">таймкод ${{esc(x.ts_fmt)}}</div></div>
+    <div>
+      <div><strong>${{esc(x.summary)}}</strong>
+        <span class="tag">${{esc(x.category_bg)}}</span>
+        <span class="tag ${{tcls}}">${{esc(x.town)}} · ${{esc(x.region)}}</span>
+        ${{risk}}
+      </div>
+      <div style="font-size:13px;margin-top:4px">${{esc(x.detail)}}</div>
+      ${{quote}}
+      <div class="meta">
+        <a href="${{esc(x.vurl)}}" target="_blank">▶ видео от ${{esc(x.ts_fmt)}}</a>
+        · СИК <a href="#sik-${{esc(x.sik)}}">${{esc(x.sik)}}</a>
+        · ${{esc(x.address)}}
+      </div>
+    </div></div>`;
+}}
+
+function renderSectionRow(r){{
+  const tcls = ["village","town","city"].includes(r.town_type) ? r.town_type : "";
+  const risk = r.risk_tier
+    ? `<span class="tag risk-${{r.risk_tier}}">${{RISK_BG[r.risk_tier]}}</span>`
+    : '<span style="color:#9ca3af">—</span>';
+  return `<tr id="sik-${{esc(r.sik)}}">
+    <td>${{esc(r.sik)}}</td>
+    <td>${{esc(r.region)}} — ${{esc(r.address)}}</td>
+    <td><span class="tag ${{tcls}}">${{esc(TTYPE_BG[r.town_type]||'—')}}</span></td>
+    <td>${{risk}}</td>
+    <td><span class="overall-dot" style="background:${{r.overall_color}}"></span>${{esc(r.overall_bg)}}</td>
+    <td>${{r.signal_count}}</td>
+    <td><a href="${{esc(r.video_url)}}" target="_blank">гледай</a></td>
+    <td style="font-size:12px;color:#6b7280">${{esc(r.analyzed_at)}}</td></tr>`;
+}}
+
+function sortFindings(arr, mode){{
+  const a = arr.slice();
+  if(mode==="severity") a.sort((x,y)=> x.sev_rank-y.sev_rank || y.ts-x.ts);
+  else if(mode==="sik") a.sort((x,y)=> x.sik.localeCompare(y.sik));
+  else if(mode==="town_type") a.sort((x,y)=> (TTYPE_RANK[x.town_type]??9)-(TTYPE_RANK[y.town_type]??9) || x.sik.localeCompare(y.sik));
+  else if(mode==="risk") a.sort((x,y)=> (RISK_RANK[x.risk_tier]??9)-(RISK_RANK[y.risk_tier]??9) || x.sev_rank-y.sev_rank);
+  return a;
+}}
+
+function sortSections(arr, mode){{
+  const a = arr.slice();
+  const OV_RANK = {{"serious_concerns":0,"minor_concerns":1,"clean":2}};
+  if(mode==="analyzed") a.sort((x,y)=> (y.analyzed_at||"").localeCompare(x.analyzed_at||""));
+  else if(mode==="sik") a.sort((x,y)=> x.sik.localeCompare(y.sik));
+  else if(mode==="town_type") a.sort((x,y)=> (TTYPE_RANK[x.town_type]??9)-(TTYPE_RANK[y.town_type]??9) || x.sik.localeCompare(y.sik));
+  else if(mode==="risk") a.sort((x,y)=> (RISK_RANK[x.risk_tier]??9)-(RISK_RANK[y.risk_tier]??9) || x.sik.localeCompare(y.sik));
+  else if(mode==="overall") a.sort((x,y)=> (OV_RANK[x.overall]??9)-(OV_RANK[y.overall]??9) || y.signal_count-x.signal_count);
+  else if(mode==="signals") a.sort((x,y)=> y.signal_count-x.signal_count);
+  return a;
+}}
+
+function makeInfinite(opts){{
+  let data = [], rendered = 0;
+  const container = document.getElementById(opts.containerId);
+  const sentinel  = document.getElementById(opts.sentinelId);
+  const countEl   = document.getElementById(opts.countId);
+  function paint(){{
+    const end = Math.min(rendered + BATCH, data.length);
+    const chunk = data.slice(rendered, end).map(opts.render).join("");
+    if(opts.tbody) container.insertAdjacentHTML("beforeend", chunk);
+    else container.insertAdjacentHTML("beforeend", chunk);
+    rendered = end;
+    sentinel.textContent = rendered >= data.length
+      ? (data.length ? "— край —" : "няма резултати")
+      : `показани ${{rendered}} от ${{data.length}} · скролни за още`;
+  }}
+  function reset(newData){{
+    data = newData; rendered = 0;
+    container.innerHTML = "";
+    countEl.textContent = data.length;
+    paint();
+  }}
+  const io = new IntersectionObserver(entries=>{{
+    for(const e of entries){{ if(e.isIntersecting && rendered < data.length) paint(); }}
+  }}, {{rootMargin:"400px"}});
+  io.observe(sentinel);
+  return {{reset}};
+}}
+
+const findingsScroller = makeInfinite({{
+  containerId:"findings-list", sentinelId:"findings-sentinel",
+  countId:"findings-count", render:renderFinding
+}});
+const sectionsScroller = makeInfinite({{
+  containerId:"sections-tbody", sentinelId:"sections-sentinel",
+  countId:"sections-count", render:renderSectionRow, tbody:true
+}});
+
+function refreshFindings(){{
+  const sort = document.getElementById("findings-sort").value;
+  const filt = document.getElementById("findings-filter-town").value;
+  let d = FINDINGS;
+  if(filt) d = d.filter(x=> x.town_type===filt);
+  findingsScroller.reset(sortFindings(d, sort));
+}}
+function refreshSections(){{
+  const sort = document.getElementById("sections-sort").value;
+  const filt = document.getElementById("sections-filter-town").value;
+  let d = SECTIONS;
+  if(filt) d = d.filter(x=> x.town_type===filt);
+  sectionsScroller.reset(sortSections(d, sort));
+}}
+document.getElementById("findings-sort").addEventListener("change", refreshFindings);
+document.getElementById("findings-filter-town").addEventListener("change", refreshFindings);
+document.getElementById("sections-sort").addEventListener("change", refreshSections);
+document.getElementById("sections-filter-town").addEventListener("change", refreshSections);
+refreshFindings();
+refreshSections();
+</script>''')
 
     # leaderboard
     if contribs:
