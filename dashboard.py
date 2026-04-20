@@ -300,7 +300,7 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     </select>
   </label>
 </div>
-<table><thead><tr><th>СИК</th><th>Място</th><th>Тип</th><th>Приоритет</th>
+<table><thead><tr><th style="width:28px"></th><th>СИК</th><th>Място</th><th>Тип</th><th>Приоритет</th>
 <th>Обща оценка</th><th>Сигнали</th><th>Видео</th><th>Анализирано</th></tr></thead>
 <tbody id="sections-tbody"></tbody></table>
 <div id="sections-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
@@ -358,13 +358,18 @@ function renderSectionRow(r){{
     </div>`;
   }}).join("");
   const hasRecap = r.summary_bg || (r.findings||[]).length;
+  const caret = hasRecap
+    ? `<span class="caret" style="display:inline-block;width:14px;color:#6b7280;cursor:pointer;user-select:none">▸</span>`
+    : '';
   const recap = hasRecap
-    ? `<tr class="recap-row"><td colspan="8" style="padding:10px 14px 16px;font-size:13px;color:#374151;background:#fafafa;border-top:0">
+    ? `<tr class="recap-row" style="display:none"><td colspan="9" style="padding:10px 14px 16px;font-size:13px;color:#374151;background:#fafafa;border-top:0">
         ${{r.summary_bg ? `<div><strong style="color:#6b7280">Кратко:</strong> ${{esc(r.summary_bg)}}</div>` : ''}}
         ${{findingsList}}
        </td></tr>`
     : '';
-  return `<tr id="sik-${{esc(r.sik)}}">
+  const clickable = hasRecap ? 'cursor:pointer' : '';
+  return `<tr id="sik-${{esc(r.sik)}}" class="section-row" data-has-recap="${{hasRecap?1:0}}" style="${{clickable}}">
+    <td style="text-align:center">${{caret}}</td>
     <td>${{esc(r.sik)}}</td>
     <td>${{esc(r.region)}} — ${{esc(r.address)}}</td>
     <td><span class="tag ${{tcls}}">${{esc(TTYPE_BG[r.town_type]||'—')}}</span></td>
@@ -451,6 +456,18 @@ document.getElementById("findings-sort").addEventListener("change", refreshFindi
 document.getElementById("findings-filter-town").addEventListener("change", refreshFindings);
 document.getElementById("sections-sort").addEventListener("change", refreshSections);
 document.getElementById("sections-filter-town").addEventListener("change", refreshSections);
+document.getElementById("sections-tbody").addEventListener("click", e=>{{
+  // Don't swallow clicks on the "гледай" link
+  if(e.target.closest("a")) return;
+  const row = e.target.closest("tr.section-row");
+  if(!row || row.dataset.hasRecap !== "1") return;
+  const recap = row.nextElementSibling;
+  if(!recap || !recap.classList.contains("recap-row")) return;
+  const open = recap.style.display !== "none";
+  recap.style.display = open ? "none" : "";
+  const caret = row.querySelector(".caret");
+  if(caret) caret.textContent = open ? "▸" : "▾";
+}});
 refreshFindings();
 refreshSections();
 </script>''')
