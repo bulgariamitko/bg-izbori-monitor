@@ -4,21 +4,30 @@
   "slug": "pe202604",
   "tour": 1,
   "video_url": "https://vod.evideo.bg/pe202604/real/021800022/20260419200208550378.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/021800022/20260419200208550378.mp4",
+      "start_sec": 0
+    }
+  ],
   "region_name": "Бургас",
   "address": "С.ПЛАНИНИЦА, ОУ \"Н.Й.Вапцаров\"",
   "town": "ПЛАНИНИЦА",
   "town_type": "village",
   "analyzed_by": "owner",
-  "analyzed_at": "2026-04-20T09:11:29+00:00",
+  "analyzed_at": "2026-04-20T09:34:13+00:00",
   "model": "claude-sonnet-4-6",
-  "findings": [],
   "overall": "clean",
-  "summary_bg": "Транскрипцията обхваща само началния период на настройка на камерата преди стартиране на преброяването. Членовете на СИК обсъждат как да позиционират записващото устройство и да го подпрат. Не са установени нередности, свързани с броенето, протокола или поведението на комисията.",
-  "summary_en": "The transcript covers only the initial camera setup period before counting begins. SIK members discuss how to position and prop up the recording device. No irregularities related to counting, the protocol, or commission conduct were identified.",
-  "video_chunks": [
+  "summary_bg": "Транскрипцията обхваща само подготвителната фаза — членовете на СИК наместват устройство (скенер/камера) преди началото на преброяването. Никакво реално броене не е заснето. Споменаването на „снимки\" е единственото неясно място, но контекстът е технически и не дава основание за безпокойство.",
+  "summary_en": "The transcript covers only the pre-counting setup phase — SIK members are positioning a device (scanner/camera) before counting starts. No actual ballot counting occurs. The word \"снимки\" (photos) is mentioned once but in an ambiguous technical context.",
+  "findings": [
     {
-      "url": "https://vod.evideo.bg/pe202604/real/021800022/20260419200208550378.mp4",
-      "start_sec": 0
+      "severity": "info",
+      "category": "other",
+      "summary": "Неясно споменаване на снимки по време на настройка",
+      "detail": "По време на техническата настройка някой пита Кой е това и получава отговор Снимки. Контекстът е неясен и вероятно се отнася до изображение на екран, а не до снимки на бюлетини.",
+      "quote": "Кой е това? Снимки. Ето и.",
+      "timestamp_sec": 166
     }
   ]
 }
