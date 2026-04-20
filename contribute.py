@@ -229,9 +229,33 @@ def _extract_audio(src: Path, wav: Path):
     if r.returncode != 0 or not wav.exists():
         raise RuntimeError(f"audio extract failed: {r.stderr.strip()[:300]}")
 
-def _fetch_chunk_audio(url: str, wav_out: Path, tmpdir: Path, idx: int):
+def _probe_duration(src: Path) -> float | None:
+    """Return container duration in seconds via ffprobe, or None on failure."""
+    r = run_cmd(["ffprobe","-v","error","-show_entries","format=duration",
+                 "-of","default=nw=1:nk=1", str(src)])
+    if r.returncode != 0: return None
+    try: return float(r.stdout.strip())
+    except ValueError: return None
+
+def _silent_wav(wav: Path, duration_sec: float):
+    """Generate a 16 kHz mono PCM WAV of silence — used to preserve timeline
+    when a chunk has no decodable audio stream so downstream timestamps stay
+    aligned with the original video."""
+    dur = max(0.1, float(duration_sec))
+    cmd = ["ffmpeg","-hide_banner","-v","error",
+           "-f","lavfi","-i", f"anullsrc=channel_layout=mono:sample_rate=16000",
+           "-t", f"{dur:.3f}",
+           "-c:a","pcm_s16le","-y", str(wav)]
+    r = run_cmd(cmd)
+    if r.returncode != 0 or not wav.exists():
+        raise RuntimeError(f"silent wav generation failed: {r.stderr.strip()[:200]}")
+
+def _fetch_chunk_audio(url: str, wav_out: Path, tmpdir: Path, idx: int,
+                       duration_hint: float | None = None):
     """Produce a wav from one source URL. Tries audio-only streaming first;
-    falls back to full download + local extract on failure."""
+    falls back to full download + local extract. If the chunk has no audio
+    stream at all, emit silence of `duration_hint` seconds so the combined
+    timeline stays aligned with the original video."""
     try:
         _stream_audio_only(url, wav_out)
         return
@@ -241,7 +265,22 @@ def _fetch_chunk_audio(url: str, wav_out: Path, tmpdir: Path, idx: int):
     tmp_src = tmpdir / f"chunk_{idx:05d}.mp4"
     _yt_dlp(url, tmp_src, hls=url.endswith(".m3u8"))
     try:
-        _extract_audio(tmp_src, wav_out)
+        try:
+            _extract_audio(tmp_src, wav_out)
+            return
+        except Exception as e:
+            msg = str(e)
+            # "Output file does not contain any stream" → no audio track in the
+            # source. Use the video's own duration (or the caller's hint) and
+            # emit silence so subsequent chunk timestamps are not shifted.
+            if "does not contain any stream" not in msg:
+                raise
+            dur = _probe_duration(tmp_src) or duration_hint
+            if not dur:
+                raise
+            print(f"[audio] chunk {idx}: no audio stream — inserting {dur:.1f}s silence to preserve timeline",
+                  file=sys.stderr, flush=True)
+            _silent_wav(wav_out, dur)
     finally:
         tmp_src.unlink(missing_ok=True)
 
@@ -276,16 +315,41 @@ def download(urls: list[str], out: Path, tmpdir: Path):
     print(f"[download] {len(urls)} chunks (audio-only) "
           f"(progress every {step} chunk{'s' if step!=1 else ''}) …", flush=True)
     t0 = time.time()
+    # Derive each chunk's expected duration from the filename-encoded start
+    # time of the next chunk. Keeps the timeline aligned when a chunk has no
+    # audio track (silence is inserted for its hinted duration).
+    chunk_meta = build_video_chunks(urls)
+    duration_hints: list[float | None] = []
+    for i, m in enumerate(chunk_meta):
+        nxt = chunk_meta[i+1]["start_sec"] if i+1 < len(chunk_meta) else None
+        duration_hints.append(
+            max(1.0, float(nxt - m["start_sec"])) if nxt is not None else None)
     wav_parts: list[Path] = []
     total_mb = 0.0
     for i, u in enumerate(urls, 1):
         wav_p = tmpdir / f"chunk_{i:05d}.wav"
         t_chunk = time.time()
+        hint = duration_hints[i-1]
         try:
-            _fetch_chunk_audio(u, wav_p, tmpdir, i)
+            _fetch_chunk_audio(u, wav_p, tmpdir, i, duration_hint=hint)
             total_mb += wav_p.stat().st_size / 1e6
             wav_parts.append(wav_p)
         except Exception as e:
+            # Preserve the timeline: if we know how long the chunk should be,
+            # emit silence instead of dropping it. Dropping would shift every
+            # subsequent finding timestamp earlier than the real video.
+            if hint:
+                try:
+                    _silent_wav(wav_p, hint)
+                    total_mb += wav_p.stat().st_size / 1e6
+                    wav_parts.append(wav_p)
+                    print(f"[audio] chunk {i}/{len(urls)} failed ({e}) — "
+                          f"inserted {hint:.1f}s silence",
+                          file=sys.stderr, flush=True)
+                    continue
+                except Exception as e2:
+                    print(f"[audio] chunk {i}/{len(urls)} silence fallback also failed ({e2})",
+                          file=sys.stderr, flush=True)
             print(f"[audio] chunk {i}/{len(urls)} failed entirely ({e}) — skipping",
                   file=sys.stderr, flush=True)
         if i % step == 0 or i == len(urls):
