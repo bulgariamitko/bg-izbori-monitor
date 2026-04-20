@@ -270,30 +270,6 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
         })
 
     parts.append(f'''<section>
-<h2>Сигнали от {h(config.SLUG)} (<span id="findings-count">{len(flat_js)}</span>)</h2>
-<div class="controls">
-  <label>Сортирай:
-    <select id="findings-sort">
-      <option value="severity">по сериозност</option>
-      <option value="sik">по номер на СИК</option>
-      <option value="town_type">по град / село</option>
-      <option value="risk">по приоритет (риск)</option>
-    </select>
-  </label>
-  <label>Тип място:
-    <select id="findings-filter-town">
-      <option value="">всички</option>
-      <option value="village">само села</option>
-      <option value="town">само малки градове</option>
-      <option value="city">само големи градове</option>
-    </select>
-  </label>
-</div>
-<div id="findings-list"></div>
-<div id="findings-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
-</section>''')
-
-    parts.append(f'''<section>
 <h2>Обработени секции (<span id="sections-count">{len(sections_js)}</span>)</h2>
 <div class="controls">
   <label>Сортирай:
@@ -319,6 +295,30 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
 <th>Обща оценка</th><th>Сигнали</th><th>Видео</th><th>Анализирано</th></tr></thead>
 <tbody id="sections-tbody"></tbody></table>
 <div id="sections-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
+</section>''')
+
+    parts.append(f'''<section>
+<h2>Сигнали от {h(config.SLUG)} (<span id="findings-count">{len(flat_js)}</span>)</h2>
+<div class="controls">
+  <label>Сортирай:
+    <select id="findings-sort">
+      <option value="severity">по сериозност</option>
+      <option value="sik">по номер на СИК</option>
+      <option value="town_type">по град / село</option>
+      <option value="risk">по приоритет (риск)</option>
+    </select>
+  </label>
+  <label>Тип място:
+    <select id="findings-filter-town">
+      <option value="">всички</option>
+      <option value="village">само села</option>
+      <option value="town">само малки градове</option>
+      <option value="city">само големи градове</option>
+    </select>
+  </label>
+</div>
+<div id="findings-list"></div>
+<div id="findings-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
 </section>''')
 
     parts.append(f'''<script>
