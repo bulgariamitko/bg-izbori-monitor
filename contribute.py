@@ -150,15 +150,24 @@ def download(urls: list[str], out: Path, tmpdir: Path):
         _yt_dlp(urls[0], out, hls=urls[0].endswith(".m3u8"))
         print(f"[download] {out.stat().st_size/1e6:.1f} MB in {time.time()-t0:.1f}s", flush=True)
         return
-    print(f"[download] {len(urls)} chunks …", flush=True)
+    step = 1 if len(urls) <= 20 else 10
+    print(f"[download] {len(urls)} chunks "
+          f"(progress every {step} chunk{'s' if step!=1 else ''}) …", flush=True)
     t0 = time.time()
     parts: list[Path] = []
     for i, u in enumerate(urls, 1):
         p = tmpdir / f"chunk_{i:05d}.mp4"
+        t_chunk = time.time()
         _yt_dlp(u, p, hls=False)
         parts.append(p)
-        if i % 10 == 0 or i == len(urls):
-            print(f"  [{i}/{len(urls)}] chunks downloaded", flush=True)
+        if i % step == 0 or i == len(urls):
+            total_mb = sum(x.stat().st_size for x in parts) / 1e6
+            dt = time.time() - t0
+            eta = dt/i*(len(urls)-i) if i else 0
+            print(f"  [{i}/{len(urls)}] {total_mb:.1f} MB so far, "
+                  f"elapsed {dt:.0f}s, eta {eta:.0f}s "
+                  f"(last chunk {time.time()-t_chunk:.1f}s)",
+                  flush=True)
     # ffmpeg concat via list file
     list_file = tmpdir / "concat.txt"
     list_file.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
