@@ -1,0 +1,18 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "301000012",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/301000012/20260419200706056342.mp4",
+  "region_name": "Шумен",
+  "address": "С.МАЛОМИР, Кметство ул.\"Георги Димитров \" №15",
+  "town": "МАЛОМИР",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-20T08:19:31+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "clean",
+  "summary_bg": "Транскрипцията съдържа почти изцяло празни редове — от ~1-ва до ~149-та минута речта е отбелязана само с „...\". Кратките изказвания в началото изглеждат свързани с позициониране на камерата. Няма уловени нередности, но заради липсата на съдържание пълна оценка е невъзможна.",
+  "summary_en": "The transcript is almost entirely empty — from ~1 min to ~149 min only ellipsis entries appear. The brief opening lines concern camera placement. No irregularities are captured, but the near-absent transcript makes full assessment impossible.",
+  "findings": []
+}
