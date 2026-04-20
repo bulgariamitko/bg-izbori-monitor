@@ -15,19 +15,27 @@
   "town": "ПЛАНИНИЦА",
   "town_type": "village",
   "analyzed_by": "owner",
-  "analyzed_at": "2026-04-20T09:34:13+00:00",
+  "analyzed_at": "2026-04-20T10:18:22+00:00",
   "model": "claude-sonnet-4-6",
-  "overall": "clean",
-  "summary_bg": "Транскрипцията обхваща само подготвителната фаза — членовете на СИК наместват устройство (скенер/камера) преди началото на преброяването. Никакво реално броене не е заснето. Споменаването на „снимки\" е единственото неясно място, но контекстът е технически и не дава основание за безпокойство.",
-  "summary_en": "The transcript covers only the pre-counting setup phase — SIK members are positioning a device (scanner/camera) before counting starts. No actual ballot counting occurs. The word \"снимки\" (photos) is mentioned once but in an ambiguous technical context.",
+  "overall": "minor_concerns",
+  "summary_bg": "Записът съдържа начален сегмент около 3 минути, в който членовете настройват камерата с фраза загатваща за скриване на нещо от обектива, и последваща 24-минутна пауза без уловено аудио. Самото броене изглежда нормално.",
+  "summary_en": "The recording opens with about 3 minutes of camera-setup discussion including a phrase suggesting something is kept out of frame, followed by a 24-minute audio gap. The ballot-counting phase appears routine.",
   "findings": [
     {
+      "severity": "low",
+      "category": "procedure",
+      "summary": "При настройка на камерата се споменава нещо да не се вижда на запис",
+      "detail": "Членовете наместват устройството с бутилка. Чува се фразата за скриване на нещо от камерата, което може да означава стремеж нещо да остане извън кадъра. Споменава се и думата Снимки в неясен контекст.",
+      "quote": "Да не съвиждаш випса на камерата.",
+      "timestamp_sec": 183
+    },
+    {
       "severity": "info",
-      "category": "other",
-      "summary": "Неясно споменаване на снимки по време на настройка",
-      "detail": "По време на техническата настройка някой пита Кой е това и получава отговор Снимки. Контекстът е неясен и вероятно се отнася до изображение на екран, а не до снимки на бюлетини.",
-      "quote": "Кой е това? Снимки. Ето и.",
-      "timestamp_sec": 166
+      "category": "procedure",
+      "summary": "Около 24-минутна пауза в транскрипцията 03:32 до 27:03",
+      "detail": "Липсват почти 24 минути уловено аудио между настройката на камерата и началото на броенето. Препоръчително е да се прегледа видеозаписът за съответния интервал.",
+      "quote": "...",
+      "timestamp_sec": 212
     }
   ]
 }
