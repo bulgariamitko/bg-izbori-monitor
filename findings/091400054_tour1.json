@@ -1,0 +1,64 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "091400054",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195754265831.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195754265831.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195820595962.mp4",
+      "start_sec": 26
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195828544303.mp4",
+      "start_sec": 34
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195835241193.mp4",
+      "start_sec": 41
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195858838103.mp4",
+      "start_sec": 64
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195908416959.mp4",
+      "start_sec": 74
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195916077854.mp4",
+      "start_sec": 82
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195926730132.mp4",
+      "start_sec": 92
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195935517921.mp4",
+      "start_sec": 101
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419195943731674.mp4",
+      "start_sec": 109
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400054/20260419200027934765.mp4",
+      "start_sec": 153
+    }
+  ],
+  "region_name": "Кърджали",
+  "address": "С.ГРИВЯК, в сградата на кметството",
+  "town": "ГРИВЯК",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-21T17:28:08+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "clean",
+  "summary_bg": "Транскрипцията за СИК 091400054 съдържа предимно нечетливо аудио, смях и шум, без разпознаваемо броене на бюлетини или попълване на протокол. Не са установени нередности, заслужаващи вниманието на наблюдател.",
+  "summary_en": "The transcript for СИК 091400054 consists almost entirely of garbled audio, laughter, and noise artifacts, with no recognizable ballot-counting or protocol-filling content. No irregularities warranting observer attention were identified.",
+  "findings": []
+}
