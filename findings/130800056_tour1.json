@@ -1,0 +1,129 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "130800056",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/130800056/20260419200538175730.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419200538175730.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201245366995.mp4",
+      "start_sec": 427
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201316736166.mp4",
+      "start_sec": 458
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201335580320.mp4",
+      "start_sec": 477
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201345185148.mp4",
+      "start_sec": 487
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201352185768.mp4",
+      "start_sec": 494
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201430946363.mp4",
+      "start_sec": 532
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201448468650.mp4",
+      "start_sec": 550
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201455510425.mp4",
+      "start_sec": 557
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201501840811.mp4",
+      "start_sec": 563
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201509722212.mp4",
+      "start_sec": 571
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201517902752.mp4",
+      "start_sec": 579
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201556050149.mp4",
+      "start_sec": 618
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201607775341.mp4",
+      "start_sec": 629
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201618586380.mp4",
+      "start_sec": 640
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419201653275304.mp4",
+      "start_sec": 675
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800056/20260419230635063018.mp4",
+      "start_sec": 10857
+    }
+  ],
+  "region_name": "Пазарджик",
+  "address": "С.КРЪСТАВА, ОУ \"Васил Левски\", ет. 1, ул. \"Грънчарица\" №1",
+  "town": "КРЪСТАВА",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-21T10:32:15+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Установени са няколко нередности: момент, в който камерата явно не вижда броените бюлетини; повторно броене на куп, предварително отчетен като 159 бюлетини, дава резултат 168 — разлика от 9 броя; аритметичният контрол на протокола дълго не можe да даде 1000 (в един момент изкарват 1066); две бюлетини за продължителен период не могат да бъдат намерени, но в крайна сметка са открити. Наблюденията изглеждат като следствие от дезорганизирано броене, а не от умишлена манипулация, но несъответствието при повторното броене заслужава проверка от наблюдател.",
+  "summary_en": "Several irregularities were noted: a moment when the camera explicitly could not see the ballots; a recount of a pile previously tallied at 159 yielded 168 — a 9-ballot discrepancy; the protocol arithmetic failed to reach the expected total of 1000 (at one point producing 1066); and two ballots were unaccounted for an extended period before being located. The pattern is consistent with disorganised counting rather than deliberate manipulation, but the recount discrepancy is the most serious item and warrants human observer review.",
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "procedure",
+      "summary": "Камерата не вижда броените бюлетини",
+      "detail": "Член на СИК изрично съобщава, че камерата не вижда бюлетините, докато те се броят. Броенето извън обсега на камерата е процедурно нарушение.",
+      "quote": "Камерата не го вижда. Камерата не ги вижда.",
+      "timestamp_sec": 1202
+    },
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Спешно привличане на вниманието към нещо нередно в бюлетините",
+      "detail": "Некой от присъстващите настойчиво вика останалите да погледнат нещо, което го смущава в купчината бюлетини. Какво точно е открито не може да се установи от транскрипта.",
+      "quote": "Вижте заедно, вижте заедно, вижте! Ами не се, какво е това? Ами вижте, вижте! Какво е това?",
+      "timestamp_sec": 4948
+    },
+    {
+      "severity": "medium",
+      "category": "protocol",
+      "summary": "Аритметичният контрол на протокола дава 1066 вместо 1000",
+      "detail": "При проверка на контролната сума (използвани + неизползвани + образец = 1000) резултатът излиза 1066 — разлика от 66 бюлетини. Членовете на СИК установяват грешката и продължават да я коригират, но тя индикира сериозни затруднения при попълване на протокола.",
+      "quote": "Ще изкарам 1066. Много хубаво. Няма ли сега са 66?",
+      "timestamp_sec": 9999
+    },
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Две бюлетини не могат да бъдат открити за дълъг период",
+      "detail": "Членовете на СИК установяват, че им липсват две бюлетини при съпоставяне на броевете. Бюлетините не могат да бъдат открити в продължение на около 25 минути, след което при около 202:01 се обявява, че са намерени.",
+      "quote": "Две биолетини ни липсват.",
+      "timestamp_sec": 10549
+    },
+    {
+      "severity": "high",
+      "category": "miscounting",
+      "summary": "Повторно броене на купчина дава с 9 бюлетини повече (159→168)",
+      "detail": "Купчина, преброена и потвърдена два пъти като 159 бюлетини, при следващо броене дава 168 — разлика от 9 броя. Членовете на СИК отбелязват несъответствието и продължават търсенето на причините. Разликата от 9 бюлетини в едно и също множество при повторно броене е най-сериозната находка в транскрипта.",
+      "quote": "Те са 159. Първият път, когато ги го е, 159. Тя ги сега изкара 168.",
+      "timestamp_sec": 11275
+    }
+  ]
+}
