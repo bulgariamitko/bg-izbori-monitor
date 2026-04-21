@@ -16,7 +16,10 @@ CLAIMS_DIR      = config.BASE / "claims"
 SIK_RE = re.compile(r"^\d{9}$")
 
 # Claim TTL — after this a claim is considered abandoned and others may pick it.
-CLAIM_TTL_HOURS = 4
+# 12h covers long-running owner runs: CPU large-v3/int8 whisper on a 3-4h clip
+# can take 4-5h alone (sec 234616006 took 4h 46m), and the sweeper will otherwise
+# delete the "expired" claim mid-transcription and break the final push.
+CLAIM_TTL_HOURS = 12
 
 for d in (TRANSCRIPTS_DIR, FINDINGS_DIR, CLAIMS_DIR):
     d.mkdir(exist_ok=True)

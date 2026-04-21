@@ -43,7 +43,9 @@ jobs:
           PY
       - name: Commit + push
         run: |
-          cnt=$(wc -l < /tmp/removed.txt || echo 0)
+          # grep -c counts non-empty lines (wc -l misses files without a
+          # trailing newline, which is why earlier sweeps logged "remove 0").
+          cnt=$(grep -c . /tmp/removed.txt 2>/dev/null || echo 0)
           if [ -z "$(git status --porcelain)" ]; then
             echo "nothing to commit"; exit 0
           fi

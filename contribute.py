@@ -393,8 +393,30 @@ def transcribe(path: Path) -> dict:
         log_prob_threshold=-1.0,
         compression_ratio_threshold=2.4,
     )
-    segs = [{"start": round(s.start,2), "end": round(s.end,2), "text": s.text.strip()}
-            for s in segments]
+    total = float(getattr(info, "duration", 0) or 0)
+    print(f"[whisper] audio duration: {total/60:.1f} min (model={config.WHISPER_MODEL} "
+          f"compute={config.WHISPER_COMPUTE}). Progress every 60s of decoded audio.",
+          flush=True)
+    segs = []
+    next_tick = 60.0
+    last_print = time.time()
+    for s in segments:
+        segs.append({"start": round(s.start,2), "end": round(s.end,2),
+                     "text": s.text.strip()})
+        # Print on decoded-audio milestones OR at least every 20s wall time,
+        # so the user sees heartbeat even during long silent stretches.
+        now = time.time()
+        if s.end >= next_tick or now - last_print > 20:
+            elapsed = now - t0
+            frac = (s.end / total) if total else 0
+            eta = (elapsed / frac - elapsed) if frac > 0.01 else 0
+            speed = (s.end / elapsed) if elapsed > 0 else 0
+            print(f"[whisper] {s.end/60:5.1f}/{total/60:5.1f} min decoded "
+                  f"({frac*100:4.1f}%)  elapsed {elapsed/60:4.1f}m  "
+                  f"eta {eta/60:4.1f}m  speed {speed:.2f}x  segs={len(segs)}",
+                  flush=True)
+            while next_tick <= s.end: next_tick += 60.0
+            last_print = now
     full = "\n".join(
         f"[{int(s['start'])//60:02d}:{int(s['start'])%60:02d}] {s['text']}" for s in segs)
     print(f"[whisper] {len(segs)} segments in {time.time()-t0:.1f}s", flush=True)
@@ -432,8 +454,23 @@ def git_publish(paths: list[Path], sik: str, tour: int, push: bool):
     else:
         git("pull", "--rebase", "--autostash", check=False)
 
+    # Filter paths that still exist OR are tracked by git. The sweeper workflow
+    # may delete our expired claim file between claim-time and transcript-time
+    # on a long CPU whisper run, so the path no longer exists on disk AND was
+    # reset out of the index by the fetch+reset above — `git add` would fail.
+    # Losing the claim file here is harmless: we're about to commit the work.
+    add_paths: list[str] = []
+    for p in paths:
+        if p.exists():
+            add_paths.append(str(p)); continue
+        tracked = run_cmd(["git","ls-files","--error-unmatch", str(p)]).returncode == 0
+        if tracked:
+            add_paths.append(str(p))
+        else:
+            print(f"[git] skipping add for missing+untracked path {p.name}", flush=True)
+
     if direct_to_main:
-        for p in paths: git("add", str(p))
+        for p in add_paths: git("add", p)
         git("commit","-m", f"transcript: СИК {sik} (tour {tour})", check=False)
         r = git("push", check=False)
         if r.returncode == 0:
@@ -445,7 +482,7 @@ def git_publish(paths: list[Path], sik: str, tour: int, push: bool):
     # Fork + PR flow
     branch = f"transcript/{sik}-tour{tour}"
     git("checkout", "-B", branch)
-    for p in paths: git("add", str(p))
+    for p in add_paths: git("add", p)
     msg = f"transcript: СИК {sik} (tour {tour})"
     git("commit","-m", msg, check=False)
     r = git("push", "--set-upstream", "origin", branch, "--force", check=False)
