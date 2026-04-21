@@ -163,15 +163,46 @@ def process_one(slug: str, sik_filter: str | None = None) -> bool:
     if f: _print_findings(f, section)
     return True
 
+def backfill_analysis(slug: str) -> int:
+    """Run Claude analysis on every transcript that doesn't yet have a
+    findings sibling. Covers the case where an earlier owner run saved a
+    transcript but crashed before analysis (e.g. СИК 234616006 where the
+    final git push failed), so we don't need a separate `analyze.py` pass."""
+    prompt = config.PROMPT_PATH.read_text()
+    n = 0
+    for t in store.iter_transcripts():
+        if t.get("slug") != slug: continue
+        if store.has_findings(t["sik"], t["tour"]): continue
+        print(f"[owner] backfill analysis for СИК {t['sik']} (tour {t['tour']})", flush=True)
+        try:
+            if analyze.analyze_one(t, prompt, push=True):
+                n += 1
+                f = store.load_findings(t["sik"], t["tour"])
+                if f:
+                    section = {"sik": t["sik"], "region_name": t.get("region_name"),
+                               "town": t.get("town"), "town_type": t.get("town_type")}
+                    _print_findings(f, section)
+        except Exception as e:
+            print(f"[owner] backfill failed for {t['sik']}: {e}", file=sys.stderr)
+    return n
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--slug",  default=config.SLUG)
     ap.add_argument("--max",   type=int, default=0)
     ap.add_argument("--once",  action="store_true")
     ap.add_argument("--sik",   help="only this SIK (useful for retries / testing)")
+    ap.add_argument("--skip-backfill", action="store_true",
+                    help="don't catch up on un-analysed transcripts at startup")
     args = ap.parse_args()
 
     print(f"[owner] slug={args.slug}  handle={GH_HANDLE}")
+
+    if not args.sik and not args.skip_backfill:
+        analyze.pull_latest()
+        n = backfill_analysis(args.slug)
+        if n: print(f"[owner] backfilled {n} pending analysis run(s)")
+
     done = 0
     while True:
         try:
