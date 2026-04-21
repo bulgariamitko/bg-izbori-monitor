@@ -45,6 +45,14 @@ def build():
     finding_keys    = {(f["sik"], f["tour"]) for f in findings_rows}
     transcript_keys = {(t["sik"], t["tour"]) for t in transcripts}
 
+    # (sik, tour) -> contributor GH handle, for badges & leaderboard
+    contributor_by_key = {(t["sik"], t["tour"]): (t.get("contributed_by") or "")
+                          for t in transcripts}
+    contrib_counts: dict[str, int] = {}
+    for who in contributor_by_key.values():
+        if who: contrib_counts[who] = contrib_counts.get(who, 0) + 1
+    contrib_leaderboard = sorted(contrib_counts.items(), key=lambda kv: (-kv[1], kv[0].lower()))
+
     def flatten(rows):
         out = []
         for f in rows:
@@ -266,6 +274,7 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
             "analyzed_at": r.get("analyzed_at",""),
             "risk_tier": risk_tiers.get(r["sik"], ""),
             "summary_bg": r.get("summary_bg","") or "",
+            "contributor": contributor_by_key.get((r["sik"], r["tour"]), ""),
             "findings": sec_findings,
         })
 
@@ -291,8 +300,8 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     </select>
   </label>
 </div>
-<table><thead><tr><th style="width:28px"></th><th>СИК</th><th>Място</th><th>Тип</th><th>Приоритет</th>
-<th>Обща оценка</th><th>Сигнали</th><th>Видео</th><th>Анализирано</th></tr></thead>
+<table><thead><tr><th style="width:28px"></th><th>СИК</th><th>Място</th>
+<th>Обща оценка</th><th>Сигнали</th><th>Видео</th><th>Доброволец</th><th>Анализирано</th></tr></thead>
 <tbody id="sections-tbody"></tbody></table>
 <div id="sections-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
 </section>''')
@@ -356,10 +365,6 @@ function renderFinding(x){{
 }}
 
 function renderSectionRow(r){{
-  const tcls = ["village","town","city"].includes(r.town_type) ? r.town_type : "";
-  const risk = r.risk_tier
-    ? `<span class="tag risk-${{r.risk_tier}}">${{RISK_BG[r.risk_tier]}}</span>`
-    : '<span style="color:#9ca3af">—</span>';
   const findingsList = (r.findings||[]).map((f,i)=>{{
     const quote = f.quote ? `<div class="quote" style="margin:4px 0 0 24px">«${{esc(f.quote)}}»</div>` : '';
     const detail = f.detail ? `<div style="margin:2px 0 0 24px;color:#4b5563">${{esc(f.detail)}}</div>` : '';
@@ -377,21 +382,23 @@ function renderSectionRow(r){{
     ? `<span class="caret" style="display:inline-block;width:14px;color:#6b7280;cursor:pointer;user-select:none">▸</span>`
     : '';
   const recap = hasRecap
-    ? `<tr class="recap-row" style="display:none"><td colspan="9" style="padding:10px 14px 16px;font-size:13px;color:#374151;background:#fafafa;border-top:0">
+    ? `<tr class="recap-row" style="display:none"><td colspan="8" style="padding:10px 14px 16px;font-size:13px;color:#374151;background:#fafafa;border-top:0">
         ${{r.summary_bg ? `<div><strong style="color:#6b7280">Кратко:</strong> ${{esc(r.summary_bg)}}</div>` : ''}}
         ${{findingsList}}
        </td></tr>`
     : '';
   const clickable = hasRecap ? 'cursor:pointer' : '';
+  const contrib = r.contributor
+    ? `<a href="https://github.com/${{esc(r.contributor)}}" target="_blank" rel="noopener">@${{esc(r.contributor)}}</a>`
+    : '<span style="color:#9ca3af">—</span>';
   return `<tr id="sik-${{esc(r.sik)}}" class="section-row" data-has-recap="${{hasRecap?1:0}}" style="${{clickable}}">
     <td style="text-align:center">${{caret}}</td>
     <td>${{esc(r.sik)}}</td>
     <td>${{esc(r.region)}} — ${{esc(r.address)}}</td>
-    <td><span class="tag ${{tcls}}">${{esc(TTYPE_BG[r.town_type]||'—')}}</span></td>
-    <td>${{risk}}</td>
     <td><span class="overall-dot" style="background:${{r.overall_color}}"></span>${{esc(r.overall_bg)}}</td>
     <td>${{r.signal_count}}</td>
     <td><a href="${{esc(r.section_page)}}" target="_blank">гледай</a></td>
+    <td style="font-size:12px">${{contrib}}</td>
     <td style="font-size:12px;color:#6b7280">${{esc(r.analyzed_at)}}</td></tr>${{recap}}`;
 }}
 
@@ -486,6 +493,19 @@ document.getElementById("sections-tbody").addEventListener("click", e=>{{
 refreshFindings();
 refreshSections();
 </script>''')
+
+    if contrib_leaderboard:
+        rows_html = "".join(
+            f'<tr><td style="width:40px;color:#6b7280">{i}.</td>'
+            f'<td><a href="https://github.com/{h(who)}" target="_blank" rel="noopener">@{h(who)}</a></td>'
+            f'<td style="text-align:right;font-variant-numeric:tabular-nums">{n}</td></tr>'
+            for i, (who, n) in enumerate(contrib_leaderboard, 1)
+        )
+        parts.append(f'''<section>
+<h2>Доброволци ({len(contrib_leaderboard)}) · общо транскрибирани секции: {sum(contrib_counts.values())}</h2>
+<table><thead><tr><th style="width:40px">#</th><th>GitHub</th><th style="text-align:right">секции</th></tr></thead>
+<tbody>{rows_html}</tbody></table>
+</section>''')
 
     parts.append(f'''<footer>
   Генерирано от <a href="https://github.com/bulgariamitko/bg-izbori-monitor">bg-izbori-monitor</a>
