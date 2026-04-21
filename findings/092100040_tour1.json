@@ -1,0 +1,33 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "092100040",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/092100040/20260419200026887435.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/092100040/20260419200026887435.mp4",
+      "start_sec": 0
+    }
+  ],
+  "region_name": "Кърджали",
+  "address": "С.КОНЧЕ, кметството",
+  "town": "КОНЧЕ",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-21T17:26:07+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "clean",
+  "summary_bg": "Преброителното заседание в СИК 092100040, с. Конче, протича без явни нередности. Отчитат се резултати от партийни гласове и преференции по стандартен ред, протоколът се обявява за завършен около 21:30 мин., след което се пристъпва към опаковане и изключване на машината. Не са установени признаци за манипулиране на бюлетини, натиск, неупълномощени лица или сериозни процедурни нарушения.",
+  "summary_en": "The count at SIK 092100040, village of Konche, proceeded without apparent irregularities. Party votes and preferences were read in standard fashion, the protocol was declared complete around the 21:30 mark, followed by packaging and machine shutdown. No signs of ballot tampering, pressure, unauthorized persons, or serious procedural violations were identified.",
+  "findings": [
+    {
+      "severity": "info",
+      "category": "procedure",
+      "summary": "Изключване на устройство преди края на опаковането — потвърдено от СИК",
+      "detail": "Около 21:52 мин. член на СИК обявява намерение да изключат устройство и да се разотидат, последвано от диалог за потвърждение. Последователността съответства на стандартното изключване на машината за гласуване след приключване на протокола, а не на прекъсване на видеозаписа по средата на процеса. Не се установяват данни за нарушение.",
+      "quote": "Това ще бъде вечерик, ще изключим съвета и да разводим. [...] Сигурни ли сте, че искате да... Да!",
+      "timestamp_sec": 1312
+    }
+  ]
+}
