@@ -118,6 +118,9 @@ a{{color:#2563eb;text-decoration:none}} a:hover{{text-decoration:underline}}
 table{{width:100%;border-collapse:collapse;font-size:13px}}
 th,td{{padding:8px 12px;border-bottom:1px solid #f1f1f1;text-align:left}}
 th{{background:#fafafa;font-weight:600;font-size:12px;color:#6b7280}}
+th.sortable{{cursor:pointer;user-select:none}} th.sortable:hover{{color:#111}}
+th.sortable .arrow{{display:inline-block;width:10px;margin-left:4px;color:#9ca3af}}
+th.sortable.active{{color:#111}} th.sortable.active .arrow{{color:#2563eb}}
 .tag{{font-size:11px;padding:2px 6px;border-radius:4px;background:#eef2ff;color:#3730a3;margin-left:6px}}
 .village{{background:#dcfce7;color:#14532d}} .town{{background:#e0f2fe;color:#075985}} .city{{background:#fef3c7;color:#78350f}}
 .disclaimer{{background:#fff8e1;border:1px solid #f5d97b;padding:12px 16px;border-radius:8px;margin-bottom:24px;font-size:13px}}
@@ -281,16 +284,6 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
     parts.append(f'''<section>
 <h2>Обработени секции (<span id="sections-count">{len(sections_js)}</span>)</h2>
 <div class="controls">
-  <label>Сортирай:
-    <select id="sections-sort">
-      <option value="analyzed">по време на анализ (ново→старо)</option>
-      <option value="sik">по номер на СИК</option>
-      <option value="town_type">по град / село</option>
-      <option value="risk">по приоритет (риск)</option>
-      <option value="overall">по оценка (най-лоши първо)</option>
-      <option value="signals">по брой сигнали</option>
-    </select>
-  </label>
   <label>Тип място:
     <select id="sections-filter-town">
       <option value="">всички</option>
@@ -299,9 +292,18 @@ footer{{text-align:center;color:#6b7280;font-size:12px;padding:24px}}
       <option value="city">само големи градове</option>
     </select>
   </label>
+  <span style="color:#6b7280;font-size:12px">кликни заглавията за сортиране</span>
 </div>
-<table><thead><tr><th style="width:28px"></th><th>СИК</th><th>Място</th>
-<th>Обща оценка</th><th>Сигнали</th><th>Видео</th><th>Доброволец</th><th>Анализирано</th></tr></thead>
+<table id="sections-table"><thead><tr>
+  <th style="width:28px"></th>
+  <th class="sortable" data-sort="sik">СИК</th>
+  <th class="sortable" data-sort="place">Място</th>
+  <th class="sortable" data-sort="overall">Обща оценка</th>
+  <th class="sortable" data-sort="signals">Сигнали</th>
+  <th>Видео</th>
+  <th class="sortable" data-sort="contributor">Доброволец</th>
+  <th class="sortable" data-sort="analyzed_at">Анализирано</th>
+</tr></thead>
 <tbody id="sections-tbody"></tbody></table>
 <div id="sections-sentinel" style="padding:16px;text-align:center;color:#6b7280;font-size:13px"></div>
 </section>''')
@@ -411,16 +413,27 @@ function sortFindings(arr, mode){{
   return a;
 }}
 
-function sortSections(arr, mode){{
-  const a = arr.slice();
-  const OV_RANK = {{"serious_concerns":0,"minor_concerns":1,"clean":2}};
-  if(mode==="analyzed") a.sort((x,y)=> (y.analyzed_at||"").localeCompare(x.analyzed_at||""));
-  else if(mode==="sik") a.sort((x,y)=> x.sik.localeCompare(y.sik));
-  else if(mode==="town_type") a.sort((x,y)=> (TTYPE_RANK[x.town_type]??9)-(TTYPE_RANK[y.town_type]??9) || x.sik.localeCompare(y.sik));
-  else if(mode==="risk") a.sort((x,y)=> (RISK_RANK[x.risk_tier]??9)-(RISK_RANK[y.risk_tier]??9) || x.sik.localeCompare(y.sik));
-  else if(mode==="overall") a.sort((x,y)=> (OV_RANK[x.overall]??9)-(OV_RANK[y.overall]??9) || y.signal_count-x.signal_count);
-  else if(mode==="signals") a.sort((x,y)=> y.signal_count-x.signal_count);
-  return a;
+const OV_RANK = {{"serious_concerns":0,"minor_concerns":1,"clean":2}};
+const SECTION_SORT_KEYS = {{
+  "sik":          r => r.sik,
+  "place":        r => ((r.region||"") + " " + (r.address||"")).toLowerCase(),
+  "overall":      r => OV_RANK[r.overall] ?? 9,
+  "signals":      r => r.signal_count,
+  "contributor":  r => (r.contributor||"").toLowerCase(),
+  "analyzed_at":  r => r.analyzed_at || "",
+}};
+// default: newest analysis first
+let sectionsSort = {{key: "analyzed_at", dir: -1}};
+
+function sortSections(arr){{
+  const {{key, dir}} = sectionsSort;
+  const get = SECTION_SORT_KEYS[key] || SECTION_SORT_KEYS["sik"];
+  return arr.slice().sort((x,y)=>{{
+    const a = get(x), b = get(y);
+    if(a < b) return -1 * dir;
+    if(a > b) return  1 * dir;
+    return x.sik.localeCompare(y.sik);
+  }});
 }}
 
 function makeInfinite(opts){{
@@ -468,15 +481,31 @@ function refreshFindings(){{
   findingsScroller.reset(sortFindings(d, sort));
 }}
 function refreshSections(){{
-  const sort = document.getElementById("sections-sort").value;
   const filt = document.getElementById("sections-filter-town").value;
   let d = SECTIONS;
   if(filt) d = d.filter(x=> x.town_type===filt);
-  sectionsScroller.reset(sortSections(d, sort));
+  sectionsScroller.reset(sortSections(d));
 }}
+function updateSortIndicators(){{
+  document.querySelectorAll("#sections-table th.sortable").forEach(th=>{{
+    const active = th.dataset.sort === sectionsSort.key;
+    th.classList.toggle("active", active);
+    let arrow = th.querySelector(".arrow");
+    if(!arrow){{ arrow = document.createElement("span"); arrow.className = "arrow"; th.appendChild(arrow); }}
+    arrow.textContent = active ? (sectionsSort.dir === 1 ? "▲" : "▼") : "";
+  }});
+}}
+document.querySelectorAll("#sections-table th.sortable").forEach(th=>{{
+  th.addEventListener("click", ()=>{{
+    const key = th.dataset.sort;
+    if(sectionsSort.key === key) sectionsSort.dir *= -1;
+    else {{ sectionsSort.key = key; sectionsSort.dir = (key === "analyzed_at" || key === "signals") ? -1 : 1; }}
+    updateSortIndicators();
+    refreshSections();
+  }});
+}});
 document.getElementById("findings-sort").addEventListener("change", refreshFindings);
 document.getElementById("findings-filter-town").addEventListener("change", refreshFindings);
-document.getElementById("sections-sort").addEventListener("change", refreshSections);
 document.getElementById("sections-filter-town").addEventListener("change", refreshSections);
 document.getElementById("sections-tbody").addEventListener("click", e=>{{
   // Don't swallow clicks on the "гледай" link
@@ -490,6 +519,7 @@ document.getElementById("sections-tbody").addEventListener("click", e=>{{
   const caret = row.querySelector(".caret");
   if(caret) caret.textContent = open ? "▸" : "▾";
 }});
+updateSortIndicators();
 refreshFindings();
 refreshSections();
 </script>''')
