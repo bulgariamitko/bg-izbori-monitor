@@ -1,0 +1,109 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "273100159",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/273100159/20260419200425283074.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419200425283074.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419205841661444.mp4",
+      "start_sec": 3256
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419205850791537.mp4",
+      "start_sec": 3265
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419205902855521.mp4",
+      "start_sec": 3277
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419205904637389.mp4",
+      "start_sec": 3279
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220303619590.mp4",
+      "start_sec": 7118
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220313736576.mp4",
+      "start_sec": 7128
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220326890511.mp4",
+      "start_sec": 7141
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220337162519.mp4",
+      "start_sec": 7152
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220345991482.mp4",
+      "start_sec": 7160
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220400653500.mp4",
+      "start_sec": 7175
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220407175546.mp4",
+      "start_sec": 7182
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419220412841496.mp4",
+      "start_sec": 7187
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/273100159/20260419230825140182.mp4",
+      "start_sec": 11040
+    }
+  ],
+  "region_name": "Стара Загора",
+  "address": "С.ОРЯХОВИЦА, Читалището",
+  "town": "ОРЯХОВИЦА",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-21T14:28:36+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Транскриптът съдържа четири момента, заслужаващи проверка от наблюдател: несъответствие в числата при чернова на протокола, споменаване на 101 дефицитни бюлетини, 16-минутна пауза след въпрос за камерата, и разговор за спиране на камерата в края.",
+  "summary_en": "Four moments worth reviewing: number discrepancy when drafting the protocol, mention of 101 deficient ballots, a 16-minute audio gap after a question about the camera, and discussion about stopping the camera near the end.",
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "procedure",
+      "summary": "Въпрос за камерата последван от 16-минутна пауза",
+      "detail": "На 138:23 член пита дали камерата работи. Следва около 16-минутна пауза без аудио, след което на 154:55 се чува потвърждение Да работи. Продължителната пауза след директния въпрос е аномалия заслужаваща проверка.",
+      "quote": "Явиште камерата работи ли? Да, работи.",
+      "timestamp_sec": 8303
+    },
+    {
+      "severity": "low",
+      "category": "procedure",
+      "summary": "Разговор за спиране на камерата в края на записа",
+      "detail": "Чуват се фрази Да се спреме че тази камера и Трябва да се включи подсказващи обсъждане на статуса на камерата от участниците.",
+      "quote": "Да се спреме, че тази камера... Тук не е оффит. Трябва да се включи.",
+      "timestamp_sec": 12443
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Несъответствие 4 срещу 12 при предложение за писане на чернова",
+      "detail": "Член казва аз имам 4 а вижте сега имам 12 и предлага да пишат от чернова. Несъответствието заслужава проверка срещу окончателния протокол.",
+      "quote": "Вижте сега, аз имам 4, а вижте сега имам 12. Черновая джинлист и почваме да пишем от малко.",
+      "timestamp_sec": 890
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Споменаване на 101 дефицитни при отчитане",
+      "detail": "В хода на изреждане на числа се чува 101 са дефицитни. Контекстът е неясен но фразата заслужава проверка срещу данните в протокола.",
+      "quote": "101 са дефицитни.",
+      "timestamp_sec": 1761
+    }
+  ]
+}
