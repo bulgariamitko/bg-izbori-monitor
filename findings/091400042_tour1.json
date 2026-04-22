@@ -1,0 +1,49 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "091400042",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/091400042/20260419200253821893.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400042/20260419200253821893.mp4",
+      "start_sec": 0
+    }
+  ],
+  "region_name": "Кърджали",
+  "address": "С.ФОТИНОВО, в ДГ \"Слънце\" мах.\"Фотиново\"",
+  "town": "ФОТИНОВО",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T10:59:40+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Записът съдържа три сигнала с нисък или среден приоритет. Най-съществен е моментът около 20:38, когато някой казва „трябва да бъде 29\" — формулировка, характерна за диктуване на цифра в протокола, а не за отчитане от преброени бюлетини. Трикратното повторение на „Аз ще ви видя\" и командата „гледайте на мен\" преди обявяване на числа също заслужават проверка.",
+  "summary_en": "The recording shows three low-to-medium signals. The most notable is around 20:38 where someone says it should be 29 there / here, phrasing that suggests a number is being dictated rather than read off a counted pile. The triple repetition of I will see you and look at me now before a number announcement are also worth a human check.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "intimidation",
+      "summary": "Трикратно повторение на Аз ще ви видя в началото на записа",
+      "detail": "Фразата Аз ще ви видя се чува три пъти в рамките на около 2,5 минути (06:39, 08:10, 09:04). Може да е сбогуване или разговор по телефон, но повторението заслужава проверка дали не е отправена заплаха.",
+      "quote": "Аз ще ви видя.",
+      "timestamp_sec": 399
+    },
+    {
+      "severity": "low",
+      "category": "intimidation",
+      "summary": "И сега гледайте на мен — неустановено лице насочва вниманието към себе си",
+      "detail": "Непосредствено преди обявяване на числа (10:04) някой нарежда на присъстващите да го гледат. Не е ясно дали говорещият е председател или外 лице.",
+      "quote": "И сега гледайте на мен. Това е 15 и 7.",
+      "timestamp_sec": 600
+    },
+    {
+      "severity": "medium",
+      "category": "protocol",
+      "summary": "Диктуване на цифра 29 в протокола вместо отчитане от купчина",
+      "detail": "На 20:38–20:40 чуваме Там трябва да бъде 29. Тук да бъде 29. Формулировката трябва да бъде подсказва предварително зададено число, а не четене от преброени бюлетини.",
+      "quote": "Там трябва да бъде 29. Тук да бъде 29. Това е че?",
+      "timestamp_sec": 1238
+    }
+  ]
+}
