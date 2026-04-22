@@ -1,0 +1,41 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "293300043",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/293300043/20260419200607064054.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/293300043/20260419200607064054.mp4",
+      "start_sec": 0
+    }
+  ],
+  "region_name": "Хасково",
+  "address": "С.ШИШМАНОВО, Сграда на бивше училище",
+  "town": "ШИШМАНОВО",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T00:50:24+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Транскрипцията е силно фрагментирана с много неразбираеми фрагменти. Не са открити явни признаци на манипулация или сериозни нарушения. Налице е голяма пауза (~19 мин.) без записан диалог.",
+  "summary_en": "The transcript is heavily fragmented. No clear tampering or serious violations found. A ~19-minute gap with no transcribed dialogue warrants a manual video check.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "procedure",
+      "summary": "Пропуск ~19 мин. без записан диалог (01:27–20:17)",
+      "detail": "В транскрипцията липсват около 19 минути между 01:27 и 20:17. Препоръчва се преглед на видеото в този интервал.",
+      "quote": "[01:27] Това не е на му пъща.",
+      "timestamp_sec": 87
+    },
+    {
+      "severity": "info",
+      "category": "other",
+      "summary": "Призиви за абониране — вероятно платформени наслагвания",
+      "detail": "Фразите Абонирайте се! (20:17) и не се забравяйте да се абонирате за нашия канал (98:05) изглеждат като наслагвания на стрийминг платформата.",
+      "quote": "[98:05] Ако не се виждате, не се забравяйте да се абонирате за нашия канал.",
+      "timestamp_sec": 5885
+    }
+  ]
+}
