@@ -1,0 +1,69 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "221600032",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/221600032/20260419200141801731.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/221600032/20260419200141801731.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/221600032/20260419201201297221.mp4",
+      "start_sec": 620
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/221600032/20260419201204943781.mp4",
+      "start_sec": 623
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/221600032/20260419201216016929.mp4",
+      "start_sec": 635
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/221600032/20260419201220041789.mp4",
+      "start_sec": 639
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/221600032/20260419201231267267.mp4",
+      "start_sec": 650
+    }
+  ],
+  "region_name": "Смолян",
+  "address": "С.ГАЛИЩЕ, Кметство Галище",
+  "town": "ГАЛИЩЕ",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T00:39:01+00:00",
+  "model": "claude-sonnet-4-6",
+  "findings": [
+    {
+      "severity": "high",
+      "category": "procedure",
+      "summary": "Умишлено спиране на видеозаписа преди края на процедурата",
+      "detail": "В самия край на записа се чува системен диалог за потвърждение на спиране на видеото, на който членовете на СИК отговарят утвърдително. Записът е прекратен умишлено, като не е ясно дали протоколът вече е бил окончателно попълнен и подписан.",
+      "quote": "Сигурни ли сте, че искате да прекратите видео за снимането? Да.",
+      "timestamp_sec": 3223
+    },
+    {
+      "severity": "medium",
+      "category": "unauthorized",
+      "summary": "Споменаване на мобилен телефон и команда 'Снимай' по време на броенето",
+      "detail": "Около 36:46 се споменава телефон, след което друг присъстващ реагира с 'Не, не, той един мобил'. Около четири минути по-късно на 40:44 се чува изричната команда 'Снимай'. Съчетанието от двата момента поражда съмнение, че е направена снимка на бюлетини с личен телефон.",
+      "quote": "Не, не, той един мобил. [...] Снимай.",
+      "timestamp_sec": 2444
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Объркване в броенето — 43, 44 или 46 гласа за дадена партия",
+      "detail": "В периода 22:11–23:13 членовете на СИК неколкократно обсъждат дали броят за дадена партия е 43, 44 или 46. Диалогът не завършва с изрично потвърдено и съгласувано финално число.",
+      "quote": "Как са делали? 44, 46.",
+      "timestamp_sec": 1393
+    }
+  ],
+  "overall": "minor_concerns",
+  "summary_bg": "Основната нередност е умишленото прекратяване на видеозаписа преди ясното приключване на всички процедури по протокола. Допълнително е засечено споменаване на мобилен телефон заедно с командата „Снимай\", което поражда съмнение за фотографиране на бюлетини. Наблюдава се и леко объркване в броенето между числата 43, 44 и 46 за една от партиите.",
+  "summary_en": "The primary concern is the deliberate stopping of the video recording before procedures were clearly concluded. Additionally, a mobile phone was mentioned followed by a command to \"photograph/record\", raising suspicion of unauthorized ballot photography. Minor confusion in the ballot count between 43, 44, and 46 for one party was also noted."
+}
