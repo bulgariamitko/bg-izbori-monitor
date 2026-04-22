@@ -1,0 +1,97 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "220900013",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/220900013/20260419200624413023.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419200624413023.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419210626500482.mp4",
+      "start_sec": 3602
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419210658329084.mp4",
+      "start_sec": 3634
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419210857893675.mp4",
+      "start_sec": 3753
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419212016006374.mp4",
+      "start_sec": 4432
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419212057688276.mp4",
+      "start_sec": 4473
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419212141994136.mp4",
+      "start_sec": 4517
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419212643471426.mp4",
+      "start_sec": 4819
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419212816860164.mp4",
+      "start_sec": 4912
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419213259831646.mp4",
+      "start_sec": 5195
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419214026027706.mp4",
+      "start_sec": 5642
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419221017674187.mp4",
+      "start_sec": 7433
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/220900013/20260419230835331824.mp4",
+      "start_sec": 10931
+    }
+  ],
+  "region_name": "Смолян",
+  "address": "С.ГЬОВРЕН, Кметството",
+  "town": "ГЬОВРЕН",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T14:16:50+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "serious_concerns",
+  "summary_bg": "При преброяването се установи несъответствие от 2 гласа – сборът е 344 вместо очакваните 342. За балансиране на протокола броят гласове за партия 17 е намален от 106 на 104 без явно самостоятелно повторно броене на купчинката, което изглежда като аритметична корекция. Установена е и кратка дискусия за позицията на материалите спрямо обхвата на камерата.",
+  "summary_en": "A 2-vote discrepancy arose during tallying (344 counted vs. 342 expected). Party 17's total was then reduced from 106 to 104 with no clearly documented standalone recount of that pile, appearing to be an arithmetic fix. A brief exchange also noted that items placed below the camera field of view would not be captured.",
+  "findings": [
+    {
+      "severity": "high",
+      "category": "miscounting",
+      "summary": "Гласовете за партия 17 намалени от 106 на 104 без явно повторно броене",
+      "detail": "След констатиране на несъответствие +2 членовете решават да запишат 104 вместо предходните 106 за партия 17. Изявлението показва корекция чрез аритметика, не чрез физическо повторно броене.",
+      "quote": "106 ги писахме... Значи 17 става 104, така ли? Да. 104, така се засича, добро. Пишем 17, 104 и 21, 140.",
+      "timestamp_sec": 5980
+    },
+    {
+      "severity": "medium",
+      "category": "miscounting",
+      "summary": "Несъответствие: общият сбор е 344 вместо очакваните 342",
+      "detail": "При сумиране гласовете дават 344, но очакваният брой бюлетини е 342. Двата излишни гласа предизвикват препреброявания и последваща корекция в броя на партия 17.",
+      "quote": "А ние така излизаме с две отгоре. 344. Трябва да излеземе на 342.",
+      "timestamp_sec": 5676
+    },
+    {
+      "severity": "low",
+      "category": "procedure",
+      "summary": "Коментар, че материали под камерата няма да бъдат заснети",
+      "detail": "Член на СИК отбелязва, че ако материалите се поставят под нивото на камерата, тя няма да ги запише. Не е установено умишлено скриване, но коментарът заслужава проверка.",
+      "quote": "Тук няма да се виждат. Тя ще пане камерата за всичко. Не, ако пише под камерата, няма да я пане.",
+      "timestamp_sec": 4538
+    }
+  ]
+}
