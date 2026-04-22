@@ -1,0 +1,4073 @@
+{
+  "schema": "bg-izbori-transcript/1",
+  "sik": "283500081",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/283500081/20260419200827856931.mp4",
+  "video_type": "live",
+  "chunk_count": 214,
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419200827856931.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419200909441098.mp4",
+      "start_sec": 42
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419200921292073.mp4",
+      "start_sec": 54
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419200925745184.mp4",
+      "start_sec": 58
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419200957549573.mp4",
+      "start_sec": 90
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201038482196.mp4",
+      "start_sec": 131
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201101706419.mp4",
+      "start_sec": 154
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201442650323.mp4",
+      "start_sec": 375
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201514577935.mp4",
+      "start_sec": 407
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201600708827.mp4",
+      "start_sec": 453
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201630640091.mp4",
+      "start_sec": 483
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201721453371.mp4",
+      "start_sec": 534
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201730372315.mp4",
+      "start_sec": 543
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201757291232.mp4",
+      "start_sec": 570
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201853669494.mp4",
+      "start_sec": 626
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201904780302.mp4",
+      "start_sec": 637
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201906637286.mp4",
+      "start_sec": 639
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201936023845.mp4",
+      "start_sec": 669
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419201949023357.mp4",
+      "start_sec": 682
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202035908652.mp4",
+      "start_sec": 728
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202208050731.mp4",
+      "start_sec": 821
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202229598736.mp4",
+      "start_sec": 842
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202249391555.mp4",
+      "start_sec": 862
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202301279560.mp4",
+      "start_sec": 874
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202317444736.mp4",
+      "start_sec": 890
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202349758306.mp4",
+      "start_sec": 922
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202458970111.mp4",
+      "start_sec": 991
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419202619752434.mp4",
+      "start_sec": 1072
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419204442129215.mp4",
+      "start_sec": 2175
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419204452585960.mp4",
+      "start_sec": 2185
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419204501539579.mp4",
+      "start_sec": 2194
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419204512585574.mp4",
+      "start_sec": 2205
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419204523892729.mp4",
+      "start_sec": 2216
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419204550902026.mp4",
+      "start_sec": 2243
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205721274070.mp4",
+      "start_sec": 2934
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205731616535.mp4",
+      "start_sec": 2944
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205740900287.mp4",
+      "start_sec": 2953
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205753059383.mp4",
+      "start_sec": 2966
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205820658283.mp4",
+      "start_sec": 2993
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205914391569.mp4",
+      "start_sec": 3047
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205927209783.mp4",
+      "start_sec": 3060
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205938864162.mp4",
+      "start_sec": 3071
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419205949652590.mp4",
+      "start_sec": 3082
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210001191586.mp4",
+      "start_sec": 3094
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210032518011.mp4",
+      "start_sec": 3125
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210126387595.mp4",
+      "start_sec": 3179
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210144384771.mp4",
+      "start_sec": 3197
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210203595610.mp4",
+      "start_sec": 3216
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210230680324.mp4",
+      "start_sec": 3243
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210311293782.mp4",
+      "start_sec": 3284
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210814758495.mp4",
+      "start_sec": 3587
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210824691357.mp4",
+      "start_sec": 3597
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210833123595.mp4",
+      "start_sec": 3606
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210842611756.mp4",
+      "start_sec": 3615
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210851288610.mp4",
+      "start_sec": 3624
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419210924541557.mp4",
+      "start_sec": 3657
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211000618654.mp4",
+      "start_sec": 3693
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211010314322.mp4",
+      "start_sec": 3703
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211017203416.mp4",
+      "start_sec": 3710
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211026421083.mp4",
+      "start_sec": 3719
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211034220137.mp4",
+      "start_sec": 3727
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211043948100.mp4",
+      "start_sec": 3736
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211119113996.mp4",
+      "start_sec": 3772
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211154895323.mp4",
+      "start_sec": 3807
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211203122773.mp4",
+      "start_sec": 3816
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211211275473.mp4",
+      "start_sec": 3824
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211219248484.mp4",
+      "start_sec": 3832
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211227975885.mp4",
+      "start_sec": 3840
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211236908626.mp4",
+      "start_sec": 3849
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211324481761.mp4",
+      "start_sec": 3897
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211351740680.mp4",
+      "start_sec": 3924
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211400796593.mp4",
+      "start_sec": 3933
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211409300542.mp4",
+      "start_sec": 3942
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211417895565.mp4",
+      "start_sec": 3950
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211426312593.mp4",
+      "start_sec": 3959
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211507652868.mp4",
+      "start_sec": 4000
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211528893610.mp4",
+      "start_sec": 4021
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211539281642.mp4",
+      "start_sec": 4032
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211548839829.mp4",
+      "start_sec": 4041
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211558756819.mp4",
+      "start_sec": 4051
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211635739409.mp4",
+      "start_sec": 4088
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211657985260.mp4",
+      "start_sec": 4110
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211707533785.mp4",
+      "start_sec": 4120
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211713996089.mp4",
+      "start_sec": 4126
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211720985018.mp4",
+      "start_sec": 4133
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211730593031.mp4",
+      "start_sec": 4143
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419211805930964.mp4",
+      "start_sec": 4178
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419212437452643.mp4",
+      "start_sec": 4570
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213118455698.mp4",
+      "start_sec": 4971
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213158291189.mp4",
+      "start_sec": 5011
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213201322655.mp4",
+      "start_sec": 5014
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213210133716.mp4",
+      "start_sec": 5023
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213212087495.mp4",
+      "start_sec": 5025
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213223140864.mp4",
+      "start_sec": 5036
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213754650595.mp4",
+      "start_sec": 5367
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213801249499.mp4",
+      "start_sec": 5374
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213808860879.mp4",
+      "start_sec": 5381
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213816357585.mp4",
+      "start_sec": 5389
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213824676502.mp4",
+      "start_sec": 5397
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213901846308.mp4",
+      "start_sec": 5434
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213927855211.mp4",
+      "start_sec": 5460
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213938450311.mp4",
+      "start_sec": 5471
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213948349225.mp4",
+      "start_sec": 5481
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419213955305182.mp4",
+      "start_sec": 5488
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419214002920801.mp4",
+      "start_sec": 5495
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419214009555083.mp4",
+      "start_sec": 5502
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419214056894327.mp4",
+      "start_sec": 5549
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215257414547.mp4",
+      "start_sec": 6270
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215336053278.mp4",
+      "start_sec": 6309
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215344914704.mp4",
+      "start_sec": 6317
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215404349551.mp4",
+      "start_sec": 6337
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215429969501.mp4",
+      "start_sec": 6362
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215538010253.mp4",
+      "start_sec": 6431
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215555888537.mp4",
+      "start_sec": 6448
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215605613155.mp4",
+      "start_sec": 6458
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215614895769.mp4",
+      "start_sec": 6467
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215627347190.mp4",
+      "start_sec": 6480
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215657905315.mp4",
+      "start_sec": 6510
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215733333160.mp4",
+      "start_sec": 6546
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215742362088.mp4",
+      "start_sec": 6555
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215750909089.mp4",
+      "start_sec": 6563
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215759780493.mp4",
+      "start_sec": 6572
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215836216845.mp4",
+      "start_sec": 6609
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215928410517.mp4",
+      "start_sec": 6661
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215939185879.mp4",
+      "start_sec": 6672
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419215953728490.mp4",
+      "start_sec": 6686
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220004845741.mp4",
+      "start_sec": 6697
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220022035648.mp4",
+      "start_sec": 6715
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220054839386.mp4",
+      "start_sec": 6747
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220142295454.mp4",
+      "start_sec": 6795
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220154762511.mp4",
+      "start_sec": 6807
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220206924957.mp4",
+      "start_sec": 6819
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220228662716.mp4",
+      "start_sec": 6841
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220303326868.mp4",
+      "start_sec": 6876
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220446088018.mp4",
+      "start_sec": 6979
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220511037095.mp4",
+      "start_sec": 7004
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220514641180.mp4",
+      "start_sec": 7007
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220614973030.mp4",
+      "start_sec": 7067
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220616052408.mp4",
+      "start_sec": 7069
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220636049001.mp4",
+      "start_sec": 7089
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220638999203.mp4",
+      "start_sec": 7091
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220651809045.mp4",
+      "start_sec": 7104
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419220718253383.mp4",
+      "start_sec": 7131
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222046246082.mp4",
+      "start_sec": 7939
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222136054092.mp4",
+      "start_sec": 7989
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222143726284.mp4",
+      "start_sec": 7996
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222153223276.mp4",
+      "start_sec": 8006
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222202703180.mp4",
+      "start_sec": 8015
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222212979206.mp4",
+      "start_sec": 8025
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222251934749.mp4",
+      "start_sec": 8064
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222335962563.mp4",
+      "start_sec": 8108
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222344836627.mp4",
+      "start_sec": 8117
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222354343535.mp4",
+      "start_sec": 8127
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222403700731.mp4",
+      "start_sec": 8136
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222439650162.mp4",
+      "start_sec": 8172
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222507198632.mp4",
+      "start_sec": 8200
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222514925557.mp4",
+      "start_sec": 8207
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222523805633.mp4",
+      "start_sec": 8216
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222535394503.mp4",
+      "start_sec": 8228
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222545214439.mp4",
+      "start_sec": 8238
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222620845868.mp4",
+      "start_sec": 8273
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222701368640.mp4",
+      "start_sec": 8314
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222710661696.mp4",
+      "start_sec": 8323
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222719611524.mp4",
+      "start_sec": 8332
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222727808531.mp4",
+      "start_sec": 8340
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222736638607.mp4",
+      "start_sec": 8349
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222745679531.mp4",
+      "start_sec": 8358
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222816710712.mp4",
+      "start_sec": 8389
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222900634475.mp4",
+      "start_sec": 8433
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222910597646.mp4",
+      "start_sec": 8443
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222923168465.mp4",
+      "start_sec": 8456
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419222935085658.mp4",
+      "start_sec": 8468
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223001360738.mp4",
+      "start_sec": 8494
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223104402490.mp4",
+      "start_sec": 8557
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223116132687.mp4",
+      "start_sec": 8569
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223130446708.mp4",
+      "start_sec": 8583
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223159931916.mp4",
+      "start_sec": 8612
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223419611106.mp4",
+      "start_sec": 8752
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223446210060.mp4",
+      "start_sec": 8779
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223535882970.mp4",
+      "start_sec": 8828
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223558584045.mp4",
+      "start_sec": 8851
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223625461104.mp4",
+      "start_sec": 8878
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223816770567.mp4",
+      "start_sec": 8989
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223835809009.mp4",
+      "start_sec": 9008
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223848716192.mp4",
+      "start_sec": 9021
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223911710105.mp4",
+      "start_sec": 9044
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223927495057.mp4",
+      "start_sec": 9060
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223946177060.mp4",
+      "start_sec": 9079
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419223958462178.mp4",
+      "start_sec": 9091
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419224046702227.mp4",
+      "start_sec": 9139
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419224057524243.mp4",
+      "start_sec": 9150
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419224108973132.mp4",
+      "start_sec": 9161
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419224146735720.mp4",
+      "start_sec": 9199
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419224855003629.mp4",
+      "start_sec": 9628
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419224942061629.mp4",
+      "start_sec": 9675
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225249212028.mp4",
+      "start_sec": 9862
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225507550504.mp4",
+      "start_sec": 10000
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225520153606.mp4",
+      "start_sec": 10013
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225530700513.mp4",
+      "start_sec": 10023
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225552239765.mp4",
+      "start_sec": 10045
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225603552281.mp4",
+      "start_sec": 10056
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225612849850.mp4",
+      "start_sec": 10065
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225631536695.mp4",
+      "start_sec": 10084
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225644012536.mp4",
+      "start_sec": 10097
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419225954285335.mp4",
+      "start_sec": 10287
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230320473660.mp4",
+      "start_sec": 10493
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230345116503.mp4",
+      "start_sec": 10518
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230411241612.mp4",
+      "start_sec": 10544
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230431036418.mp4",
+      "start_sec": 10564
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230441065623.mp4",
+      "start_sec": 10574
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230457726734.mp4",
+      "start_sec": 10590
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419230509760551.mp4",
+      "start_sec": 10602
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419231056334398.mp4",
+      "start_sec": 10949
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/283500081/20260419234152899476.mp4",
+      "start_sec": 12805
+    }
+  ],
+  "duration_sec": 10777.9858125,
+  "region_name": "Търговище",
+  "address": "С.ОВЧАРОВО, Сградата на ЗК \"Овчарово\"",
+  "town": "ОВЧАРОВО",
+  "town_type": "village",
+  "risk_level": "high",
+  "whisper": {
+    "model": "large-v3",
+    "language": "bg",
+    "compute_type": "int8"
+  },
+  "contributed_by": "bulgariamitko",
+  "transcribed_at": "2026-04-22T06:48:30+00:00",
+  "segments": [
+    {
+      "start": 0.75,
+      "end": 5.3,
+      "text": "Да, сега вече всичко е ОК, може да започвам."
+    },
+    {
+      "start": 5.3,
+      "end": 6.3,
+      "text": "Да?"
+    },
+    {
+      "start": 6.3,
+      "end": 7.3,
+      "text": "Да, добре."
+    },
+    {
+      "start": 7.3,
+      "end": 14.34,
+      "text": "Сега се предоява свободната среща вътре в дизайнерското среща."
+    },
+    {
+      "start": 14.34,
+      "end": 70.92,
+      "text": "Добър вечер!"
+    },
+    {
+      "start": 70.94,
+      "end": 74.94,
+      "text": "74, 76, 78,"
+    },
+    {
+      "start": 74.94,
+      "end": 79.28,
+      "text": "87, 82,"
+    },
+    {
+      "start": 79.28,
+      "end": 82.28,
+      "text": "84, 86, 78,"
+    },
+    {
+      "start": 82.28,
+      "end": 84.28,
+      "text": "86, 92,"
+    },
+    {
+      "start": 84.28,
+      "end": 86.28,
+      "text": "94, 96,"
+    },
+    {
+      "start": 86.28,
+      "end": 89.59,
+      "text": "97, 100,"
+    },
+    {
+      "start": 89.59,
+      "end": 91.59,
+      "text": "92,"
+    },
+    {
+      "start": 91.59,
+      "end": 93.59,
+      "text": "104, 106,"
+    },
+    {
+      "start": 93.59,
+      "end": 95.59,
+      "text": "108, 109,"
+    },
+    {
+      "start": 95.59,
+      "end": 99.0,
+      "text": "110, 112,"
+    },
+    {
+      "start": 99.0,
+      "end": 101.0,
+      "text": "114, 116,"
+    },
+    {
+      "start": 101.0,
+      "end": 103.0,
+      "text": "118, 120"
+    },
+    {
+      "start": 103.0,
+      "end": 115.23,
+      "text": "И 2, 124, 126, 128, 123, 132, 134, 136, 138, 140."
+    },
+    {
+      "start": 115.75,
+      "end": 126.49,
+      "text": "И 2, 144, 146, 140, 168, 150, 120, 154, 156, 157."
+    },
+    {
+      "start": 126.49,
+      "end": 157.54,
+      "text": "158, 160, 162, 164, 166, 168, 170, 172, 174, 179, 180, 182, 184, 186, 188, 190, 192, 194, 196, 198,"
+    },
+    {
+      "start": 158.54,
+      "end": 192.45,
+      "text": "200, 202, 204, 206, 208, 210, 212, 214, 216, 217, 212, 222, 224, 226, 228, 231, 232, 234, 236, 238, 240,"
+    },
+    {
+      "start": 192.47,
+      "end": 207.47,
+      "text": "242, 244, 246, 248, 250, 252, 254, 256, 258, 259,"
+    },
+    {
+      "start": 207.47,
+      "end": 230.89,
+      "text": "260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284,"
+    },
+    {
+      "start": 230.89,
+      "end": 261.18,
+      "text": "286, 278, 290, 292, 294, 296, 298, 300, 302, 304, 306, 308, 310, 312, 313, 315."
+    },
+    {
+      "start": 263.8,
+      "end": 266.44,
+      "text": "Това е за мъчен класа плюс 8."
+    },
+    {
+      "start": 268.36,
+      "end": 268.94,
+      "text": "Общо."
+    },
+    {
+      "start": 269.62,
+      "end": 271.85,
+      "text": "323."
+    },
+    {
+      "start": 272.51,
+      "end": 274.55,
+      "text": "Общо, 323."
+    },
+    {
+      "start": 275.01,
+      "end": 281.26,
+      "text": "Значи, бюлетините извън"
+    },
+    {
+      "start": 281.26,
+      "end": 283.33,
+      "text": "и избирателно да купият"
+    },
+    {
+      "start": 283.33,
+      "end": 285.65,
+      "text": "от точка 3 и 4 на черновата"
+    },
+    {
+      "start": 285.65,
+      "end": 286.51,
+      "text": "селка Коза."
+    },
+    {
+      "start": 286.51,
+      "end": 304.01,
+      "text": "Тук е останал 5."
+    },
+    {
+      "start": 305.07,
+      "end": 311.04,
+      "text": "Тук номера е"
+    },
+    {
+      "start": 311.04,
+      "end": 312.04,
+      "text": "325."
+    },
+    {
+      "start": 312.88,
+      "end": 314.97,
+      "text": "Последният номер е 4."
+    },
+    {
+      "start": 315.47,
+      "end": 318.46,
+      "text": "От 325 до 4."
+    },
+    {
+      "start": 318.82,
+      "end": 319.44,
+      "text": "75."
+    },
+    {
+      "start": 320.22,
+      "end": 321.36,
+      "text": "И тук имаме 100."
+    },
+    {
+      "start": 321.36,
+      "end": 327.36,
+      "text": "175 имаме неизползвани и една имаме, някъде образеца."
+    },
+    {
+      "start": 327.36,
+      "end": 333.36,
+      "text": "Тези моща принципно се вписват и излагаме във двения чувак."
+    },
+    {
+      "start": 333.36,
+      "end": 352.89,
+      "text": "Списъкът, затварям ли?"
+    },
+    {
+      "start": 352.89,
+      "end": 357.71,
+      "text": "...отдели си, за което има подробно удобряване,"
+    },
+    {
+      "start": 357.71,
+      "end": 363.36,
+      "text": "какво ще ви има вътре."
+    },
+    {
+      "start": 363.36,
+      "end": 365.36,
+      "text": "Трябва да се опакува и да се излечва."
+    },
+    {
+      "start": 365.36,
+      "end": 370.17,
+      "text": "...и така и така работи."
+    },
+    {
+      "start": 370.17,
+      "end": 372.17,
+      "text": "...стои сме, същата..."
+    },
+    {
+      "start": 372.17,
+      "end": 374.17,
+      "text": "...и това това се предизмерва..."
+    },
+    {
+      "start": 374.17,
+      "end": 412.14,
+      "text": "...и пишете тук, че са..."
+    },
+    {
+      "start": 412.14,
+      "end": 456.57,
+      "text": "... и някакъв черно-календарно..."
+    },
+    {
+      "start": 456.57,
+      "end": 963.69,
+      "text": "Да, и аз искам..."
+    },
+    {
+      "start": 963.69,
+      "end": 1005.3,
+      "text": "... и нали те ще се нахудши, те се нарежда, че нам се пратят..."
+    },
+    {
+      "start": 1005.3,
+      "end": 1155.18,
+      "text": "...наче не по-губът за него."
+    },
+    {
+      "start": 1155.18,
+      "end": 1540.76,
+      "text": "Не е ли твоето?"
+    },
+    {
+      "start": 1540.76,
+      "end": 1542.76,
+      "text": "Какъв, кажи..."
+    },
+    {
+      "start": 1542.76,
+      "end": 1579.9,
+      "text": "... дадех мълчета е, въздух."
+    },
+    {
+      "start": 1579.9,
+      "end": 1599.47,
+      "text": "О, късава."
+    },
+    {
+      "start": 1599.47,
+      "end": 1614.46,
+      "text": "Ще пишем и как ще направим."
+    },
+    {
+      "start": 1614.46,
+      "end": 1620.43,
+      "text": "Реално, дигаме тази бумага."
+    },
+    {
+      "start": 1620.43,
+      "end": 1650.91,
+      "text": "Това не ще трябва и те да виждат."
+    },
+    {
+      "start": 1650.91,
+      "end": 1662.06,
+      "text": "... стане в машината."
+    },
+    {
+      "start": 1662.06,
+      "end": 1676.35,
+      "text": "Чакай се."
+    },
+    {
+      "start": 2032.16,
+      "end": 2055.51,
+      "text": "Не си му харесна писка?"
+    },
+    {
+      "start": 2165.13,
+      "end": 2166.59,
+      "text": "Вижте, аз не е добър."
+    },
+    {
+      "start": 2166.59,
+      "end": 2211.56,
+      "text": "Аз съм 5."
+    },
+    {
+      "start": 2211.82,
+      "end": 2212.77,
+      "text": "Аз съм 5."
+    },
+    {
+      "start": 2213.27,
+      "end": 2238.11,
+      "text": "Аз съм 4."
+    },
+    {
+      "start": 2238.83,
+      "end": 2308.19,
+      "text": "И тъй ви правиш така,"
+    },
+    {
+      "start": 2308.25,
+      "end": 2316.34,
+      "text": "за да не се върнаш."
+    },
+    {
+      "start": 2316.46,
+      "end": 2319.74,
+      "text": "Така, слушам."
+    },
+    {
+      "start": 2319.74,
+      "end": 2320.7,
+      "text": "Номер 21."
+    },
+    {
+      "start": 2321.12,
+      "end": 2322.22,
+      "text": "Нищо не се вижда."
+    },
+    {
+      "start": 2322.82,
+      "end": 2323.14,
+      "text": "Да."
+    },
+    {
+      "start": 2324.54,
+      "end": 2349.76,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2353.84,
+      "end": 2357.9,
+      "text": "Да, вижда се."
+    },
+    {
+      "start": 2358.4,
+      "end": 2358.96,
+      "text": "Така."
+    },
+    {
+      "start": 2359.64,
+      "end": 2362.81,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2363.29,
+      "end": 2374.62,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2377.8,
+      "end": 2378.06,
+      "text": "Да."
+    },
+    {
+      "start": 2391.97,
+      "end": 2393.19,
+      "text": "Дай надолу малко."
+    },
+    {
+      "start": 2393.97,
+      "end": 2394.17,
+      "text": "Да."
+    },
+    {
+      "start": 2394.61,
+      "end": 2402.36,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2404.39,
+      "end": 2404.71,
+      "text": "Да."
+    },
+    {
+      "start": 2405.39,
+      "end": 2416.44,
+      "text": "Той пък то с номер 11."
+    },
+    {
+      "start": 2416.58,
+      "end": 2416.88,
+      "text": "11."
+    },
+    {
+      "start": 2417.38,
+      "end": 2417.56,
+      "text": "Да."
+    },
+    {
+      "start": 2418.91,
+      "end": 2419.35,
+      "text": "Коя е фиш?"
+    },
+    {
+      "start": 2420.14,
+      "end": 2420.82,
+      "text": "Алиянса."
+    },
+    {
+      "start": 2424.49,
+      "end": 2424.67,
+      "text": "Те."
+    },
+    {
+      "start": 2425.21,
+      "end": 2429.95,
+      "text": "А, пе си."
+    },
+    {
+      "start": 2429.97,
+      "end": 2430.59,
+      "text": "Номер 4."
+    },
+    {
+      "start": 2432.9,
+      "end": 2433.22,
+      "text": "Да."
+    },
+    {
+      "start": 2436.5,
+      "end": 2440.56,
+      "text": "Гледайте дали излязва извън квадратче, мадратче, да няма..."
+    },
+    {
+      "start": 2440.56,
+      "end": 2440.68,
+      "text": "Да."
+    },
+    {
+      "start": 2440.68,
+      "end": 2440.86,
+      "text": "Да."
+    },
+    {
+      "start": 2440.86,
+      "end": 2446.86,
+      "text": "Да, и те да гледат там, да ни кажат нещо."
+    },
+    {
+      "start": 2446.86,
+      "end": 2450.86,
+      "text": "Да ни кажат нещо. Да, 21, да."
+    },
+    {
+      "start": 2450.86,
+      "end": 2457.49,
+      "text": "Ти го казваш, чула ме."
+    },
+    {
+      "start": 2457.49,
+      "end": 2459.49,
+      "text": "21."
+    },
+    {
+      "start": 2459.49,
+      "end": 2462.04,
+      "text": "Ако искаш."
+    },
+    {
+      "start": 2462.04,
+      "end": 2465.04,
+      "text": "На вас вярващо да гледате, нали?"
+    },
+    {
+      "start": 2465.04,
+      "end": 2467.04,
+      "text": "Да, гледам, гледам."
+    },
+    {
+      "start": 2467.04,
+      "end": 2469.04,
+      "text": "21."
+    },
+    {
+      "start": 2469.04,
+      "end": 2471.04,
+      "text": "Добре."
+    },
+    {
+      "start": 2471.04,
+      "end": 2472.52,
+      "text": "21, да."
+    },
+    {
+      "start": 2476.42,
+      "end": 2479.68,
+      "text": "Номер 21."
+    },
+    {
+      "start": 2483.22,
+      "end": 2484.7,
+      "text": "21, да."
+    },
+    {
+      "start": 2488.87,
+      "end": 2489.99,
+      "text": "Номер 21."
+    },
+    {
+      "start": 2493.72,
+      "end": 2494.16,
+      "text": "Да."
+    },
+    {
+      "start": 2494.66,
+      "end": 2502.28,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2526.23,
+      "end": 2527.81,
+      "text": "Само си е подписал, добре."
+    },
+    {
+      "start": 2528.49,
+      "end": 2529.11,
+      "text": "Невалидна."
+    },
+    {
+      "start": 2531.78,
+      "end": 2533.02,
+      "text": "Не е използвано хиксилибет."
+    },
+    {
+      "start": 2533.34,
+      "end": 2537.44,
+      "text": "Да."
+    },
+    {
+      "start": 2537.94,
+      "end": 2547.12,
+      "text": "Точно се държа на малко сила, че пък е върху."
+    },
+    {
+      "start": 2547.12,
+      "end": 2555.4,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2557.16,
+      "end": 2558.56,
+      "text": "И да отгледат и другите."
+    },
+    {
+      "start": 2559.26,
+      "end": 2560.84,
+      "text": "Да, да, ама..."
+    },
+    {
+      "start": 2560.84,
+      "end": 2562.38,
+      "text": "Добре."
+    },
+    {
+      "start": 2562.38,
+      "end": 2565.38,
+      "text": "Не, нещо да излязе от това."
+    },
+    {
+      "start": 2565.38,
+      "end": 2568.42,
+      "text": "Да."
+    },
+    {
+      "start": 2568.42,
+      "end": 2571.42,
+      "text": "Покажи да е номер 17."
+    },
+    {
+      "start": 2571.42,
+      "end": 2575.79,
+      "text": "Не, не, то..."
+    },
+    {
+      "start": 2575.79,
+      "end": 2580.39,
+      "text": "Знаеш ли?"
+    },
+    {
+      "start": 2580.39,
+      "end": 2583.39,
+      "text": "Не действително ни се го советен, кога топли."
+    },
+    {
+      "start": 2583.39,
+      "end": 2586.39,
+      "text": "То не е за цялото, а като е на друго."
+    },
+    {
+      "start": 2586.39,
+      "end": 2589.97,
+      "text": "Нека да го почитам, нали да е явно."
+    },
+    {
+      "start": 2589.97,
+      "end": 2594.7,
+      "text": "Сега ги читали?"
+    },
+    {
+      "start": 2594.7,
+      "end": 2598.52,
+      "text": "Ето, ако си погледни, нали, между брайки, ето къде обикне с почетите си."
+    },
+    {
+      "start": 2599.08,
+      "end": 2600.16,
+      "text": "Ако не завяга, то..."
+    },
+    {
+      "start": 2600.16,
+      "end": 2604.18,
+      "text": "Ако не завяга, то..."
+    },
+    {
+      "start": 2604.18,
+      "end": 2609.71,
+      "text": "Коя ни..."
+    },
+    {
+      "start": 2609.71,
+      "end": 2610.61,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2612.09,
+      "end": 2626.7,
+      "text": "То и да се прочете и на гласа, за да знаят всички да ни..."
+    },
+    {
+      "start": 2630.29,
+      "end": 2631.25,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2636.39,
+      "end": 2638.23,
+      "text": "Да, валидна, да."
+    },
+    {
+      "start": 2638.25,
+      "end": 2638.83,
+      "text": "О, това сме, да?"
+    },
+    {
+      "start": 2639.21,
+      "end": 2639.51,
+      "text": "Да."
+    },
+    {
+      "start": 2639.77,
+      "end": 2640.85,
+      "text": "В смисъл, оправяме къде?"
+    },
+    {
+      "start": 2644.16,
+      "end": 2647.58,
+      "text": "Нали, ето както е подписа, както е това, да."
+    },
+    {
+      "start": 2647.58,
+      "end": 2651.5,
+      "text": "Номер 11."
+    },
+    {
+      "start": 2651.84,
+      "end": 2654.46,
+      "text": "Да."
+    },
+    {
+      "start": 2655.8,
+      "end": 2657.42,
+      "text": "Да, валидна е."
+    },
+    {
+      "start": 2661.4,
+      "end": 2662.38,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2671.53,
+      "end": 2672.23,
+      "text": "Номер 21."
+    },
+    {
+      "start": 2675.78,
+      "end": 2676.26,
+      "text": "Да."
+    },
+    {
+      "start": 2677.0,
+      "end": 2709.72,
+      "text": "15."
+    },
+    {
+      "start": 2710.42,
+      "end": 2719.91,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2721.61,
+      "end": 2721.83,
+      "text": "Да."
+    },
+    {
+      "start": 2722.27,
+      "end": 2727.77,
+      "text": "11."
+    },
+    {
+      "start": 2730.24,
+      "end": 2730.56,
+      "text": "Да."
+    },
+    {
+      "start": 2731.12,
+      "end": 2736.03,
+      "text": "17."
+    },
+    {
+      "start": 2742.14,
+      "end": 2748.62,
+      "text": "17."
+    },
+    {
+      "start": 2749.44,
+      "end": 2759.39,
+      "text": "21."
+    },
+    {
+      "start": 2759.39,
+      "end": 2771.11,
+      "text": "Номер 21."
+    },
+    {
+      "start": 2773.44,
+      "end": 2782.22,
+      "text": "Да."
+    },
+    {
+      "start": 2782.22,
+      "end": 2789.69,
+      "text": "Да."
+    },
+    {
+      "start": 2789.69,
+      "end": 2795.26,
+      "text": "17."
+    },
+    {
+      "start": 2795.26,
+      "end": 2796.26,
+      "text": "21."
+    },
+    {
+      "start": 2796.26,
+      "end": 2800.77,
+      "text": "Да, виж как хубаво е початал."
+    },
+    {
+      "start": 2800.77,
+      "end": 2803.5,
+      "text": "17."
+    },
+    {
+      "start": 2803.5,
+      "end": 2805.71,
+      "text": "Да."
+    },
+    {
+      "start": 2805.71,
+      "end": 2812.64,
+      "text": "Номер 17."
+    },
+    {
+      "start": 2812.64,
+      "end": 2813.64,
+      "text": "Да."
+    },
+    {
+      "start": 2813.64,
+      "end": 2817.69,
+      "text": "Номер 21."
+    },
+    {
+      "start": 2817.69,
+      "end": 2820.9,
+      "text": "Да."
+    },
+    {
+      "start": 2820.9,
+      "end": 2828.74,
+      "text": "21."
+    },
+    {
+      "start": 2828.74,
+      "end": 2829.74,
+      "text": "Да."
+    },
+    {
+      "start": 2829.74,
+      "end": 2833.05,
+      "text": "17."
+    },
+    {
+      "start": 2833.05,
+      "end": 2862.0,
+      "text": "Номер на този показвам има върху номер 17 и върху номер 18."
+    },
+    {
+      "start": 2862.0,
+      "end": 2866.05,
+      "text": "Малко е жъчер и пърна."
+    },
+    {
+      "start": 2866.05,
+      "end": 2867.05,
+      "text": "17 и?"
+    },
+    {
+      "start": 2867.05,
+      "end": 2868.05,
+      "text": "Обично 18 как има."
+    },
+    {
+      "start": 2868.05,
+      "end": 2868.55,
+      "text": "Как има?"
+    },
+    {
+      "start": 2868.55,
+      "end": 2869.27,
+      "text": "Да, 18."
+    },
+    {
+      "start": 2870.0,
+      "end": 2870.76,
+      "text": "Здравейте."
+    },
+    {
+      "start": 2872.98,
+      "end": 2874.08,
+      "text": "По принцип, по правилност,"
+    },
+    {
+      "start": 2874.16,
+      "end": 2875.7,
+      "text": "поради мен, това си не е валидно,"
+    },
+    {
+      "start": 2875.74,
+      "end": 2876.54,
+      "text": "да ги гледате другите,"
+    },
+    {
+      "start": 2876.7,
+      "end": 2878.02,
+      "text": "ако се пречече на този фолк."
+    },
+    {
+      "start": 2883.37,
+      "end": 2885.11,
+      "text": "За мен, си..."
+    },
+    {
+      "start": 2885.11,
+      "end": 2885.97,
+      "text": "А, да, пачиш, да купиш."
+    },
+    {
+      "start": 2886.41,
+      "end": 2887.01,
+      "text": "Ами."
+    },
+    {
+      "start": 2888.03,
+      "end": 2888.39,
+      "text": "Не."
+    },
+    {
+      "start": 2889.03,
+      "end": 2889.59,
+      "text": "17."
+    },
+    {
+      "start": 2889.75,
+      "end": 2890.99,
+      "text": "Няма спечене да забудем."
+    },
+    {
+      "start": 2891.69,
+      "end": 2892.71,
+      "text": "Както решите?"
+    },
+    {
+      "start": 2892.87,
+      "end": 2893.59,
+      "text": "Валидно е."
+    },
+    {
+      "start": 2894.43,
+      "end": 2895.03,
+      "text": "Валидно е?"
+    },
+    {
+      "start": 2895.03,
+      "end": 2895.33,
+      "text": "Валидно е."
+    },
+    {
+      "start": 2895.63,
+      "end": 2896.05,
+      "text": "Окей."
+    },
+    {
+      "start": 2897.87,
+      "end": 2900.22,
+      "text": "Ето 17."
+    },
+    {
+      "start": 2900.58,
+      "end": 2900.8,
+      "text": "Пар."
+    },
+    {
+      "start": 2903.02,
+      "end": 2905.45,
+      "text": "Хуяй, честно."
+    },
+    {
+      "start": 2905.45,
+      "end": 2907.77,
+      "text": "А 18 пояй."
+    },
+    {
+      "start": 2908.83,
+      "end": 2910.09,
+      "text": "ПП нация."
+    },
+    {
+      "start": 2910.77,
+      "end": 2913.69,
+      "text": "Не, просто химикала, като е оставял."
+    },
+    {
+      "start": 2914.25,
+      "end": 2915.57,
+      "text": "Това не е."
+    },
+    {
+      "start": 2915.73,
+      "end": 2917.39,
+      "text": "За мен е валидна бюлгарина."
+    },
+    {
+      "start": 2918.07,
+      "end": 2920.62,
+      "text": "Още кажеш ти."
+    },
+    {
+      "start": 2921.54,
+      "end": 2922.02,
+      "text": "Е как?"
+    },
+    {
+      "start": 2922.14,
+      "end": 2923.2,
+      "text": "Виждаме, не ти."
+    },
+    {
+      "start": 2924.14,
+      "end": 2925.54,
+      "text": "Виждаме, за какво казваме."
+    },
+    {
+      "start": 2927.4,
+      "end": 2929.64,
+      "text": "Това е си едно?"
+    },
+    {
+      "start": 2930.38,
+      "end": 2931.94,
+      "text": "Не, като е оставял химикала."
+    },
+    {
+      "start": 2932.06,
+      "end": 2932.68,
+      "text": "Човека, да."
+    },
+    {
+      "start": 2933.22,
+      "end": 2933.62,
+      "text": "Добре."
+    },
+    {
+      "start": 2935.36,
+      "end": 2936.92,
+      "text": "Чак толкова не."
+    },
+    {
+      "start": 2937.56,
+      "end": 2939.82,
+      "text": "Мене е щом..."
+    },
+    {
+      "start": 2939.82,
+      "end": 2946.84,
+      "text": "17."
+    },
+    {
+      "start": 2946.84,
+      "end": 2948.84,
+      "text": "Така че да."
+    },
+    {
+      "start": 2948.84,
+      "end": 2956.86,
+      "text": "И може би като..."
+    },
+    {
+      "start": 2956.86,
+      "end": 2961.86,
+      "text": "за мен... има ли нещо?"
+    },
+    {
+      "start": 2961.86,
+      "end": 2979.22,
+      "text": "Ама чакай, бе."
+    },
+    {
+      "start": 2979.22,
+      "end": 2981.22,
+      "text": "Тази е празна."
+    },
+    {
+      "start": 2981.22,
+      "end": 2983.22,
+      "text": "Добре, да, да, да."
+    },
+    {
+      "start": 2983.22,
+      "end": 2985.22,
+      "text": "Видяхме че е празна."
+    },
+    {
+      "start": 2985.22,
+      "end": 2987.22,
+      "text": "Да, да."
+    },
+    {
+      "start": 2987.22,
+      "end": 2989.22,
+      "text": "Ами празна е."
+    },
+    {
+      "start": 2989.22,
+      "end": 2991.22,
+      "text": "Празна няма нищо."
+    },
+    {
+      "start": 2991.22,
+      "end": 2993.22,
+      "text": "Празна е среща."
+    },
+    {
+      "start": 2993.22,
+      "end": 2996.15,
+      "text": "Това ще я покажа във вън."
+    },
+    {
+      "start": 2996.15,
+      "end": 3000.47,
+      "text": "Че ни подкрепим никога не е написано."
+    },
+    {
+      "start": 3000.47,
+      "end": 3002.47,
+      "text": "Номер 11."
+    },
+    {
+      "start": 3002.47,
+      "end": 3006.91,
+      "text": "Да, хубаво е 11-то."
+    },
+    {
+      "start": 3006.91,
+      "end": 3010.83,
+      "text": "Ти ли ги запишаш?"
+    },
+    {
+      "start": 3010.83,
+      "end": 3013.5,
+      "text": "21."
+    },
+    {
+      "start": 3013.5,
+      "end": 3020.42,
+      "text": "Виж да се беше, щом казвам това се вижда."
+    },
+    {
+      "start": 3020.42,
+      "end": 3025.74,
+      "text": "Номер 17."
+    },
+    {
+      "start": 3025.74,
+      "end": 3032.32,
+      "text": "Ох, и аз?"
+    },
+    {
+      "start": 3032.32,
+      "end": 3038.65,
+      "text": "Номер 11."
+    },
+    {
+      "start": 3038.65,
+      "end": 3044.3,
+      "text": "Да, да."
+    },
+    {
+      "start": 3044.3,
+      "end": 3058.2,
+      "text": "21."
+    },
+    {
+      "start": 3058.2,
+      "end": 3063.5,
+      "text": "21"
+    },
+    {
+      "start": 3063.5,
+      "end": 3069.62,
+      "text": "Да, да, изкори темпото."
+    },
+    {
+      "start": 3069.62,
+      "end": 3072.58,
+      "text": "21"
+    },
+    {
+      "start": 3072.58,
+      "end": 3074.58,
+      "text": "Малко ми знае, че си е пауза."
+    },
+    {
+      "start": 3074.58,
+      "end": 3076.74,
+      "text": "Да."
+    },
+    {
+      "start": 3076.74,
+      "end": 3094.14,
+      "text": "17, да."
+    },
+    {
+      "start": 3094.14,
+      "end": 3110.09,
+      "text": "17"
+    },
+    {
+      "start": 3110.09,
+      "end": 3117.43,
+      "text": "Да."
+    },
+    {
+      "start": 3117.43,
+      "end": 3143.05,
+      "text": "21"
+    },
+    {
+      "start": 3143.05,
+      "end": 3152.98,
+      "text": "21"
+    },
+    {
+      "start": 3152.98,
+      "end": 3167.24,
+      "text": "Да."
+    },
+    {
+      "start": 3167.24,
+      "end": 3171.61,
+      "text": "Номер 17"
+    },
+    {
+      "start": 3171.61,
+      "end": 3188.68,
+      "text": "21"
+    },
+    {
+      "start": 3188.68,
+      "end": 3196.47,
+      "text": "21"
+    },
+    {
+      "start": 3196.47,
+      "end": 3199.47,
+      "text": "Леги просто. Не, не, не."
+    },
+    {
+      "start": 3199.47,
+      "end": 3201.86,
+      "text": "Ето, това е."
+    },
+    {
+      "start": 3201.86,
+      "end": 3211.26,
+      "text": "Мръдне, да пропаде."
+    },
+    {
+      "start": 3211.26,
+      "end": 3218.65,
+      "text": "Не, ето той ще дойде едно само и като иска да вижда, ще..."
+    },
+    {
+      "start": 3218.65,
+      "end": 3220.65,
+      "text": "и той ще се преместя."
+    },
+    {
+      "start": 3220.65,
+      "end": 3221.65,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3221.65,
+      "end": 3222.65,
+      "text": "И той ще се премести."
+    },
+    {
+      "start": 3222.65,
+      "end": 3223.65,
+      "text": "Малко ще мръда, да."
+    },
+    {
+      "start": 3223.65,
+      "end": 3224.65,
+      "text": "Да."
+    },
+    {
+      "start": 3224.65,
+      "end": 3226.65,
+      "text": "Ама тук и кръка на маската ще трябва да сме едно странище."
+    },
+    {
+      "start": 3226.65,
+      "end": 3227.65,
+      "text": "Добре, добре."
+    },
+    {
+      "start": 3227.65,
+      "end": 3232.5,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3232.5,
+      "end": 3242.15,
+      "text": "Момер седемнайси."
+    },
+    {
+      "start": 3242.15,
+      "end": 3254.0,
+      "text": "Тринайси ли?"
+    },
+    {
+      "start": 3254.0,
+      "end": 3255.0,
+      "text": "Не, не, единайси."
+    },
+    {
+      "start": 3255.0,
+      "end": 3256.0,
+      "text": "Да."
+    },
+    {
+      "start": 3256.0,
+      "end": 3260.88,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3260.88,
+      "end": 3264.29,
+      "text": "Да."
+    },
+    {
+      "start": 3264.29,
+      "end": 3266.86,
+      "text": "Морът."
+    },
+    {
+      "start": 3266.86,
+      "end": 3271.68,
+      "text": "Добре, горе, единайсе."
+    },
+    {
+      "start": 3271.68,
+      "end": 3274.8,
+      "text": "Видях се?"
+    },
+    {
+      "start": 3274.8,
+      "end": 3276.8,
+      "text": "Единайсе, да."
+    },
+    {
+      "start": 3276.8,
+      "end": 3280.37,
+      "text": "Да, да, видяхе."
+    },
+    {
+      "start": 3280.37,
+      "end": 3283.23,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3283.23,
+      "end": 3287.18,
+      "text": "Да."
+    },
+    {
+      "start": 3287.18,
+      "end": 3289.25,
+      "text": "Да."
+    },
+    {
+      "start": 3289.25,
+      "end": 3291.25,
+      "text": "Чакай, само да видя едно хоро."
+    },
+    {
+      "start": 3291.25,
+      "end": 3293.25,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3293.25,
+      "end": 3296.24,
+      "text": "Да."
+    },
+    {
+      "start": 3296.24,
+      "end": 3298.24,
+      "text": "Виждаш ли, Лела, тук е домен."
+    },
+    {
+      "start": 3298.24,
+      "end": 3299.24,
+      "text": "17."
+    },
+    {
+      "start": 3299.24,
+      "end": 3300.24,
+      "text": "Да."
+    },
+    {
+      "start": 3300.24,
+      "end": 3305.24,
+      "text": "Аз ви виждам, ама и по той, нали, му е далече да дойде тук при мен."
+    },
+    {
+      "start": 3305.24,
+      "end": 3306.24,
+      "text": "Няма проблем."
+    },
+    {
+      "start": 3306.24,
+      "end": 3308.24,
+      "text": "Ще пида, че въртвих към това."
+    },
+    {
+      "start": 3308.24,
+      "end": 3309.24,
+      "text": "17."
+    },
+    {
+      "start": 3309.24,
+      "end": 3310.24,
+      "text": "Да."
+    },
+    {
+      "start": 3310.24,
+      "end": 3313.24,
+      "text": "Да не въртвя две посоки, ако не се вижда."
+    },
+    {
+      "start": 3313.24,
+      "end": 3314.24,
+      "text": "Да."
+    },
+    {
+      "start": 3314.24,
+      "end": 3315.24,
+      "text": "17."
+    },
+    {
+      "start": 3315.24,
+      "end": 3316.24,
+      "text": "Да."
+    },
+    {
+      "start": 3316.24,
+      "end": 3318.23,
+      "text": "17."
+    },
+    {
+      "start": 3318.23,
+      "end": 3336.01,
+      "text": "Аз гледам да няма нещо друго."
+    },
+    {
+      "start": 3336.01,
+      "end": 3337.01,
+      "text": "Да."
+    },
+    {
+      "start": 3337.01,
+      "end": 3338.39,
+      "text": "Да, на една има 20."
+    },
+    {
+      "start": 3338.39,
+      "end": 3342.8,
+      "text": "Ви ако ще си гледате след мен, нали са пак и много нести."
+    },
+    {
+      "start": 3342.8,
+      "end": 3343.8,
+      "text": "Да."
+    },
+    {
+      "start": 3343.8,
+      "end": 3350.59,
+      "text": "17."
+    },
+    {
+      "start": 3350.59,
+      "end": 3358.98,
+      "text": "Да."
+    },
+    {
+      "start": 3358.98,
+      "end": 3359.98,
+      "text": "Да."
+    },
+    {
+      "start": 3359.98,
+      "end": 3362.69,
+      "text": "Образец, образец."
+    },
+    {
+      "start": 3362.69,
+      "end": 3363.69,
+      "text": "Да."
+    },
+    {
+      "start": 3363.69,
+      "end": 3365.78,
+      "text": "19."
+    },
+    {
+      "start": 3365.78,
+      "end": 3369.21,
+      "text": "19."
+    },
+    {
+      "start": 3369.21,
+      "end": 3371.87,
+      "text": "Добре."
+    },
+    {
+      "start": 3371.87,
+      "end": 3377.99,
+      "text": "България за свяна ли е за 19?"
+    },
+    {
+      "start": 3377.99,
+      "end": 3383.31,
+      "text": "Номер 17."
+    },
+    {
+      "start": 3383.31,
+      "end": 3384.31,
+      "text": "Да."
+    },
+    {
+      "start": 3384.31,
+      "end": 3385.31,
+      "text": "Иде, чакай."
+    },
+    {
+      "start": 3385.31,
+      "end": 3397.51,
+      "text": "Да."
+    },
+    {
+      "start": 3397.51,
+      "end": 3399.63,
+      "text": "17."
+    },
+    {
+      "start": 3399.63,
+      "end": 3409.72,
+      "text": "17."
+    },
+    {
+      "start": 3409.72,
+      "end": 3410.72,
+      "text": "Да."
+    },
+    {
+      "start": 3410.72,
+      "end": 3417.99,
+      "text": "Номер 21."
+    },
+    {
+      "start": 3417.99,
+      "end": 3418.99,
+      "text": "Още, още дай."
+    },
+    {
+      "start": 3418.99,
+      "end": 3419.99,
+      "text": "Да."
+    },
+    {
+      "start": 3419.99,
+      "end": 3429.15,
+      "text": "17."
+    },
+    {
+      "start": 3429.15,
+      "end": 3431.72,
+      "text": "Да."
+    },
+    {
+      "start": 3431.72,
+      "end": 3432.72,
+      "text": "17."
+    },
+    {
+      "start": 3432.72,
+      "end": 3438.71,
+      "text": "Да."
+    },
+    {
+      "start": 3438.71,
+      "end": 3439.71,
+      "text": "Да."
+    },
+    {
+      "start": 3439.71,
+      "end": 3441.96,
+      "text": "Да."
+    },
+    {
+      "start": 3441.96,
+      "end": 3442.96,
+      "text": "Да."
+    },
+    {
+      "start": 3442.96,
+      "end": 3450.86,
+      "text": "Седемнайсе. Да."
+    },
+    {
+      "start": 3450.86,
+      "end": 3457.92,
+      "text": "Седемнайсе. Да."
+    },
+    {
+      "start": 3457.92,
+      "end": 3466.52,
+      "text": "Двайси едно. Да."
+    },
+    {
+      "start": 3466.52,
+      "end": 3474.0,
+      "text": "Седемнайсе. Да."
+    },
+    {
+      "start": 3478.42,
+      "end": 3481.42,
+      "text": "Седемнайсе. Да."
+    },
+    {
+      "start": 3481.42,
+      "end": 3489.31,
+      "text": "Двайси едно. Да."
+    },
+    {
+      "start": 3489.31,
+      "end": 3507.35,
+      "text": "Седемнайсе. Да."
+    },
+    {
+      "start": 3507.35,
+      "end": 3516.14,
+      "text": "Седемнайсе. Да."
+    },
+    {
+      "start": 3516.14,
+      "end": 3520.17,
+      "text": "Казано е 17 и 20."
+    },
+    {
+      "start": 3520.17,
+      "end": 3522.17,
+      "text": "Ще я покажа камерата."
+    },
+    {
+      "start": 3522.17,
+      "end": 3525.81,
+      "text": "20 и 17, да."
+    },
+    {
+      "start": 3525.81,
+      "end": 3527.81,
+      "text": "Няма ли?"
+    },
+    {
+      "start": 3527.81,
+      "end": 3533.49,
+      "text": "Няма."
+    },
+    {
+      "start": 3533.49,
+      "end": 3536.49,
+      "text": "Няма спорове, да. И вече са..."
+    },
+    {
+      "start": 3536.49,
+      "end": 3539.49,
+      "text": "Да, все пак няма спорове, ако искаш мене."
+    },
+    {
+      "start": 3539.49,
+      "end": 3545.18,
+      "text": "Номер 17."
+    },
+    {
+      "start": 3545.18,
+      "end": 3548.66,
+      "text": "Ето, втаяхме, не се лозат баба, бери."
+    },
+    {
+      "start": 3548.66,
+      "end": 3559.05,
+      "text": "Номер 21."
+    },
+    {
+      "start": 3559.05,
+      "end": 3562.23,
+      "text": "21, да."
+    },
+    {
+      "start": 3562.23,
+      "end": 3570.99,
+      "text": "Номер 11. Да."
+    },
+    {
+      "start": 3571.77,
+      "end": 3589.45,
+      "text": "17. Да."
+    },
+    {
+      "start": 3590.05,
+      "end": 3599.35,
+      "text": "17. Да."
+    },
+    {
+      "start": 3608.62,
+      "end": 3620.45,
+      "text": "21. Да."
+    },
+    {
+      "start": 3620.45,
+      "end": 3629.95,
+      "text": "Нето да влиза, нето да излиза."
+    },
+    {
+      "start": 3629.97,
+      "end": 3632.24,
+      "text": "17. Да."
+    },
+    {
+      "start": 3641.07,
+      "end": 3643.89,
+      "text": "17. Да."
+    },
+    {
+      "start": 3644.29,
+      "end": 3651.29,
+      "text": "20. Да."
+    },
+    {
+      "start": 3652.01,
+      "end": 3671.07,
+      "text": "17. Да."
+    },
+    {
+      "start": 3671.07,
+      "end": 3675.84,
+      "text": "Да."
+    },
+    {
+      "start": 3676.3,
+      "end": 3682.01,
+      "text": "15."
+    },
+    {
+      "start": 3683.09,
+      "end": 3683.59,
+      "text": "Да."
+    },
+    {
+      "start": 3703.44,
+      "end": 3703.94,
+      "text": "17."
+    },
+    {
+      "start": 3705.28,
+      "end": 3705.54,
+      "text": "Да."
+    },
+    {
+      "start": 3706.12,
+      "end": 3712.17,
+      "text": "11."
+    },
+    {
+      "start": 3712.89,
+      "end": 3720.78,
+      "text": "11."
+    },
+    {
+      "start": 3722.56,
+      "end": 3722.88,
+      "text": "Да."
+    },
+    {
+      "start": 3723.34,
+      "end": 3731.35,
+      "text": "Номер 17."
+    },
+    {
+      "start": 3732.17,
+      "end": 3734.41,
+      "text": "Може би ги преполовихме, да."
+    },
+    {
+      "start": 3736.11,
+      "end": 3737.15,
+      "text": "17."
+    },
+    {
+      "start": 3737.67,
+      "end": 3738.21,
+      "text": "Да, 17."
+    },
+    {
+      "start": 3738.21,
+      "end": 3738.23,
+      "text": "Да, 17."
+    },
+    {
+      "start": 3742.28,
+      "end": 3744.1,
+      "text": "На 50%."
+    },
+    {
+      "start": 3744.1,
+      "end": 3744.8,
+      "text": "17."
+    },
+    {
+      "start": 3745.26,
+      "end": 3745.56,
+      "text": "Да."
+    },
+    {
+      "start": 3750.11,
+      "end": 3752.92,
+      "text": "17."
+    },
+    {
+      "start": 3753.52,
+      "end": 3753.88,
+      "text": "Да."
+    },
+    {
+      "start": 3755.06,
+      "end": 3755.96,
+      "text": "Виждаме го."
+    },
+    {
+      "start": 3755.96,
+      "end": 3762.34,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3762.34,
+      "end": 3764.34,
+      "text": "Добре, ще го ръкетираме."
+    },
+    {
+      "start": 3764.34,
+      "end": 3766.34,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3768.34,
+      "end": 3770.34,
+      "text": "Момент е единнайсе."
+    },
+    {
+      "start": 3770.34,
+      "end": 3772.38,
+      "text": "Да."
+    },
+    {
+      "start": 3772.38,
+      "end": 3779.46,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3779.46,
+      "end": 3781.46,
+      "text": "Да."
+    },
+    {
+      "start": 3781.46,
+      "end": 3805.61,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3805.61,
+      "end": 3811.27,
+      "text": "Да. Химикалите е много бляха този път."
+    },
+    {
+      "start": 3811.27,
+      "end": 3814.33,
+      "text": "Да."
+    },
+    {
+      "start": 3814.33,
+      "end": 3817.58,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 3817.58,
+      "end": 3820.34,
+      "text": "Трябва хубаво."
+    },
+    {
+      "start": 3820.34,
+      "end": 3898.18,
+      "text": "Еднайсе... Еднайсе..."
+    },
+    {
+      "start": 3916.18,
+      "end": 3918.18,
+      "text": "Седемнайсе..."
+    },
+    {
+      "start": 3918.18,
+      "end": 3926.17,
+      "text": "Седемнайсе..."
+    },
+    {
+      "start": 3935.27,
+      "end": 3942.07,
+      "text": "Двайсет и едно..."
+    },
+    {
+      "start": 3942.07,
+      "end": 3948.04,
+      "text": "Не знам всичко това."
+    },
+    {
+      "start": 3948.04,
+      "end": 3955.06,
+      "text": "Седемнайсе..."
+    },
+    {
+      "start": 3960.8,
+      "end": 3961.8,
+      "text": "Седемнайсе..."
+    },
+    {
+      "start": 3969.55,
+      "end": 3970.9,
+      "text": "Да."
+    },
+    {
+      "start": 3970.9,
+      "end": 3979.78,
+      "text": "Еднайсе..."
+    },
+    {
+      "start": 3979.78,
+      "end": 3995.29,
+      "text": "Номер 17..."
+    },
+    {
+      "start": 3995.29,
+      "end": 3997.29,
+      "text": "Вършват без 5."
+    },
+    {
+      "start": 3997.29,
+      "end": 4008.86,
+      "text": "Номер 17."
+    },
+    {
+      "start": 4008.86,
+      "end": 4098.07,
+      "text": "И аз така, да, така си мисля."
+    },
+    {
+      "start": 4098.07,
+      "end": 4120.39,
+      "text": "Номер 21."
+    },
+    {
+      "start": 4120.39,
+      "end": 4122.39,
+      "text": "Добре."
+    },
+    {
+      "start": 4122.39,
+      "end": 4124.39,
+      "text": "Да."
+    },
+    {
+      "start": 4124.39,
+      "end": 4129.43,
+      "text": "17."
+    },
+    {
+      "start": 4129.43,
+      "end": 4134.72,
+      "text": "Да."
+    },
+    {
+      "start": 4134.72,
+      "end": 4136.72,
+      "text": "17."
+    },
+    {
+      "start": 4136.72,
+      "end": 4142.34,
+      "text": "Да."
+    },
+    {
+      "start": 4142.34,
+      "end": 4146.07,
+      "text": "17."
+    },
+    {
+      "start": 4146.07,
+      "end": 4150.34,
+      "text": "Да."
+    },
+    {
+      "start": 4150.34,
+      "end": 4188.05,
+      "text": "17."
+    },
+    {
+      "start": 4188.05,
+      "end": 4191.72,
+      "text": "21."
+    },
+    {
+      "start": 4191.72,
+      "end": 4212.79,
+      "text": "Да."
+    },
+    {
+      "start": 4212.79,
+      "end": 4227.11,
+      "text": "21."
+    },
+    {
+      "start": 4227.11,
+      "end": 4235.57,
+      "text": "Да."
+    },
+    {
+      "start": 4235.57,
+      "end": 4239.01,
+      "text": "Не виждам."
+    },
+    {
+      "start": 4240.34,
+      "end": 4240.52,
+      "text": "Да."
+    },
+    {
+      "start": 4246.32,
+      "end": 4246.76,
+      "text": "17."
+    },
+    {
+      "start": 4247.64,
+      "end": 4261.05,
+      "text": "21."
+    },
+    {
+      "start": 4262.59,
+      "end": 4262.93,
+      "text": "Да."
+    },
+    {
+      "start": 4269.12,
+      "end": 4269.6,
+      "text": "Да."
+    },
+    {
+      "start": 4270.06,
+      "end": 4274.98,
+      "text": "21."
+    },
+    {
+      "start": 4284.54,
+      "end": 4284.88,
+      "text": "Да."
+    },
+    {
+      "start": 4290.59,
+      "end": 4291.07,
+      "text": "17."
+    },
+    {
+      "start": 4292.17,
+      "end": 4292.41,
+      "text": "Да."
+    },
+    {
+      "start": 4296.99,
+      "end": 4297.51,
+      "text": "17."
+    },
+    {
+      "start": 4298.57,
+      "end": 4299.01,
+      "text": "Да."
+    },
+    {
+      "start": 4304.79,
+      "end": 4305.25,
+      "text": "17."
+    },
+    {
+      "start": 4306.11,
+      "end": 4306.75,
+      "text": "Да."
+    },
+    {
+      "start": 4307.47,
+      "end": 4315.08,
+      "text": "Това нито е хикс, нито е ве."
+    },
+    {
+      "start": 4316.2,
+      "end": 4317.08,
+      "text": "Върху 21."
+    },
+    {
+      "start": 4317.08,
+      "end": 4317.28,
+      "text": "21."
+    },
+    {
+      "start": 4319.42,
+      "end": 4320.9,
+      "text": "Виждам, не знам."
+    },
+    {
+      "start": 4326.18,
+      "end": 4327.36,
+      "text": "Това си е невалидно?"
+    },
+    {
+      "start": 4327.58,
+      "end": 4328.72,
+      "text": "Да, ясно, така смяна."
+    },
+    {
+      "start": 4330.74,
+      "end": 4331.38,
+      "text": "Главната."
+    },
+    {
+      "start": 4331.9,
+      "end": 4335.57,
+      "text": "Еми да видите и другите да изкажат."
+    },
+    {
+      "start": 4335.73,
+      "end": 4336.67,
+      "text": "Не, не е и така."
+    },
+    {
+      "start": 4339.72,
+      "end": 4341.98,
+      "text": "Да, ние решихме, че е невалидна."
+    },
+    {
+      "start": 4342.14,
+      "end": 4342.26,
+      "text": "Да."
+    },
+    {
+      "start": 4342.94,
+      "end": 4344.58,
+      "text": "Вие във вашия край кажете."
+    },
+    {
+      "start": 4346.43,
+      "end": 4347.19,
+      "text": "Седемнайса?"
+    },
+    {
+      "start": 4347.77,
+      "end": 4348.61,
+      "text": "Да."
+    },
+    {
+      "start": 4353.02,
+      "end": 4353.78,
+      "text": "Седемнайса?"
+    },
+    {
+      "start": 4354.2,
+      "end": 4354.82,
+      "text": "Сем."
+    },
+    {
+      "start": 4355.34,
+      "end": 4360.2,
+      "text": "Двайси и едно?"
+    },
+    {
+      "start": 4360.84,
+      "end": 4361.89,
+      "text": "Да."
+    },
+    {
+      "start": 4372.08,
+      "end": 4372.92,
+      "text": "Седемнайс?"
+    },
+    {
+      "start": 4373.86,
+      "end": 4374.58,
+      "text": "Да."
+    },
+    {
+      "start": 4378.7,
+      "end": 4379.46,
+      "text": "Седемнайс?"
+    },
+    {
+      "start": 4380.34,
+      "end": 4381.34,
+      "text": "Да."
+    },
+    {
+      "start": 4381.34,
+      "end": 4387.56,
+      "text": "Седемнайсет?"
+    },
+    {
+      "start": 4387.56,
+      "end": 4388.79,
+      "text": "Да."
+    },
+    {
+      "start": 4388.79,
+      "end": 4394.75,
+      "text": "Единайсет?"
+    },
+    {
+      "start": 4394.75,
+      "end": 4397.64,
+      "text": "Да."
+    },
+    {
+      "start": 4397.64,
+      "end": 4404.37,
+      "text": "Двайсет и едно?"
+    },
+    {
+      "start": 4404.37,
+      "end": 4405.82,
+      "text": "Да."
+    },
+    {
+      "start": 4405.82,
+      "end": 4411.78,
+      "text": "Единайсет?"
+    },
+    {
+      "start": 4411.78,
+      "end": 4412.78,
+      "text": "Да."
+    },
+    {
+      "start": 4412.78,
+      "end": 4418.62,
+      "text": "Седемнайсет?"
+    },
+    {
+      "start": 4418.62,
+      "end": 4419.62,
+      "text": "Да."
+    },
+    {
+      "start": 4419.62,
+      "end": 4424.78,
+      "text": "Седемнайсет?"
+    },
+    {
+      "start": 4424.78,
+      "end": 4425.78,
+      "text": "Да."
+    },
+    {
+      "start": 4425.78,
+      "end": 4436.89,
+      "text": "Седемнайсет?"
+    },
+    {
+      "start": 4436.89,
+      "end": 4443.51,
+      "text": "Седемнайсет?"
+    },
+    {
+      "start": 4443.51,
+      "end": 4444.6,
+      "text": "Да."
+    },
+    {
+      "start": 4444.6,
+      "end": 4450.67,
+      "text": "Единайсет?"
+    },
+    {
+      "start": 4450.67,
+      "end": 4460.25,
+      "text": "Единайсет."
+    },
+    {
+      "start": 4460.25,
+      "end": 4461.25,
+      "text": "Седемнайсет."
+    },
+    {
+      "start": 4461.25,
+      "end": 4462.25,
+      "text": "Да."
+    },
+    {
+      "start": 4462.25,
+      "end": 4464.28,
+      "text": "Осем няма май."
+    },
+    {
+      "start": 4464.28,
+      "end": 4467.08,
+      "text": "8 няма, но и не ми съм чула."
+    },
+    {
+      "start": 4467.2,
+      "end": 4468.26,
+      "text": "И аз мисля, че няма 8."
+    },
+    {
+      "start": 4469.56,
+      "end": 4470.2,
+      "text": "Няма."
+    },
+    {
+      "start": 4471.17,
+      "end": 4471.57,
+      "text": "11?"
+    },
+    {
+      "start": 4472.65,
+      "end": 4472.91,
+      "text": "Да."
+    },
+    {
+      "start": 4473.83,
+      "end": 4474.55,
+      "text": "Дай да отгледам."
+    },
+    {
+      "start": 4477.19,
+      "end": 4477.63,
+      "text": "11?"
+    },
+    {
+      "start": 4480.77,
+      "end": 4482.47,
+      "text": "Та е много невалидна."
+    },
+    {
+      "start": 4482.99,
+      "end": 4486.08,
+      "text": "11, 17 и 21."
+    },
+    {
+      "start": 4486.4,
+      "end": 4486.68,
+      "text": "Няма."
+    },
+    {
+      "start": 4489.6,
+      "end": 4489.88,
+      "text": "Да."
+    },
+    {
+      "start": 4500.9,
+      "end": 4501.46,
+      "text": "14?"
+    },
+    {
+      "start": 4503.06,
+      "end": 4503.62,
+      "text": "Да."
+    },
+    {
+      "start": 4503.78,
+      "end": 4505.08,
+      "text": "Няма 14 в момента."
+    },
+    {
+      "start": 4506.08,
+      "end": 4508.4,
+      "text": "14, ние сме чули."
+    },
+    {
+      "start": 4508.4,
+      "end": 4509.82,
+      "text": "Единайсе."
+    },
+    {
+      "start": 4511.82,
+      "end": 4515.22,
+      "text": "Може да още малко добиваме и камера."
+    },
+    {
+      "start": 4524.22,
+      "end": 4525.98,
+      "text": "Единайсе го казахме."
+    },
+    {
+      "start": 4527.56,
+      "end": 4532.09,
+      "text": "Двайсе едно."
+    },
+    {
+      "start": 4533.28,
+      "end": 4534.46,
+      "text": "Нагоре малко."
+    },
+    {
+      "start": 4534.46,
+      "end": 4535.86,
+      "text": "Нагоре."
+    },
+    {
+      "start": 4536.34,
+      "end": 4536.92,
+      "text": "Да."
+    },
+    {
+      "start": 4538.28,
+      "end": 4540.49,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 4541.41,
+      "end": 4541.77,
+      "text": "Да."
+    },
+    {
+      "start": 4546.3,
+      "end": 4548.7,
+      "text": "Тепък като намаляха е по-трудно стало."
+    },
+    {
+      "start": 4548.7,
+      "end": 4550.06,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 4550.64,
+      "end": 4551.22,
+      "text": "Да."
+    },
+    {
+      "start": 4555.01,
+      "end": 4557.01,
+      "text": "17"
+    },
+    {
+      "start": 4557.01,
+      "end": 4566.05,
+      "text": "Да."
+    },
+    {
+      "start": 4566.05,
+      "end": 4568.05,
+      "text": "17"
+    },
+    {
+      "start": 4568.05,
+      "end": 4570.05,
+      "text": "По-бледичко е, височко е."
+    },
+    {
+      "start": 4570.05,
+      "end": 4575.54,
+      "text": "Да, химикалите са бледи."
+    },
+    {
+      "start": 4575.54,
+      "end": 4577.54,
+      "text": "Номер 17"
+    },
+    {
+      "start": 4577.54,
+      "end": 4581.4,
+      "text": "Да."
+    },
+    {
+      "start": 4581.4,
+      "end": 4584.16,
+      "text": "17"
+    },
+    {
+      "start": 4584.16,
+      "end": 4589.75,
+      "text": "Да."
+    },
+    {
+      "start": 4589.75,
+      "end": 4592.16,
+      "text": "21"
+    },
+    {
+      "start": 4592.16,
+      "end": 4601.46,
+      "text": "Нагоре."
+    },
+    {
+      "start": 4601.46,
+      "end": 4603.46,
+      "text": "Да."
+    },
+    {
+      "start": 4603.46,
+      "end": 4611.92,
+      "text": "17"
+    },
+    {
+      "start": 4611.92,
+      "end": 4617.48,
+      "text": "Да."
+    },
+    {
+      "start": 4617.48,
+      "end": 4622.48,
+      "text": "Седенайсе."
+    },
+    {
+      "start": 4622.48,
+      "end": 4624.48,
+      "text": "Да."
+    },
+    {
+      "start": 4624.48,
+      "end": 4630.64,
+      "text": "Двайсиедно."
+    },
+    {
+      "start": 4630.64,
+      "end": 4631.64,
+      "text": "Нагоре."
+    },
+    {
+      "start": 4631.64,
+      "end": 4633.64,
+      "text": "Да."
+    },
+    {
+      "start": 4633.64,
+      "end": 4640.22,
+      "text": "Единайсе."
+    },
+    {
+      "start": 4640.22,
+      "end": 4642.22,
+      "text": "Да."
+    },
+    {
+      "start": 4642.22,
+      "end": 4648.54,
+      "text": "Двайсиедно."
+    },
+    {
+      "start": 4648.54,
+      "end": 4653.07,
+      "text": "Да, видям."
+    },
+    {
+      "start": 4653.07,
+      "end": 4654.07,
+      "text": "Двайсиедно."
+    },
+    {
+      "start": 4654.07,
+      "end": 4655.07,
+      "text": "Нагоре."
+    },
+    {
+      "start": 4655.07,
+      "end": 4656.42,
+      "text": "Да."
+    },
+    {
+      "start": 4656.42,
+      "end": 4664.67,
+      "text": "Единайсе."
+    },
+    {
+      "start": 4664.67,
+      "end": 4667.88,
+      "text": "Единайсе."
+    },
+    {
+      "start": 4667.88,
+      "end": 4670.22,
+      "text": "И сега..."
+    },
+    {
+      "start": 4670.22,
+      "end": 4686.2,
+      "text": "Не подкрепям никога."
+    },
+    {
+      "start": 4686.2,
+      "end": 4688.2,
+      "text": "Не подкрепям, тя беше..."
+    },
+    {
+      "start": 4688.2,
+      "end": 4690.48,
+      "text": "Единайсе..."
+    },
+    {
+      "start": 4690.48,
+      "end": 4692.51,
+      "text": "Да."
+    },
+    {
+      "start": 4692.51,
+      "end": 4699.51,
+      "text": "Нагоре... Да."
+    },
+    {
+      "start": 4699.57,
+      "end": 4705.84,
+      "text": "Двайте едно..."
+    },
+    {
+      "start": 4705.94,
+      "end": 4706.94,
+      "text": "Да."
+    },
+    {
+      "start": 4706.94,
+      "end": 4713.37,
+      "text": "Седемнайс."
+    },
+    {
+      "start": 4713.37,
+      "end": 4714.27,
+      "text": "Да."
+    },
+    {
+      "start": 4719.31,
+      "end": 4720.67,
+      "text": "Единайс Québec..."
+    },
+    {
+      "start": 4720.67,
+      "end": 4722.11,
+      "text": "Да."
+    },
+    {
+      "start": 4722.61,
+      "end": 4727.34,
+      "text": "Единайс..."
+    },
+    {
+      "start": 4727.34,
+      "end": 4729.65,
+      "text": "Да."
+    },
+    {
+      "start": 4729.65,
+      "end": 4733.03,
+      "text": "Перег творб..."
+    },
+    {
+      "start": 4733.03,
+      "end": 4734.03,
+      "text": "Единайс..."
+    },
+    {
+      "start": 4734.03,
+      "end": 4734.93,
+      "text": "Да."
+    },
+    {
+      "start": 4735.93,
+      "end": 4740.0,
+      "text": "Седемнайс..."
+    },
+    {
+      "start": 4740.0,
+      "end": 4741.2,
+      "text": "Да..."
+    },
+    {
+      "start": 4743.22,
+      "end": 4747.33,
+      "text": "Сем-седемнайс....."
+    },
+    {
+      "start": 4747.33,
+      "end": 4748.33,
+      "text": "Да."
+    },
+    {
+      "start": 4748.33,
+      "end": 4754.07,
+      "text": "21."
+    },
+    {
+      "start": 4754.63,
+      "end": 4755.49,
+      "text": "Доста е бледно."
+    },
+    {
+      "start": 4761.08,
+      "end": 4761.62,
+      "text": "17."
+    },
+    {
+      "start": 4762.3,
+      "end": 4762.54,
+      "text": "Да."
+    },
+    {
+      "start": 4768.16,
+      "end": 4768.8,
+      "text": "17."
+    },
+    {
+      "start": 4769.56,
+      "end": 4770.68,
+      "text": "Да, видя ако."
+    },
+    {
+      "start": 4774.05,
+      "end": 4774.65,
+      "text": "17."
+    },
+    {
+      "start": 4775.31,
+      "end": 4775.67,
+      "text": "Да."
+    },
+    {
+      "start": 4776.19,
+      "end": 4777.41,
+      "text": "Айде."
+    },
+    {
+      "start": 4778.07,
+      "end": 4781.72,
+      "text": "21."
+    },
+    {
+      "start": 4782.99,
+      "end": 4783.51,
+      "text": "Да."
+    },
+    {
+      "start": 4788.08,
+      "end": 4788.62,
+      "text": "17."
+    },
+    {
+      "start": 4789.64,
+      "end": 4789.9,
+      "text": "Да."
+    },
+    {
+      "start": 4796.07,
+      "end": 4796.43,
+      "text": "11."
+    },
+    {
+      "start": 4797.45,
+      "end": 4798.67,
+      "text": "Да, видя ако."
+    },
+    {
+      "start": 4802.62,
+      "end": 4803.28,
+      "text": "17."
+    },
+    {
+      "start": 4804.54,
+      "end": 4804.82,
+      "text": "Да."
+    },
+    {
+      "start": 4805.38,
+      "end": 4811.21,
+      "text": "4."
+    },
+    {
+      "start": 4811.87,
+      "end": 4815.11,
+      "text": "Има 4."
+    },
+    {
+      "start": 4815.53,
+      "end": 4819.43,
+      "text": "14."
+    },
+    {
+      "start": 4819.43,
+      "end": 4819.81,
+      "text": "14."
+    },
+    {
+      "start": 4820.51,
+      "end": 4821.48,
+      "text": "Да."
+    },
+    {
+      "start": 4822.72,
+      "end": 4824.58,
+      "text": "Обихвай."
+    },
+    {
+      "start": 4824.58,
+      "end": 4825.58,
+      "text": "Какво са?"
+    },
+    {
+      "start": 4825.58,
+      "end": 4827.58,
+      "text": "21."
+    },
+    {
+      "start": 4827.58,
+      "end": 4828.58,
+      "text": "Някога."
+    },
+    {
+      "start": 4828.58,
+      "end": 4829.58,
+      "text": "Да."
+    },
+    {
+      "start": 4829.58,
+      "end": 4830.58,
+      "text": "Време."
+    },
+    {
+      "start": 4830.58,
+      "end": 4831.58,
+      "text": "21."
+    },
+    {
+      "start": 4831.58,
+      "end": 4835.4,
+      "text": "Да."
+    },
+    {
+      "start": 4835.4,
+      "end": 4836.4,
+      "text": "Твърдо."
+    },
+    {
+      "start": 4836.4,
+      "end": 4837.59,
+      "text": "Да, да, да."
+    },
+    {
+      "start": 4837.59,
+      "end": 4841.59,
+      "text": "Така го е надраскал, че няма свърхване."
+    },
+    {
+      "start": 4841.59,
+      "end": 4842.59,
+      "text": "11."
+    },
+    {
+      "start": 4842.59,
+      "end": 4843.59,
+      "text": "Какво е по-боле, до?"
+    },
+    {
+      "start": 4843.59,
+      "end": 4844.59,
+      "text": "Да, да."
+    },
+    {
+      "start": 4844.59,
+      "end": 4845.59,
+      "text": "Но вижда се."
+    },
+    {
+      "start": 4845.59,
+      "end": 4854.89,
+      "text": "21."
+    },
+    {
+      "start": 4854.89,
+      "end": 4855.89,
+      "text": "Да."
+    },
+    {
+      "start": 4855.89,
+      "end": 4861.35,
+      "text": "И не се вижда края."
+    },
+    {
+      "start": 4861.35,
+      "end": 4863.35,
+      "text": "21 отново."
+    },
+    {
+      "start": 4863.35,
+      "end": 4865.28,
+      "text": "Да, да, да."
+    },
+    {
+      "start": 4865.28,
+      "end": 4869.56,
+      "text": "Да, да, да, видяхме. О, тени останалите."
+    },
+    {
+      "start": 4869.56,
+      "end": 4873.9,
+      "text": "Единайсе. Да."
+    },
+    {
+      "start": 4873.9,
+      "end": 4880.32,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 4880.32,
+      "end": 4884.19,
+      "text": "Кой са тъй? Да, седемнайсе."
+    },
+    {
+      "start": 4884.19,
+      "end": 4889.72,
+      "text": "Седемнайсе."
+    },
+    {
+      "start": 4889.72,
+      "end": 4895.72,
+      "text": "Да. Седемнайсе."
+    },
+    {
+      "start": 4895.72,
+      "end": 4901.73,
+      "text": "Да. Единайсе."
+    },
+    {
+      "start": 4901.73,
+      "end": 4907.77,
+      "text": "Да. Седемнайсе."
+    },
+    {
+      "start": 4907.77,
+      "end": 4920.5,
+      "text": "Да. Той беше. Седемнайсе."
+    },
+    {
+      "start": 4920.5,
+      "end": 4925.48,
+      "text": "Да."
+    },
+    {
+      "start": 4925.48,
+      "end": 4927.48,
+      "text": "Това на края ще залепна."
+    },
+    {
+      "start": 4929.48,
+      "end": 4933.24,
+      "text": "Номер 15."
+    },
+    {
+      "start": 4933.24,
+      "end": 4939.3,
+      "text": "Да."
+    },
+    {
+      "start": 4939.3,
+      "end": 4941.97,
+      "text": "Номер 7."
+    },
+    {
+      "start": 4941.97,
+      "end": 4943.97,
+      "text": "Да."
+    },
+    {
+      "start": 4943.97,
+      "end": 4945.97,
+      "text": "Няма 7."
+    },
+    {
+      "start": 4945.97,
+      "end": 4947.97,
+      "text": "Те да ти кажа."
+    },
+    {
+      "start": 4947.97,
+      "end": 4956.34,
+      "text": "21."
+    },
+    {
+      "start": 4956.34,
+      "end": 4958.34,
+      "text": "Хиксът е по-малък."
+    },
+    {
+      "start": 4958.34,
+      "end": 4960.85,
+      "text": "21. Да, да, видях."
+    },
+    {
+      "start": 4963.14,
+      "end": 4966.2,
+      "text": "Та, дали ще не вали на последното?"
+    },
+    {
+      "start": 4966.2,
+      "end": 4970.2,
+      "text": "21 чисто добре."
+    },
+    {
+      "start": 4970.2,
+      "end": 4972.2,
+      "text": "Да."
+    },
+    {
+      "start": 4972.2,
+      "end": 4974.58,
+      "text": "Е, хубаво."
+    },
+    {
+      "start": 4974.58,
+      "end": 4978.09,
+      "text": "Браво на нас, ае, да почваме сега."
+    },
+    {
+      "start": 4978.09,
+      "end": 5008.72,
+      "text": "Не подкрепям никого с две. Трябва ли да ги вдигам сега?"
+    },
+    {
+      "start": 5008.72,
+      "end": 5010.88,
+      "text": "Не, не, не."
+    },
+    {
+      "start": 5012.88,
+      "end": 5014.88,
+      "text": "А преференци сега или после?"
+    },
+    {
+      "start": 5014.88,
+      "end": 5016.88,
+      "text": "После."
+    },
+    {
+      "start": 5016.88,
+      "end": 5018.88,
+      "text": "После."
+    },
+    {
+      "start": 5018.88,
+      "end": 5022.29,
+      "text": "Подложи си нещо, защото са скъсали."
+    },
+    {
+      "start": 5022.29,
+      "end": 5024.48,
+      "text": "Трябва да ставаме право."
+    },
+    {
+      "start": 5024.48,
+      "end": 5050.04,
+      "text": "Ааа, трябва да им правим, да."
+    },
+    {
+      "start": 5050.04,
+      "end": 5052.04,
+      "text": "Да, мислам, се отреме това, което няма."
+    },
+    {
+      "start": 5052.04,
+      "end": 5060.15,
+      "text": "Прилегва ни е три, две и едно няма."
+    },
+    {
+      "start": 5060.15,
+      "end": 5062.15,
+      "text": "Какво търпва си?"
+    },
+    {
+      "start": 5062.15,
+      "end": 5068.69,
+      "text": "Пишем ли едно 0?"
+    },
+    {
+      "start": 5068.69,
+      "end": 5075.4,
+      "text": "Нее, нее, нее."
+    },
+    {
+      "start": 5075.4,
+      "end": 5084.34,
+      "text": "Най-най."
+    },
+    {
+      "start": 5084.34,
+      "end": 5105.28,
+      "text": "Ще напишем едно пе-пе."
+    },
+    {
+      "start": 5105.28,
+      "end": 5114.29,
+      "text": "Четири, меч."
+    },
+    {
+      "start": 5114.29,
+      "end": 5134.88,
+      "text": "Партиите с номера ви си опишеш?"
+    },
+    {
+      "start": 5134.88,
+      "end": 5416.08,
+      "text": "Два броя."
+    },
+    {
+      "start": 5416.08,
+      "end": 5418.08,
+      "text": "Номер 7, един броя."
+    },
+    {
+      "start": 5418.08,
+      "end": 5420.08,
+      "text": "Един броя."
+    },
+    {
+      "start": 5420.08,
+      "end": 5422.08,
+      "text": "Заметна, че това е какъв е."
+    },
+    {
+      "start": 5422.08,
+      "end": 5425.17,
+      "text": "Да, да, да."
+    },
+    {
+      "start": 5425.17,
+      "end": 5431.27,
+      "text": "Добре."
+    },
+    {
+      "start": 5431.27,
+      "end": 5482.52,
+      "text": "... които се отдалява едно, две, три..."
+    },
+    {
+      "start": 5482.52,
+      "end": 5498.76,
+      "text": "... там има прва преференция крътче, втория човек, третия човек в гласове."
+    },
+    {
+      "start": 5498.76,
+      "end": 5501.02,
+      "text": "Така не можем да ги съберем."
+    },
+    {
+      "start": 5501.02,
+      "end": 5609.84,
+      "text": "... за това, че вижте какво."
+    },
+    {
+      "start": 5609.84,
+      "end": 5611.84,
+      "text": "... че с преференция 101."
+    },
+    {
+      "start": 5611.84,
+      "end": 5626.89,
+      "text": "Какво е 101?"
+    },
+    {
+      "start": 5626.89,
+      "end": 5629.89,
+      "text": "Че имаме една преференция за 101."
+    },
+    {
+      "start": 5629.89,
+      "end": 5649.46,
+      "text": "... преференция за 101."
+    },
+    {
+      "start": 5649.46,
+      "end": 9357.08,
+      "text": "елия"
+    },
+    {
+      "start": 9357.08,
+      "end": 10639.14,
+      "text": "еля"
+    }
+  ],
+  "full_text": "[00:00] Да, сега вече всичко е ОК, може да започвам.\n[00:05] Да?\n[00:06] Да, добре.\n[00:07] Сега се предоява свободната среща вътре в дизайнерското среща.\n[00:14] Добър вечер!\n[01:10] 74, 76, 78,\n[01:14] 87, 82,\n[01:19] 84, 86, 78,\n[01:22] 86, 92,\n[01:24] 94, 96,\n[01:26] 97, 100,\n[01:29] 92,\n[01:31] 104, 106,\n[01:33] 108, 109,\n[01:35] 110, 112,\n[01:39] 114, 116,\n[01:41] 118, 120\n[01:43] И 2, 124, 126, 128, 123, 132, 134, 136, 138, 140.\n[01:55] И 2, 144, 146, 140, 168, 150, 120, 154, 156, 157.\n[02:06] 158, 160, 162, 164, 166, 168, 170, 172, 174, 179, 180, 182, 184, 186, 188, 190, 192, 194, 196, 198,\n[02:38] 200, 202, 204, 206, 208, 210, 212, 214, 216, 217, 212, 222, 224, 226, 228, 231, 232, 234, 236, 238, 240,\n[03:12] 242, 244, 246, 248, 250, 252, 254, 256, 258, 259,\n[03:27] 260, 262, 264, 266, 268, 270, 272, 274, 276, 278, 280, 282, 284,\n[03:50] 286, 278, 290, 292, 294, 296, 298, 300, 302, 304, 306, 308, 310, 312, 313, 315.\n[04:23] Това е за мъчен класа плюс 8.\n[04:28] Общо.\n[04:29] 323.\n[04:32] Общо, 323.\n[04:35] Значи, бюлетините извън\n[04:41] и избирателно да купият\n[04:43] от точка 3 и 4 на черновата\n[04:45] селка Коза.\n[04:46] Тук е останал 5.\n[05:05] Тук номера е\n[05:11] 325.\n[05:12] Последният номер е 4.\n[05:15] От 325 до 4.\n[05:18] 75.\n[05:20] И тук имаме 100.\n[05:21] 175 имаме неизползвани и една имаме, някъде образеца.\n[05:27] Тези моща принципно се вписват и излагаме във двения чувак.\n[05:33] Списъкът, затварям ли?\n[05:52] ...отдели си, за което има подробно удобряване,\n[05:57] какво ще ви има вътре.\n[06:03] Трябва да се опакува и да се излечва.\n[06:05] ...и така и така работи.\n[06:10] ...стои сме, същата...\n[06:12] ...и това това се предизмерва...\n[06:14] ...и пишете тук, че са...\n[06:52] ... и някакъв черно-календарно...\n[07:36] Да, и аз искам...\n[16:03] ... и нали те ще се нахудши, те се нарежда, че нам се пратят...\n[16:45] ...наче не по-губът за него.\n[19:15] Не е ли твоето?\n[25:40] Какъв, кажи...\n[25:42] ... дадех мълчета е, въздух.\n[26:19] О, късава.\n[26:39] Ще пишем и как ще направим.\n[26:54] Реално, дигаме тази бумага.\n[27:00] Това не ще трябва и те да виждат.\n[27:30] ... стане в машината.\n[27:42] Чакай се.\n[33:52] Не си му харесна писка?\n[36:05] Вижте, аз не е добър.\n[36:06] Аз съм 5.\n[36:51] Аз съм 5.\n[36:53] Аз съм 4.\n[37:18] И тъй ви правиш така,\n[38:28] за да не се върнаш.\n[38:36] Така, слушам.\n[38:39] Номер 21.\n[38:41] Нищо не се вижда.\n[38:42] Да.\n[38:44] Номер 17.\n[39:13] Да, вижда се.\n[39:18] Така.\n[39:19] Номер 17.\n[39:23] Номер 17.\n[39:37] Да.\n[39:51] Дай надолу малко.\n[39:53] Да.\n[39:54] Номер 17.\n[40:04] Да.\n[40:05] Той пък то с номер 11.\n[40:16] 11.\n[40:17] Да.\n[40:18] Коя е фиш?\n[40:20] Алиянса.\n[40:24] Те.\n[40:25] А, пе си.\n[40:29] Номер 4.\n[40:32] Да.\n[40:36] Гледайте дали излязва извън квадратче, мадратче, да няма...\n[40:40] Да.\n[40:40] Да.\n[40:40] Да, и те да гледат там, да ни кажат нещо.\n[40:46] Да ни кажат нещо. Да, 21, да.\n[40:50] Ти го казваш, чула ме.\n[40:57] 21.\n[40:59] Ако искаш.\n[41:02] На вас вярващо да гледате, нали?\n[41:05] Да, гледам, гледам.\n[41:07] 21.\n[41:09] Добре.\n[41:11] 21, да.\n[41:16] Номер 21.\n[41:23] 21, да.\n[41:28] Номер 21.\n[41:33] Да.\n[41:34] Номер 17.\n[42:06] Само си е подписал, добре.\n[42:08] Невалидна.\n[42:11] Не е използвано хиксилибет.\n[42:13] Да.\n[42:17] Точно се държа на малко сила, че пък е върху.\n[42:27] Номер 17.\n[42:37] И да отгледат и другите.\n[42:39] Да, да, ама...\n[42:40] Добре.\n[42:42] Не, нещо да излязе от това.\n[42:45] Да.\n[42:48] Покажи да е номер 17.\n[42:51] Не, не, то...\n[42:55] Знаеш ли?\n[43:00] Не действително ни се го советен, кога топли.\n[43:03] То не е за цялото, а като е на друго.\n[43:06] Нека да го почитам, нали да е явно.\n[43:09] Сега ги читали?\n[43:14] Ето, ако си погледни, нали, между брайки, ето къде обикне с почетите си.\n[43:19] Ако не завяга, то...\n[43:20] Ако не завяга, то...\n[43:24] Коя ни...\n[43:29] Номер 17.\n[43:32] То и да се прочете и на гласа, за да знаят всички да ни...\n[43:50] Номер 17.\n[43:56] Да, валидна, да.\n[43:58] О, това сме, да?\n[43:59] Да.\n[43:59] В смисъл, оправяме къде?\n[44:04] Нали, ето както е подписа, както е това, да.\n[44:07] Номер 11.\n[44:11] Да.\n[44:15] Да, валидна е.\n[44:21] Номер 17.\n[44:31] Номер 21.\n[44:35] Да.\n[44:37] 15.\n[45:10] Номер 17.\n[45:21] Да.\n[45:22] 11.\n[45:30] Да.\n[45:31] 17.\n[45:42] 17.\n[45:49] 21.\n[45:59] Номер 21.\n[46:13] Да.\n[46:22] Да.\n[46:29] 17.\n[46:35] 21.\n[46:36] Да, виж как хубаво е початал.\n[46:40] 17.\n[46:43] Да.\n[46:45] Номер 17.\n[46:52] Да.\n[46:53] Номер 21.\n[46:57] Да.\n[47:00] 21.\n[47:08] Да.\n[47:09] 17.\n[47:13] Номер на този показвам има върху номер 17 и върху номер 18.\n[47:42] Малко е жъчер и пърна.\n[47:46] 17 и?\n[47:47] Обично 18 как има.\n[47:48] Как има?\n[47:48] Да, 18.\n[47:50] Здравейте.\n[47:52] По принцип, по правилност,\n[47:54] поради мен, това си не е валидно,\n[47:55] да ги гледате другите,\n[47:56] ако се пречече на този фолк.\n[48:03] За мен, си...\n[48:05] А, да, пачиш, да купиш.\n[48:06] Ами.\n[48:08] Не.\n[48:09] 17.\n[48:09] Няма спечене да забудем.\n[48:11] Както решите?\n[48:12] Валидно е.\n[48:14] Валидно е?\n[48:15] Валидно е.\n[48:15] Окей.\n[48:17] Ето 17.\n[48:20] Пар.\n[48:23] Хуяй, честно.\n[48:25] А 18 пояй.\n[48:28] ПП нация.\n[48:30] Не, просто химикала, като е оставял.\n[48:34] Това не е.\n[48:35] За мен е валидна бюлгарина.\n[48:38] Още кажеш ти.\n[48:41] Е как?\n[48:42] Виждаме, не ти.\n[48:44] Виждаме, за какво казваме.\n[48:47] Това е си едно?\n[48:50] Не, като е оставял химикала.\n[48:52] Човека, да.\n[48:53] Добре.\n[48:55] Чак толкова не.\n[48:57] Мене е щом...\n[48:59] 17.\n[49:06] Така че да.\n[49:08] И може би като...\n[49:16] за мен... има ли нещо?\n[49:21] Ама чакай, бе.\n[49:39] Тази е празна.\n[49:41] Добре, да, да, да.\n[49:43] Видяхме че е празна.\n[49:45] Да, да.\n[49:47] Ами празна е.\n[49:49] Празна няма нищо.\n[49:51] Празна е среща.\n[49:53] Това ще я покажа във вън.\n[49:56] Че ни подкрепим никога не е написано.\n[50:00] Номер 11.\n[50:02] Да, хубаво е 11-то.\n[50:06] Ти ли ги запишаш?\n[50:10] 21.\n[50:13] Виж да се беше, щом казвам това се вижда.\n[50:20] Номер 17.\n[50:25] Ох, и аз?\n[50:32] Номер 11.\n[50:38] Да, да.\n[50:44] 21.\n[50:58] 21\n[51:03] Да, да, изкори темпото.\n[51:09] 21\n[51:12] Малко ми знае, че си е пауза.\n[51:14] Да.\n[51:16] 17, да.\n[51:34] 17\n[51:50] Да.\n[51:57] 21\n[52:23] 21\n[52:32] Да.\n[52:47] Номер 17\n[52:51] 21\n[53:08] 21\n[53:16] Леги просто. Не, не, не.\n[53:19] Ето, това е.\n[53:21] Мръдне, да пропаде.\n[53:31] Не, ето той ще дойде едно само и като иска да вижда, ще...\n[53:38] и той ще се преместя.\n[53:40] Седемнайсе.\n[53:41] И той ще се премести.\n[53:42] Малко ще мръда, да.\n[53:43] Да.\n[53:44] Ама тук и кръка на маската ще трябва да сме едно странище.\n[53:46] Добре, добре.\n[53:47] Седемнайсе.\n[53:52] Момер седемнайси.\n[54:02] Тринайси ли?\n[54:14] Не, не, единайси.\n[54:15] Да.\n[54:16] Седемнайсе.\n[54:20] Да.\n[54:24] Морът.\n[54:26] Добре, горе, единайсе.\n[54:31] Видях се?\n[54:34] Единайсе, да.\n[54:36] Да, да, видяхе.\n[54:40] Седемнайсе.\n[54:43] Да.\n[54:47] Да.\n[54:49] Чакай, само да видя едно хоро.\n[54:51] Седемнайсе.\n[54:53] Да.\n[54:56] Виждаш ли, Лела, тук е домен.\n[54:58] 17.\n[54:59] Да.\n[55:00] Аз ви виждам, ама и по той, нали, му е далече да дойде тук при мен.\n[55:05] Няма проблем.\n[55:06] Ще пида, че въртвих към това.\n[55:08] 17.\n[55:09] Да.\n[55:10] Да не въртвя две посоки, ако не се вижда.\n[55:13] Да.\n[55:14] 17.\n[55:15] Да.\n[55:16] 17.\n[55:18] Аз гледам да няма нещо друго.\n[55:36] Да.\n[55:37] Да, на една има 20.\n[55:38] Ви ако ще си гледате след мен, нали са пак и много нести.\n[55:42] Да.\n[55:43] 17.\n[55:50] Да.\n[55:58] Да.\n[55:59] Образец, образец.\n[56:02] Да.\n[56:03] 19.\n[56:05] 19.\n[56:09] Добре.\n[56:11] България за свяна ли е за 19?\n[56:17] Номер 17.\n[56:23] Да.\n[56:24] Иде, чакай.\n[56:25] Да.\n[56:37] 17.\n[56:39] 17.\n[56:49] Да.\n[56:50] Номер 21.\n[56:57] Още, още дай.\n[56:58] Да.\n[56:59] 17.\n[57:09] Да.\n[57:11] 17.\n[57:12] Да.\n[57:18] Да.\n[57:19] Да.\n[57:21] Да.\n[57:22] Седемнайсе. Да.\n[57:30] Седемнайсе. Да.\n[57:37] Двайси едно. Да.\n[57:46] Седемнайсе. Да.\n[57:58] Седемнайсе. Да.\n[58:01] Двайси едно. Да.\n[58:09] Седемнайсе. Да.\n[58:27] Седемнайсе. Да.\n[58:36] Казано е 17 и 20.\n[58:40] Ще я покажа камерата.\n[58:42] 20 и 17, да.\n[58:45] Няма ли?\n[58:47] Няма.\n[58:53] Няма спорове, да. И вече са...\n[58:56] Да, все пак няма спорове, ако искаш мене.\n[58:59] Номер 17.\n[59:05] Ето, втаяхме, не се лозат баба, бери.\n[59:08] Номер 21.\n[59:19] 21, да.\n[59:22] Номер 11. Да.\n[59:31] 17. Да.\n[59:50] 17. Да.\n[60:08] 21. Да.\n[60:20] Нето да влиза, нето да излиза.\n[60:29] 17. Да.\n[60:41] 17. Да.\n[60:44] 20. Да.\n[60:52] 17. Да.\n[61:11] Да.\n[61:16] 15.\n[61:23] Да.\n[61:43] 17.\n[61:45] Да.\n[61:46] 11.\n[61:52] 11.\n[62:02] Да.\n[62:03] Номер 17.\n[62:12] Може би ги преполовихме, да.\n[62:16] 17.\n[62:17] Да, 17.\n[62:18] Да, 17.\n[62:22] На 50%.\n[62:24] 17.\n[62:25] Да.\n[62:30] 17.\n[62:33] Да.\n[62:35] Виждаме го.\n[62:35] Седемнайсе.\n[62:42] Добре, ще го ръкетираме.\n[62:44] Седемнайсе.\n[62:48] Момент е единнайсе.\n[62:50] Да.\n[62:52] Седемнайсе.\n[62:59] Да.\n[63:01] Седемнайсе.\n[63:25] Да. Химикалите е много бляха този път.\n[63:31] Да.\n[63:34] Седемнайсе.\n[63:37] Трябва хубаво.\n[63:40] Еднайсе... Еднайсе...\n[65:16] Седемнайсе...\n[65:18] Седемнайсе...\n[65:35] Двайсет и едно...\n[65:42] Не знам всичко това.\n[65:48] Седемнайсе...\n[66:00] Седемнайсе...\n[66:09] Да.\n[66:10] Еднайсе...\n[66:19] Номер 17...\n[66:35] Вършват без 5.\n[66:37] Номер 17.\n[66:48] И аз така, да, така си мисля.\n[68:18] Номер 21.\n[68:40] Добре.\n[68:42] Да.\n[68:44] 17.\n[68:49] Да.\n[68:54] 17.\n[68:56] Да.\n[69:02] 17.\n[69:06] Да.\n[69:10] 17.\n[69:48] 21.\n[69:51] Да.\n[70:12] 21.\n[70:27] Да.\n[70:35] Не виждам.\n[70:40] Да.\n[70:46] 17.\n[70:47] 21.\n[71:02] Да.\n[71:09] Да.\n[71:10] 21.\n[71:24] Да.\n[71:30] 17.\n[71:32] Да.\n[71:36] 17.\n[71:38] Да.\n[71:44] 17.\n[71:46] Да.\n[71:47] Това нито е хикс, нито е ве.\n[71:56] Върху 21.\n[71:57] 21.\n[71:59] Виждам, не знам.\n[72:06] Това си е невалидно?\n[72:07] Да, ясно, така смяна.\n[72:10] Главната.\n[72:11] Еми да видите и другите да изкажат.\n[72:15] Не, не е и така.\n[72:19] Да, ние решихме, че е невалидна.\n[72:22] Да.\n[72:22] Вие във вашия край кажете.\n[72:26] Седемнайса?\n[72:27] Да.\n[72:33] Седемнайса?\n[72:34] Сем.\n[72:35] Двайси и едно?\n[72:40] Да.\n[72:52] Седемнайс?\n[72:53] Да.\n[72:58] Седемнайс?\n[73:00] Да.\n[73:01] Седемнайсет?\n[73:07] Да.\n[73:08] Единайсет?\n[73:14] Да.\n[73:17] Двайсет и едно?\n[73:24] Да.\n[73:25] Единайсет?\n[73:31] Да.\n[73:32] Седемнайсет?\n[73:38] Да.\n[73:39] Седемнайсет?\n[73:44] Да.\n[73:45] Седемнайсет?\n[73:56] Седемнайсет?\n[74:03] Да.\n[74:04] Единайсет?\n[74:10] Единайсет.\n[74:20] Седемнайсет.\n[74:21] Да.\n[74:22] Осем няма май.\n[74:24] 8 няма, но и не ми съм чула.\n[74:27] И аз мисля, че няма 8.\n[74:29] Няма.\n[74:31] 11?\n[74:32] Да.\n[74:33] Дай да отгледам.\n[74:37] 11?\n[74:40] Та е много невалидна.\n[74:42] 11, 17 и 21.\n[74:46] Няма.\n[74:49] Да.\n[75:00] 14?\n[75:03] Да.\n[75:03] Няма 14 в момента.\n[75:06] 14, ние сме чули.\n[75:08] Единайсе.\n[75:11] Може да още малко добиваме и камера.\n[75:24] Единайсе го казахме.\n[75:27] Двайсе едно.\n[75:33] Нагоре малко.\n[75:34] Нагоре.\n[75:36] Да.\n[75:38] Седемнайсе.\n[75:41] Да.\n[75:46] Тепък като намаляха е по-трудно стало.\n[75:48] Седемнайсе.\n[75:50] Да.\n[75:55] 17\n[75:57] Да.\n[76:06] 17\n[76:08] По-бледичко е, височко е.\n[76:10] Да, химикалите са бледи.\n[76:15] Номер 17\n[76:17] Да.\n[76:21] 17\n[76:24] Да.\n[76:29] 21\n[76:32] Нагоре.\n[76:41] Да.\n[76:43] 17\n[76:51] Да.\n[76:57] Седенайсе.\n[77:02] Да.\n[77:04] Двайсиедно.\n[77:10] Нагоре.\n[77:11] Да.\n[77:13] Единайсе.\n[77:20] Да.\n[77:22] Двайсиедно.\n[77:28] Да, видям.\n[77:33] Двайсиедно.\n[77:34] Нагоре.\n[77:35] Да.\n[77:36] Единайсе.\n[77:44] Единайсе.\n[77:47] И сега...\n[77:50] Не подкрепям никога.\n[78:06] Не подкрепям, тя беше...\n[78:08] Единайсе...\n[78:10] Да.\n[78:12] Нагоре... Да.\n[78:19] Двайте едно...\n[78:25] Да.\n[78:26] Седемнайс.\n[78:33] Да.\n[78:39] Единайс Québec...\n[78:40] Да.\n[78:42] Единайс...\n[78:47] Да.\n[78:49] Перег творб...\n[78:53] Единайс...\n[78:54] Да.\n[78:55] Седемнайс...\n[79:00] Да...\n[79:03] Сем-седемнайс.....\n[79:07] Да.\n[79:08] 21.\n[79:14] Доста е бледно.\n[79:21] 17.\n[79:22] Да.\n[79:28] 17.\n[79:29] Да, видя ако.\n[79:34] 17.\n[79:35] Да.\n[79:36] Айде.\n[79:38] 21.\n[79:42] Да.\n[79:48] 17.\n[79:49] Да.\n[79:56] 11.\n[79:57] Да, видя ако.\n[80:02] 17.\n[80:04] Да.\n[80:05] 4.\n[80:11] Има 4.\n[80:15] 14.\n[80:19] 14.\n[80:20] Да.\n[80:22] Обихвай.\n[80:24] Какво са?\n[80:25] 21.\n[80:27] Някога.\n[80:28] Да.\n[80:29] Време.\n[80:30] 21.\n[80:31] Да.\n[80:35] Твърдо.\n[80:36] Да, да, да.\n[80:37] Така го е надраскал, че няма свърхване.\n[80:41] 11.\n[80:42] Какво е по-боле, до?\n[80:43] Да, да.\n[80:44] Но вижда се.\n[80:45] 21.\n[80:54] Да.\n[80:55] И не се вижда края.\n[81:01] 21 отново.\n[81:03] Да, да, да.\n[81:05] Да, да, да, видяхме. О, тени останалите.\n[81:09] Единайсе. Да.\n[81:13] Седемнайсе.\n[81:20] Кой са тъй? Да, седемнайсе.\n[81:24] Седемнайсе.\n[81:29] Да. Седемнайсе.\n[81:35] Да. Единайсе.\n[81:41] Да. Седемнайсе.\n[81:47] Да. Той беше. Седемнайсе.\n[82:00] Да.\n[82:05] Това на края ще залепна.\n[82:09] Номер 15.\n[82:13] Да.\n[82:19] Номер 7.\n[82:21] Да.\n[82:23] Няма 7.\n[82:25] Те да ти кажа.\n[82:27] 21.\n[82:36] Хиксът е по-малък.\n[82:38] 21. Да, да, видях.\n[82:43] Та, дали ще не вали на последното?\n[82:46] 21 чисто добре.\n[82:50] Да.\n[82:52] Е, хубаво.\n[82:54] Браво на нас, ае, да почваме сега.\n[82:58] Не подкрепям никого с две. Трябва ли да ги вдигам сега?\n[83:28] Не, не, не.\n[83:32] А преференци сега или после?\n[83:34] После.\n[83:36] После.\n[83:38] Подложи си нещо, защото са скъсали.\n[83:42] Трябва да ставаме право.\n[83:44] Ааа, трябва да им правим, да.\n[84:10] Да, мислам, се отреме това, което няма.\n[84:12] Прилегва ни е три, две и едно няма.\n[84:20] Какво търпва си?\n[84:22] Пишем ли едно 0?\n[84:28] Нее, нее, нее.\n[84:35] Най-най.\n[84:44] Ще напишем едно пе-пе.\n[85:05] Четири, меч.\n[85:14] Партиите с номера ви си опишеш?\n[85:34] Два броя.\n[90:16] Номер 7, един броя.\n[90:18] Един броя.\n[90:20] Заметна, че това е какъв е.\n[90:22] Да, да, да.\n[90:25] Добре.\n[90:31] ... които се отдалява едно, две, три...\n[91:22] ... там има прва преференция крътче, втория човек, третия човек в гласове.\n[91:38] Така не можем да ги съберем.\n[91:41] ... за това, че вижте какво.\n[93:29] ... че с преференция 101.\n[93:31] Какво е 101?\n[93:46] Че имаме една преференция за 101.\n[93:49] ... преференция за 101.\n[94:09] елия\n[155:57] еля"
+}
