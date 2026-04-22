@@ -1,0 +1,45 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "091400039",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/091400039/20260419203627263837.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400039/20260419203627263837.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/091400039/20260419203733275258.mp4",
+      "start_sec": 66
+    }
+  ],
+  "region_name": "Кърджали",
+  "address": "С.КЪРЧОВСКО, в сградата на кметството",
+  "town": "КЪРЧОВСКО",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T08:26:43+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "При броенето в СИК 091400039 е установен опакован пакет с бюлетини вътре в избирателната кутия. Членовете на СИК водят продължителна дискусия как да процедират по инструкция. Намереният пакет изисква проверка от наблюдател или РИК.",
+  "summary_en": "During counting at SIK 091400039 a pre-labeled packet of ballots was found inside the ballot box, prompting a confused discussion about procedure. The packaged ballots warrant human review to rule out ballot stuffing.",
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "procedure",
+      "summary": "Намерен опакован пакет с бюлетини вътре в избирателната кутия",
+      "detail": "При броенето членовете на СИК установяват пакет с надпис, съдържащ бюлетини, намерени вътре в избирателната кутия. Следва объркан разговор относно как да процедират, консултиране с инструкции на стр. 11 и повторно опаковане с канап. Изисква проверка дали е регламентиран административен пакет.",
+      "quote": "Пакет с нарпис. Харчийни бюлетини намерени в избирателната кучия.",
+      "timestamp_sec": 1926
+    },
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Повторено изявление за настояване без ясен контекст",
+      "detail": "Фразата Аз ще твърдя и ще те твърдя се появява два пъти в кратък интервал без ясен контекст. Може да отразява натиск или спор по протокол, но аудиото е недостатъчно за категорична оценка.",
+      "quote": "Аз ще твърдя и ще те твърдя.",
+      "timestamp_sec": 849
+    }
+  ]
+}
