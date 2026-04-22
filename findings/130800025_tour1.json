@@ -1,0 +1,41 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "130800025",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/130800025/20260419200216159955.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/130800025/20260419200216159955.mp4",
+      "start_sec": 0
+    }
+  ],
+  "region_name": "Пазарджик",
+  "address": "С.КАНДОВИ, Постройка, УПИ Х-25, ул. \"Георги Димитров\" №23",
+  "town": "КАНДОВИ",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T18:12:02+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Броенето протича основно рутинно с гласове за партии 17 (ДПС), 21, 15, 14 и др. В края на транскрипцията (около 8:38–8:57) се появяват признаци на спор — многократно „Не, не, не\", „Спирам\" и въпрос „То с чест е?\", свързан с номер 14. Не се установяват явни нарушения, но финалният фрагмент заслужава вниманието на наблюдател.",
+  "summary_en": "Counting proceeds routinely for parties 17 (DPS), 21, 15, 14, etc. Toward the end of the transcript (approx. 8:38–8:57) there are signs of a dispute — repeated No no no, I am stopping, and Is that honest? linked to party 14. No clear tampering or protocol manipulation is evident, but the closing segment is ambiguous and warrants human review.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Спор в края на броенето — Не, не, не / Спирам / То с чест е?",
+      "detail": "Около 8:38–8:57 членове разменят многократни отрицания, думата Спирам и въпрос То с чест е?, последвани от дискусия за номер 14. Контекстът е неясен, но тонът подсказва разногласие за записване на брой или валидност на бюлетини за партия 14.",
+      "quote": "Не, не, не. Па, бъде, не, не, не, не, не. Спирам. То с чест е? Номер 14.",
+      "timestamp_sec": 518
+    },
+    {
+      "severity": "info",
+      "category": "other",
+      "summary": "Диктуване на резултати на протоколист — Писай ти, аз имам",
+      "detail": "На 8:06 се чува Писай ти, аз имам, което може да означава диктуване на числа на записващия протокола. Само по себе си е нормална практика, но в контекста на последвалия спор заслужава внимание.",
+      "quote": "Писай ти, аз имам.",
+      "timestamp_sec": 486
+    }
+  ]
+}
