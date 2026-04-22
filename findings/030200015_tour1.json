@@ -1,0 +1,57 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "030200015",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/030200015/20260419200054799881.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/030200015/20260419200054799881.mp4",
+      "start_sec": 0
+    }
+  ],
+  "region_name": "Варна",
+  "address": "ГР.ИГНАТИЕВО, СУ\"Св.Св.Кирил и Методий\", ул.\"Плиска №11",
+  "town": "ИГНАТИЕВО",
+  "town_type": "town",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T16:20:49+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Записът показва стандартно ръчно броене с четене на партийни номера и преференции. Установени са четири момента заслужаващи внимание: оплакване от присъствие на пречещи лица, невъзможно число за невалидни бюлетини, неяснота около подписването на протокола и спор за конкретна цифра при попълването му.",
+  "summary_en": "The recording shows routine manual counting with candidate numbers and preferences being read aloud. Four moments warrant attention: a complaint about people hindering the count, an impossible figure cited for invalid ballots, confusion around protocol signing, and a number discrepancy during protocol filling. None is independently alarming but a human reviewer should verify.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "unauthorized",
+      "summary": "Оплакване от присъствие на лица, пречещи на броенето",
+      "detail": "Неустановено лице изразява недоволство от присъствието на определени хора при бюлетините, употребявайки думата пречат. Изказването загатва за опит да се ограничи наблюдението или за спор с наблюдатели.",
+      "quote": "Пазнатите от бюлетените, кога стоят тук и да ни пречат?",
+      "timestamp_sec": 1552
+    },
+    {
+      "severity": "info",
+      "category": "miscounting",
+      "summary": "Споменато число 2200 за невалидни бюлетини при деклариран общ брой 215",
+      "detail": "При обсъждане на невалидните бюлетини се чува 2200, което е аритметически невъзможно при обявен общ брой 215 бюлетини. Вероятно е транскрипционна грешка за 22, но не може да се изключи объркване.",
+      "quote": "22, да го имате аз. Да, не валидни, 2200.",
+      "timestamp_sec": 2620
+    },
+    {
+      "severity": "low",
+      "category": "protocol",
+      "summary": "Неяснота и видимо нежелание около подписването на протокола",
+      "detail": "Чува се лице заявяващо Аз не съм, последвано от настояване Трябва да е разпишен. Не е ясно дали отказът е от член на СИК или наблюдател, нито дали е разрешено окончателно.",
+      "quote": "Аз не съм. Ами, аз си, Жаки и Сашо... Трябва да е разпишен.",
+      "timestamp_sec": 6622
+    },
+    {
+      "severity": "low",
+      "category": "protocol",
+      "summary": "Установено несъответствие в цифра при попълване на протокола",
+      "detail": "При попълване на протокола член на комисията констатира, че на дадено място е вписано две, а трябва да е три. Не е ясно дали цифрата е коригирана надлежно с подписи.",
+      "quote": "Тук трябва три, че два. Три, два.",
+      "timestamp_sec": 7620
+    }
+  ]
+}
