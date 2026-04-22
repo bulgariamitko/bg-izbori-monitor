@@ -1,0 +1,265 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "031600027",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200150723752.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200150723752.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200204279634.mp4",
+      "start_sec": 14
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200212171216.mp4",
+      "start_sec": 22
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200219312756.mp4",
+      "start_sec": 29
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200249298767.mp4",
+      "start_sec": 59
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200322502300.mp4",
+      "start_sec": 92
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200330578475.mp4",
+      "start_sec": 100
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200349425283.mp4",
+      "start_sec": 119
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200359638518.mp4",
+      "start_sec": 129
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200411065042.mp4",
+      "start_sec": 141
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419200429322858.mp4",
+      "start_sec": 159
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419201153638553.mp4",
+      "start_sec": 603
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419201546544071.mp4",
+      "start_sec": 836
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419201638224686.mp4",
+      "start_sec": 888
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419202428268350.mp4",
+      "start_sec": 1358
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419202431047364.mp4",
+      "start_sec": 1361
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419202831186154.mp4",
+      "start_sec": 1601
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419202907586170.mp4",
+      "start_sec": 1637
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419202936549481.mp4",
+      "start_sec": 1666
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419203026706650.mp4",
+      "start_sec": 1716
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419203255660009.mp4",
+      "start_sec": 1865
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419203921311717.mp4",
+      "start_sec": 2251
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204006386375.mp4",
+      "start_sec": 2296
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204056899184.mp4",
+      "start_sec": 2346
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204222551690.mp4",
+      "start_sec": 2432
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204225998608.mp4",
+      "start_sec": 2435
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204346636353.mp4",
+      "start_sec": 2516
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204500874530.mp4",
+      "start_sec": 2590
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204535706991.mp4",
+      "start_sec": 2625
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204712432172.mp4",
+      "start_sec": 2722
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204749188906.mp4",
+      "start_sec": 2759
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204815222747.mp4",
+      "start_sec": 2785
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419204942911823.mp4",
+      "start_sec": 2872
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205312898978.mp4",
+      "start_sec": 3082
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205405197494.mp4",
+      "start_sec": 3135
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205509332312.mp4",
+      "start_sec": 3199
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205518843537.mp4",
+      "start_sec": 3208
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205548463212.mp4",
+      "start_sec": 3238
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205655336003.mp4",
+      "start_sec": 3305
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419205740889522.mp4",
+      "start_sec": 3350
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419210755218158.mp4",
+      "start_sec": 3965
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419210827186843.mp4",
+      "start_sec": 3997
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419211434053862.mp4",
+      "start_sec": 4364
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419211602947471.mp4",
+      "start_sec": 4452
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419211811190925.mp4",
+      "start_sec": 4581
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419211825438924.mp4",
+      "start_sec": 4595
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419211857388313.mp4",
+      "start_sec": 4627
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419212016774315.mp4",
+      "start_sec": 4706
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419212029020488.mp4",
+      "start_sec": 4719
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419212049338604.mp4",
+      "start_sec": 4739
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/031600027/20260419213233588821.mp4",
+      "start_sec": 5443
+    }
+  ],
+  "region_name": "Варна",
+  "address": "С.ВЕЛИЧКОВО, Сградата на кметство Величково-ритуална зала",
+  "town": "ВЕЛИЧКОВО",
+  "town_type": "village",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T12:40:06+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Броенето протича като цяло нормално, без явни признаци за манипулация с бюлетини. Открити са три точки заслужаващи внимание: изрично изключване на наблюдателите от визуален контрол при четене на преференции; неясен разговор около бюлетини на ДПС с думите тя ти ги подари; и многократно повторено несъгласие не трябваше да се отмянат в края на процеса.",
+  "summary_en": "Counting appears largely routine with no overt ballot tampering. Three moments warrant a human reviewer: observers being explicitly told they will not see the preferences being read; a garbled exchange about DPS ballots being gifted; and a repeated complaint that something should not have been cancelled during the protocol phase.",
+  "findings": [
+    {
+      "severity": "medium",
+      "category": "procedure",
+      "summary": "Наблюдателите изрично са казани, че няма да виждат преференциите при четене",
+      "detail": "Член на СИК казва Преференциите ние ги казваме, вие няма да го виждате. Наблюдателите имат право да следят процеса на броене включително четенето на преференции. Изричното им отстраняване от визуалния контрол е процедурно нарушение.",
+      "quote": "Преференциите ние ги казваме, вие няма да го виждате.",
+      "timestamp_sec": 3399
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Неясен разговор за бюлетини на ДПС и подаряването им",
+      "detail": "В разговор около 46:44 се чуват изрази ДПС-и ако си ги преврали, тя ти ги подари. Транскрипцията е силно нарушена, но споменаването на подари в контекст на броене заслужава внимание.",
+      "quote": "ДПС-и ако си ги преврали, тя ти ги подари. И няма са в България.",
+      "timestamp_sec": 2804
+    },
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Многократно повторено не трябваше да се отмянат при попълване на протокола",
+      "detail": "Около 79:32 едно лице повтаря четири пъти Не трябва да се отмянат. Тонът и повторенията индикират несъгласие с решение на мнозинството в СИК, чийто предмет остава неясен от транскрипцията.",
+      "quote": "Не трябваше да се отмянат. Не трябва да се отмянат. Не трябва да се отмянат. Не трябва да се отмянат.",
+      "timestamp_sec": 4772
+    },
+    {
+      "severity": "info",
+      "category": "unauthorized",
+      "summary": "Лице идентифицирало се като нечлен на СИК участва в дискусия за валидност на бюлетина",
+      "detail": "При обсъждане на спорна бюлетина около 29:13 някой казва Аз не съм дебюрсер, не съм нищо, но говорим за права на хора. Самоопределянето като неофициално лице при активно участие в процедурна дискусия заслужава проверка.",
+      "quote": "Аз не съм дебюрсер, не съм нищо, но говорим за права на хора.",
+      "timestamp_sec": 1753
+    },
+    {
+      "severity": "info",
+      "category": "protocol",
+      "summary": "Подписването на протокола е оставено отворено",
+      "detail": "В края на записа се чува Ами, което и път да дойде да се подпишете. Ако подписването се извършва след официалната процедура това може да постави под въпрос целостта на подписаните екземпляри.",
+      "quote": "Ами, което и път да дойде да се подпишете.",
+      "timestamp_sec": 5064
+    }
+  ]
+}
