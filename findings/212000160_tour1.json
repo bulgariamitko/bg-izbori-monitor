@@ -1,0 +1,53 @@
+{
+  "schema": "bg-izbori-findings/1",
+  "sik": "212000160",
+  "slug": "pe202604",
+  "tour": 1,
+  "video_url": "https://vod.evideo.bg/pe202604/real/212000160/20260419200108150804.mp4",
+  "video_chunks": [
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/212000160/20260419200108150804.mp4",
+      "start_sec": 0
+    },
+    {
+      "url": "https://vod.evideo.bg/pe202604/real/212000160/20260419212954807598.mp4",
+      "start_sec": 5326
+    }
+  ],
+  "region_name": "Сливен",
+  "address": "ГР.КЕРМЕН, Ул. \"Иван Вазов\" №33, ОУ \"Христо Смирненски\"",
+  "town": "КЕРМЕН",
+  "town_type": "town",
+  "analyzed_by": "owner",
+  "analyzed_at": "2026-04-22T09:29:52+00:00",
+  "model": "claude-sonnet-4-6",
+  "overall": "minor_concerns",
+  "summary_bg": "Видеозаписът от СИК 212000160 не разкрива сериозни нарушения. Регистрирани са два сигнала за аритметични несъответствия при броенето и словесен спор в края на сесията.",
+  "summary_en": "The recording from SIK 212000160 shows no serious irregularities. Two signals of arithmetic discrepancies during counting and a verbal dispute near session end were noted.",
+  "findings": [
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Поискано повторно броене за партии 8 и 21",
+      "detail": "Отправено е изрично искане за ново броене на гласовете за партии 8 и 21, което предполага намерена разлика при първото броене.",
+      "quote": "Овъзброете сега още един път да ги струмираме. Овъзброете действително 8 и 21.",
+      "timestamp_sec": 7324
+    },
+    {
+      "severity": "low",
+      "category": "miscounting",
+      "summary": "Несъответствие при проверка на контролна сума",
+      "detail": "Член на СИК констатира, че сумата трябва да е равна, но сравнението дава разминаващи се числа преди вписване в протокола.",
+      "quote": "Путомщата девет трябва да е равна. 13 и 235.",
+      "timestamp_sec": 7369
+    },
+    {
+      "severity": "low",
+      "category": "dispute",
+      "summary": "Участник заявява лъжи и споменава принудени лица",
+      "detail": "При приключване на сесията участник изказва обвинение за лъжи и споменава принудени лица. Контекстът е неясен, но заслужава внимание.",
+      "quote": "Това е последната срънка на лъжи. Те са на лъжи. Сега ще се снима машинално със тези притягани.",
+      "timestamp_sec": 13762
+    }
+  ]
+}
