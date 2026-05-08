@@ -30,6 +30,18 @@ WHISPER_MODEL   = "large-v3"   # Best Bulgarian quality. ~3GB first download.
 WHISPER_DEVICE  = "auto"       # faster-whisper picks cpu/metal
 WHISPER_COMPUTE = "int8"       # small enough to run on Mac mini-class CPUs
 
+# ---- groq (optional, far faster) ---------------------------------------
+# When GROQ_API_KEY is set in the environment, contribute.py uploads a
+# compressed copy of the audio to Groq instead of running whisper locally.
+# Same model weights, ~150x realtime, free tier covers tens of sections/day.
+# When the daily quota is exhausted, the tool exits cleanly so you can resume
+# the next day. Without the env var, falls back to local faster-whisper.
+GROQ_MODEL    = "whisper-large-v3-turbo"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+# Opus mono @ 24 kbps keeps a 6h section under ~18 MB — well below Groq's
+# 25 MB free-tier upload limit and lossless enough for whisper.
+GROQ_OPUS_BITRATE = "24k"
+
 # ---- analysis -----------------------------------------------------------
 CLAUDE_MODEL = "claude-sonnet-4-6"
 

@@ -17,6 +17,9 @@ set -euo pipefail
 cd "$(dirname "$0")"
 source venv/bin/activate
 
+# Load local secrets (GROQ_API_KEY, etc.) — gitignored.
+[[ -f .env ]] && set -a && . ./.env && set +a
+
 if [[ "${1:-}" == "--owner" || "${1:-}" == "--analyze" ]]; then
   shift
   exec python owner.py "$@"

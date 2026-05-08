@@ -19,3 +19,4 @@ dashboard.html
 *.swp
 .evideo-cookies.txt
 .claude/
+.env

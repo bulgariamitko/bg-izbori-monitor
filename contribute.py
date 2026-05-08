@@ -8,7 +8,7 @@ Run:
     python contribute.py --gh-handle myname  # tag your contributions
 """
 from __future__ import annotations
-import argparse, hashlib, json, os, random, subprocess, sys, time
+import argparse, hashlib, json, os, random, re, subprocess, sys, time
 from pathlib import Path
 
 import config, store
@@ -375,7 +375,124 @@ def download(urls: list[str], out: Path, tmpdir: Path):
           f"({len(wav_parts)}/{len(urls)} chunks), total {time.time()-t0:.1f}s",
           flush=True)
 
+class GroqQuotaExhausted(Exception):
+    """Raised when Groq returns a long-cooldown 429 — i.e. the daily quota
+    is gone for today. Caller releases the claim and exits cleanly so the
+    user can resume tomorrow without losing the section."""
+
+def _opus_encode(wav: Path, ogg: Path):
+    cmd = ["ffmpeg","-hide_banner","-v","error","-y","-i", str(wav),
+           "-c:a","libopus","-b:a", config.GROQ_OPUS_BITRATE,
+           "-application","voip","-vbr","on","-ac","1","-ar","16000",
+           str(ogg)]
+    r = run_cmd(cmd)
+    if r.returncode != 0 or not ogg.exists():
+        raise RuntimeError(f"opus encode failed: {r.stderr.strip()[:300]}")
+
+def _parse_retry_after(resp) -> float:
+    """Return Groq retry-after in seconds. Falls back to 60s if missing."""
+    ra = resp.headers.get("retry-after") or resp.headers.get("Retry-After")
+    if ra:
+        try: return float(ra)
+        except ValueError: pass
+    # Groq often embeds a duration in the JSON body too.
+    try:
+        body = resp.json()
+        msg = (body.get("error") or {}).get("message") or ""
+        m = re.search(r"try again in ([\d.]+)\s*([smh])", msg)
+        if m:
+            v = float(m.group(1)); u = m.group(2)
+            return v * (1 if u == "s" else 60 if u == "m" else 3600)
+    except Exception: pass
+    return 60.0
+
+def _transcribe_groq(wav: Path) -> dict:
+    """Upload audio to Groq's whisper endpoint and return the same shape as
+    the local transcribe(). Raises GroqQuotaExhausted on a long-cooldown
+    429 (= daily quota gone). Other errors propagate so the caller can fall
+    back to local whisper."""
+    import requests
+    api_key = os.environ.get("GROQ_API_KEY")
+    if not api_key:
+        raise RuntimeError("GROQ_API_KEY not set")
+
+    ogg = wav.with_suffix(".ogg")
+    print(f"[groq] encoding opus for upload …", flush=True)
+    t_enc = time.time()
+    _opus_encode(wav, ogg)
+    size_mb = ogg.stat().st_size / 1e6
+    print(f"[groq] opus {size_mb:.1f} MB in {time.time()-t_enc:.1f}s", flush=True)
+    if size_mb > 24.5:
+        # Free-tier hard limit is 25 MB. Refuse rather than 413 on upload.
+        ogg.unlink(missing_ok=True)
+        raise RuntimeError(
+            f"opus payload {size_mb:.1f} MB exceeds Groq free-tier 25 MB limit "
+            f"— this section is too long for the free tier")
+
+    url = f"{config.GROQ_BASE_URL}/audio/transcriptions"
+    headers = {"Authorization": f"Bearer {api_key}"}
+    data = {
+        "model": config.GROQ_MODEL,
+        "language": "bg",
+        "response_format": "verbose_json",
+        "temperature": "0",
+    }
+    # Try once, then on a short 429 (<=90s) sleep and retry once. On a long
+    # 429 (>90s) treat the daily quota as exhausted — exit cleanly.
+    for attempt in (1, 2):
+        t0 = time.time()
+        with open(ogg, "rb") as f:
+            files = {"file": (ogg.name, f, "audio/ogg")}
+            print(f"[groq] uploading to {config.GROQ_MODEL} (attempt {attempt}) …",
+                  flush=True)
+            try:
+                resp = requests.post(url, headers=headers, files=files, data=data,
+                                     timeout=900)
+            except requests.RequestException as e:
+                ogg.unlink(missing_ok=True)
+                raise RuntimeError(f"groq request failed: {e}")
+        if resp.status_code == 200:
+            break
+        if resp.status_code == 429:
+            wait = _parse_retry_after(resp)
+            if wait > 90 or attempt == 2:
+                ogg.unlink(missing_ok=True)
+                raise GroqQuotaExhausted(
+                    f"Groq quota exhausted (retry-after {wait:.0f}s). "
+                    f"Resume tomorrow.")
+            print(f"[groq] 429 throttled — sleeping {wait:.0f}s then retrying",
+                  flush=True)
+            time.sleep(wait)
+            continue
+        # Other HTTP errors — raise so caller can fall back to local whisper.
+        snippet = resp.text[:300].replace("\n"," ")
+        ogg.unlink(missing_ok=True)
+        raise RuntimeError(f"groq http {resp.status_code}: {snippet}")
+
+    ogg.unlink(missing_ok=True)
+    body = resp.json()
+    raw_segs = body.get("segments") or []
+    segs = [{"start": round(float(s["start"]),2),
+             "end":   round(float(s["end"]),2),
+             "text":  (s.get("text") or "").strip()} for s in raw_segs]
+    duration = float(body.get("duration") or 0.0)
+    full = "\n".join(
+        f"[{int(s['start'])//60:02d}:{int(s['start'])%60:02d}] {s['text']}" for s in segs)
+    print(f"[groq] {len(segs)} segments, {duration/60:.1f} min audio "
+          f"in {time.time()-t0:.1f}s", flush=True)
+    return {"segments": segs, "full_text": full, "duration_sec": duration,
+            "engine": "groq"}
+
 def transcribe(path: Path) -> dict:
+    # Prefer Groq when GROQ_API_KEY is set — ~150x realtime vs local CPU.
+    if os.environ.get("GROQ_API_KEY"):
+        try:
+            return _transcribe_groq(path)
+        except GroqQuotaExhausted:
+            raise
+        except Exception as e:
+            print(f"[groq] failed ({e}) — falling back to local whisper",
+                  file=sys.stderr, flush=True)
     print(f"[whisper] transcribing {path.name}", flush=True)
     t0 = time.time()
     segments, info = whisper().transcribe(
@@ -559,6 +676,38 @@ def _publish_claim(path: Path, sik: str, tour: int) -> bool:
     print(f"[claim] claim PR opened for {sik}")
     return True
 
+def _release_claim_and_push(sik: str, tour: int, push: bool):
+    """Delete our claim file and push the deletion. Called when we bail out
+    before producing a transcript (e.g. Groq daily quota gone) so the section
+    becomes pickable again instead of being locked for CLAIM_TTL_HOURS."""
+    claim_file = store._path("claim", sik, tour)
+    if not claim_file.exists():
+        return
+    claim_file.unlink()
+    if not push:
+        return
+    direct_to_main = _origin_is_upstream() or not _upstream_exists()
+    try:
+        if direct_to_main:
+            git("add","-A", str(claim_file), check=False)
+            git("commit","-m", f"release: СИК {sik} (tour {tour})", check=False)
+            git("push", check=False)
+        else:
+            branch = f"release/{sik}-tour{tour}"
+            git("checkout","-B", branch)
+            git("add","-A", str(claim_file), check=False)
+            git("commit","-m", f"release: СИК {sik} (tour {tour})", check=False)
+            git("push","--set-upstream","origin", branch, "--force", check=False)
+            run_cmd(["gh","pr","create",
+                     "--repo","bulgariamitko/bg-izbori-monitor",
+                     "--base","main","--head", f"{_gh_user()}:{branch}",
+                     "--title", f"release: СИК {sik} (tour {tour})",
+                     "--body", f"Releasing claim for SIK {sik} tour {tour} (volunteer "
+                               f"hit a transient quota / interruption)."])
+            git("checkout","main", check=False)
+    except Exception as e:
+        print(f"[release] could not push claim deletion: {e}", file=sys.stderr)
+
 # ----- main orchestration ------------------------------------------------
 
 def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
@@ -590,7 +739,14 @@ def contribute_one(slug: str, gh_handle: str | None, push: bool) -> bool:
     if audio.exists(): audio.unlink()
     try:
         download(group["urls"], audio, tmpdir)
-        t = transcribe(audio)
+        try:
+            t = transcribe(audio)
+        except GroqQuotaExhausted as e:
+            print(f"\n[groq] {e}", flush=True)
+            print("[contribute] releasing claim and stopping — run again tomorrow.",
+                  flush=True)
+            _release_claim_and_push(sik, tour, push)
+            raise SystemExit(0)
         payload = {
             "schema": "bg-izbori-transcript/1",
             "sik": sik, "slug": slug, "tour": tour,
